@@ -22,7 +22,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
 	manifest: {
 		display: 'standalone',
 		name: 'flightbox',
-		description: 'flightbox app',
+		description: 'flightbox pwa',
 		short_name: 'flightbox',
 		theme_color: '#a7489f',
 		background_color: '#000000',
