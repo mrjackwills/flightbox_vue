@@ -1,0 +1,23 @@
+{
+	"extends": "@vue/tsconfig/tsconfig.web.json",
+	"include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+	"module": "ESNext",
+	"target": "esnext",
+	"resolveJsonModule": true,
+	"compilerOptions": {
+	"lib": ["esnext", "dom"],
+	  "experimentalDecorators": true,
+	  "baseUrl": ".",
+	  "paths": {
+		"@/*": ["./src/*"]
+	  }
+	},
+	
+  
+	"references": [
+	  {
+		"path": "./tsconfig.config.json"
+	  }
+	]
+  }
+  

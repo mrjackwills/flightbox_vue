@@ -1,0 +1,8 @@
+html, body {
+	margin: 0;
+	height: 100%;
+	background-color: #000000;
+	scroll-behavior: smooth;
+	font-family: 'Baloo 2', sans-serif !important;
+	font-display: 'swap';
+}
