@@ -6,7 +6,7 @@
   "homepage": "https://github.com/mrjackwills/flightbox_vue",
   "license": "MIT",
   "scripts": {
-	"dev": "vite",
+    "dev": "vite",
     "serve": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
@@ -43,5 +43,5 @@
     "vite-plugin-vuetify": "^1.0.1",
     "vue-tsc": "^1.0.21"
   },
-  "buildDate": "Sun 30 2022 January 20:44:19 EST"
+  "buildDate": "Wed 04 2023 January 21:25:40 EST"
 }
