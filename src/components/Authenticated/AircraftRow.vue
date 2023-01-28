@@ -39,7 +39,6 @@
 						</v-tooltip>
 
 						<v-col cols='auto' class='ma-0 pa-0'  :class='{"cl": flight.aircraft.url_photo}' @click='setPhotoUrl'>
-							<!-- grey-lighten-4 -->
 							<v-icon color='grey-lighten-4' class='mr-1' v-if='flight.aircraft.url_photo' :size='mobile?"x-small":"small"' :icon='mdiCamera' />
 							{{ flight.aircraft.manufacturer }} {{ flight.aircraft.type }}
 						</v-col>
@@ -146,10 +145,6 @@ watch(callsign, (i) => {
 </script>
 
 <style scoped lang="scss">
-
-// .index-background_odd {
-// 	background-color: rgba(255,255,255,.45);
-// }
 
 .all-rows{
 	min-height: 2rem;

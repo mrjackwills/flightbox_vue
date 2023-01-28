@@ -29,14 +29,15 @@
 									</v-col>
 									<v-col class='ma-0 pa-0' cols='auto'>
 										<v-icon id='ip_tool' :size='mobile ? `x-small`:`small`' class='ml-md-2 ml-1' :icon='mdiContentCopy' />
+										<span class='text-danger' v-if='!online'> [ cached ]</span>
 									</v-col>
 								</v-row>
 								<v-tooltip v-if='showToolTip' :open-on-click='true' :open-on-hover='false' activator='parent' location='top center' class='tooltip-z'>
 									<span>copied to clipboard</span>
 								</v-tooltip>
 							</section>
-							<span v-else  class='black--text mono-numbers unselectable' :class='{"small-text": mobile}'>
-								{{ item.value }}
+							<span v-else class='black--text mono-numbers unselectable' :class='{"small-text": mobile}'>
+								{{ item.value }} <span class='text-danger' v-if='!online'>[ cached ]</span>
 							</span>
 						</v-col>
 						
@@ -70,6 +71,10 @@ onUnmounted(() => {
 
 const copyTimeout = ref(0);
 const showToolTip = ref(false);
+
+const online = computed((): boolean => {
+	return flightboxStatusModule().online;
+});
 
 const toCopy = (value: string): void => {
 	showToolTip.value = true;
