@@ -1,6 +1,7 @@
 on:
   push:
-  branch: ['main']
+    branch:
+      - 'main'
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 

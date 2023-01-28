@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-	Frontend to the <a href='https://github.com/mrjackwills/flightbox_client' target='_blank' rel='noopener noreferrer'>backend client</a>
+	Frontend to the <a href='https://github.com/mrjackwills/flightbox_backend' target='_blank' rel='noopener noreferrer'>flightbox backend</a>
 </p>
 
 <hr>
