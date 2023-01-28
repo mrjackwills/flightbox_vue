@@ -1,6 +1,9 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.1'>v0.1.1</a>
+### 2023-01-27
+
 ### Fixes
-+ workflow indentation typos, [0ebae1286bbaed68d70613960b560a25fb95bf3c]
-+ readme.md typo, [39c396860f10488107dbd42968733fa81ef42434]
++ workflow indentation typos, [0ebae128](https://github.com/mrjackwills/flightbox_vue/commit/0ebae1286bbaed68d70613960b560a25fb95bf3c),
++ readme.md typo, [39c39686](https://github.com/mrjackwills/flightbox_vue/commit/39c396860f10488107dbd42968733fa81ef42434),
 
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.0'>v0.1.0</a>
 ### 2023-01-27
