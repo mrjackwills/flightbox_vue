@@ -16,20 +16,12 @@
 					<v-row justify='space-between' align='center' no-gutters>
 
 						<v-col cols='auto' class='ma-0 pa-0'>
-							<v-icon dense color='black' class='mr-1' :size='mobile ? `x-small`:`default`' :icon='item.icon' />
+							<v-icon dense color='white' class='mr-1' :size='mobile ? `x-small`:`default`' :icon='item.icon' />
 							<span class='black--text unselectable' :class='{"small-text": mobile}'>{{ item.text }}:</span>
 						</v-col>
 
 						<v-col cols='auto' class='ma-0 pa-0' :class='{"mr-1" : rowIndex === 0 && mdAndUp, "cl": item.copy}' >
 							
-							<!-- <v-tooltip
-								v-if='item.copy'
-								:open-on-hover='false'
-								top
-								tool
-								v-model='showToolTip'
-							>
-								<template v-slot:activator='{ props }'> -->
 							<section v-if='item.copy'>
 								<v-row  class='black--text mono-numbers ma-0 pa-0' :class='{"small-text": mobile}' @click='toCopy(item.value)' align='center' justify='space-between'>
 									<v-col class='ma-0 pa-0' cols='auto'>
@@ -37,14 +29,15 @@
 									</v-col>
 									<v-col class='ma-0 pa-0' cols='auto'>
 										<v-icon id='ip_tool' :size='mobile ? `x-small`:`small`' class='ml-md-2 ml-1' :icon='mdiContentCopy' />
+										<span class='text-danger' v-if='!online'> [ cached ]</span>
 									</v-col>
 								</v-row>
 								<v-tooltip v-if='showToolTip' :open-on-click='true' :open-on-hover='false' activator='parent' location='top center' class='tooltip-z'>
 									<span>copied to clipboard</span>
 								</v-tooltip>
 							</section>
-							<span v-else  class='black--text mono-numbers unselectable' :class='{"small-text": mobile}'>
-								{{ item.value }}
+							<span v-else class='black--text mono-numbers unselectable' :class='{"small-text": mobile}'>
+								{{ item.value }} <span class='text-danger' v-if='!online'>[ cached ]</span>
 							</span>
 						</v-col>
 						
@@ -78,6 +71,10 @@ onUnmounted(() => {
 
 const copyTimeout = ref(0);
 const showToolTip = ref(false);
+
+const online = computed((): boolean => {
+	return flightboxStatusModule().online;
+});
 
 const toCopy = (value: string): void => {
 	showToolTip.value = true;

@@ -1,43 +1,40 @@
 <template>
-	<section>
-		<v-toolbar
-			:height='toolbarHeight'
-			id='toolbar'
-			dark
-			color='primary'
-			flat
-		>
-			<v-img src='@/assets/logo.svg' :eager='true' :max-width='logoWidth' class='ml-2' />
+	<!-- color='grey-darken-3' -->
+	<v-toolbar
+		:height='toolbarHeight'
+		color='grey-darken-3'
+		id='toolbar'
+		dark
+		flat
+	>
+		<v-img src='@/assets/logo.svg' :eager='true' :max-width='logoWidth' class='ml-2' />
 
-			<v-row align='center' justify='start' no-gutters class='pa-0 ma-0'>
-				<v-col cols='auto' class='unselectable ml-2' >
-					<span class='text-h4 white--text'>flightbox</span>
-				</v-col>
-			</v-row>
+		<v-row align='center' justify='start' no-gutters class='pa-0 ma-0'>
+			<v-col cols='auto' class='unselectable ml-2' >
+				<span class='text-h4 white--text'>flightbox</span>
+			</v-col>
+		</v-row>
 
-			<section v-if='authenticated && init'>
+		<section v-if='authenticated && init'>
 
-				<v-icon
-					color='white'
-					class='mr-4'
-					:icon='icon'
-					:size='mdAndUp?`large`:`default`'
-				/>
+			<v-icon
+				color='white'
+				class='mr-4'
+				:icon='icon'
+				:size='mdAndUp?`large`:`default`'
+			/>
 	
-			</section>
-		</v-toolbar>
-
+		</section>
 		<v-progress-linear
-			:height='progressHeight'
+			v-if='loading'
 			:indeterminate='loading'
-			color='offwhite'
-			bg-opacity='1'
-			bg-color='primary'
-			bottom
+			:height='progressHeight'
+			location='bottom center'
+			color='primary'
 			absolute
 		/>
+	</v-toolbar>
 
-	</section>
 </template>
 
 <script setup lang='ts'>
@@ -79,6 +76,6 @@ const toolbarHeight = computed(() => {
 
 <style scoped>
 #toolbar {
-	border-radius: 1rem 1rem 0 0;
+	border-radius: .80rem .80rem 0 0;
 }
 </style>

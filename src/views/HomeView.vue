@@ -1,7 +1,16 @@
 <template>
-	<section class='fill-height'>
-		<v-expand-transition>
-			<v-row class='ma-0 pa-0 minh' justify='center' align='center' v-if='flightInit'>
+	<section class='fill-height minh'>
+		<v-row justify='center' align='center' class='minh' v-if='init && !flightInit && !online'>
+			<v-col cols='12' class='ma-0 pa-0'>
+				<AppOffline />
+			</v-col>
+			<v-col cols='12' lg='11' class='ma-0 pa-0'>
+				<PiInfo @refresh='refresh' :updateCount='updateCount' />
+			</v-col>
+		</v-row>
+		
+		<section v-else>
+			<v-row class='ma-0 pa-0' justify='center' align='center' v-if='init && flightInit && online'>
 				<v-col cols='12' class='ma-0 pa-0'>
 					<v-row align='center' justify='center' class='ma-0 pa-0'>
 						<v-col cols='12' lg='11' class='ma-0 pa-0'>
@@ -12,9 +21,9 @@
 					<v-row align='center' justify='center' class='ma-0 pa-0'>
 						<v-col cols='12' lg='11' class='ma-0 pa-0'>
 						
-							<v-row align='center' :justify='mobile ? "space-around": "space-between"' class='ma-0 pa-0'>
+							<v-row align='center' :justify='smAndDown ? "space-around": "space-between"' class='ma-0 pa-0'>
 
-								<v-col cols='2' v-if='!mobile' class='ma-0 pa-0' />
+								<v-col cols='2' v-if='!smAndDown' class='ma-0 pa-0' />
 
 								<v-col cols='auto' class='ma-0 pa-0 mt-2'>
 									<ToggleScreen @toggle='toggle' />
@@ -25,11 +34,11 @@
 								</v-col>
 
 								<v-col cols='12' md='2' class='ma-0 pa-0'>
-									<v-row class='ma-0 pa-0' align='center' :justify='mobile?"center":"end"' v-if='currentFlights>0'>
+									<v-row class='ma-0 pa-0' align='center' :justify='smAndDown?"center":"end"' v-if='currentFlights>0'>
 										<v-col cols='auto' class='ma-0 pa-0'>
-											<v-switch small v-model='metric' />
+											<v-switch density='compact' flat color='primary' v-model='metric' />
 										</v-col>
-										<v-col cols='auto' class='ml-2 mt-n5 ma-0 pa-0 text-uppercase unselectable' :class='{"text-haze":metric, "small-text": mobile}' >
+										<v-col cols='auto' class='ml-2 mt-n5 font-weight-bold ma-0 pa-0 text-uppercase unselectable' :class='{"text-primary":metric, "small-text": smAndDown}' >
 											metric
 										</v-col>
 									</v-row>
@@ -45,19 +54,21 @@
 					</v-row>
 				</v-col>
 			</v-row>
-		</v-expand-transition>
-		<v-row justify='center' align='center' class='minh' v-if='!flightInit'>
-			<v-col cols='auto' class='ma-0 pa-0'>
-				<v-progress-circular indeterminate color='offwhite' />
-			</v-col>
-		</v-row>
 
+			<v-row justify='center' align='center' class='minh' v-else>
+				<v-col cols='auto' class='ma-0 pa-0'>
+					<v-progress-circular indeterminate color='primary' />
+				</v-col>
+			</v-row>
+				
+		</section>
 	</section>
 </template>
 
 <script setup lang='ts'>
 import CurrentFlights from '@/components/Authenticated/CurrentFlights.vue';
 import ToggleScreen from '@/components/Authenticated/ToggleScreen.vue';
+import AppOffline from '@/components/Authenticated/AppOffline.vue';
 import PiInfo from '@/components/Authenticated/PiInfo.vue';
 import ForceUpdate from '@/components/Authenticated/ForceUpdate.vue';
 import { parseMessage } from '@/vanillaTS/messageParser';
@@ -66,7 +77,7 @@ import type { TWSFromFlightBox } from '@/types';
 import { ws } from '@/services/WS';
 import { useDisplay } from 'vuetify';
 
-const { mobile } = useDisplay();
+const { smAndDown } = useDisplay();
 
 const [ aircraftStore, flightboxStatusStore, loadingStore, userStore, websocketStore ] = [ aircraftModule(), flightboxStatusModule(), loadingModule(), userModule(), websocketModule() ];
 
@@ -82,6 +93,9 @@ const flightInit = computed((): boolean => {
 });
 const init = computed((): boolean => {
 	return flightboxStatusStore.init;
+});
+const online = computed((): boolean => {
+	return flightboxStatusStore.online;
 });
 const loading = computed({
 	get (): boolean {
@@ -140,6 +154,7 @@ const initCount = ref(0);
 const initTimeout = ref(0);
 const updateCount = ref(30);
 const updateInterval = ref(0);
+const offlineTimeout = ref(0);
 
 const resetUpdateCounter = (): void => {
 	updateCount.value = 30;
@@ -168,6 +183,7 @@ const addWSHandlers = (): void => {
 const clearAllIntervals = (): void => {
 	clearTimeout(initTimeout.value);
 	clearInterval(updateInterval.value);
+	clearTimeout(offlineTimeout.value);
 };
 
 /**
@@ -177,7 +193,7 @@ const initCheck = (): void => {
 	initCount.value ++;
 	loading.value = true;
 	initTimeout.value = window.setTimeout(() => {
-		if (init) {
+		if (init.value) {
 			clearInterval(initTimeout.value);
 			loading.value = false;
 		}
@@ -217,6 +233,9 @@ const startUpdateTimeout = (): void => {
 		} else {
 			updateCount.value --;
 		}
+		if (online.value && uptimeWs.value) uptimeWs.value ++;
+		if (online.value && uptime.value) uptime.value ++;
+		if (online.value && uptimeApp) uptimeApp.value ++;
 	}, 1000);
 };
 

@@ -30,11 +30,8 @@ html{
 	 opacity: 0 !important;
 }
 
-#flightbox{
-	background-color: #000000;
-	background-image: url('@/assets/background.svg');
-	background-position: center center;
-	background-repeat: no-repeat;
+#flightbox {
+	background-image: linear-gradient(to top, #cc208e 0%, #6713d2 100%);
 }
 
 .mono-numbers{

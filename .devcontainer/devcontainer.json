@@ -34,7 +34,6 @@
 
 	"remoteUser": "node",
 	"features": {
-		"docker-in-docker": "latest",
 		"git": "os-provided"
 	}
 }
