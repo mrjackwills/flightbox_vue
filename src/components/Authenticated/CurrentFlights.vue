@@ -4,11 +4,11 @@
 			<v-expand-transition>
 				<section v-if='number_current_flights' class='black--text'>
 
-					<v-row class='ma-0 pa-0 text-left headers bgbg pa-2' justify='space-between' align='center'>
-						<v-col cols='3' class='ma-0 pa-0 haze--text' v-for='(item, index) in headers' :key='index' :class='{"text-right": index > 1}'>
+					<v-row class='ma-0 pa-0 text-left headers pa-2 bg-primary' justify='space-between' align='center'>
+						<v-col cols='3' class='ma-0 pa-0' v-for='(item, index) in headers' :key='index' :class='{"text-right": index > 1}'>
 							<v-row class='ma-0 pa-0' align='center' justify='start'>
 								<v-col cols='12' class='ma-0 pa-0'>
-									<span class='font-weight-bold text-uppercase unselectable text-white'>{{ item }}</span>
+									<span class='font-weight-bold text-uppercase unselectable text-grey-lighten-3'>{{ item }}</span>
 								</v-col>
 							</v-row>
 						</v-col>
@@ -35,7 +35,7 @@
 		</div>
 		<v-row justify='center' align='center' class='minh' v-else>
 			<v-col cols='auto' class='ma-0 pa-0 my-6'>
-				<v-progress-circular indeterminate color='offwhite' />
+				<v-progress-circular indeterminate color='primary' />
 			</v-col>
 		</v-row>
 	</section>
@@ -66,8 +66,7 @@ const headers = [
 </script>
 
 <style>
-.headers{
-	background-color: rgba(0,0,0,.75);
+.headers {
 	border-top-right-radius: .35rem;
 	border-top-left-radius: .35rem;
 }

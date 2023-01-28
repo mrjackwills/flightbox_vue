@@ -9,5 +9,5 @@ export const secondsToText = (ms: number, short = true): string => {
 	
 	return short ?
 		`${day}d, ${hour}h, ${minute}m, ${second}s`:
-		`${day} day${day===1? '' : 's'}, ${hour} hour${hour===1? '' : 's'}, ${minute} minute${minute==='01'? '' : 's'}, ${second} second${second==='01'? '' : 's'}`;
+		`${day} day${day===1? '' : 's'}, ${hour} hour${hour===1? '' : 's'}, ${minute} minute${minute==='01'? '' : 's'}, ${second} seconds`;
 };

@@ -1,6 +1,6 @@
 <template>
-	<v-row class='ma-0 pa-0 font-weight-bold' justify='center' align='center' >
-		<v-col cols='12' class='ma-0 pa-0'>
+	<v-row class='ma-0 pa-0 font-weight-bold text-grey-lighten-3' justify='center' align='center' >
+		<v-col cols='12' class='ma-0 pa-0 '>
 			<v-row class='ma-0 pa-0 font-weight-bold all-rows' :class='backgroundColor' justify='space-between' align='center' >
 				<v-col cols='3' class='ma-0 pa-0'  :class='{"small-text":mobile}'>
 
@@ -9,16 +9,16 @@
 						<template v-if='flight.flightroute'>
 							<v-col cols='auto' class='ma-0 pa-0 mr-1'>
 								<a :href='href' target='_blank' rel='noopener noreferrer' v-if='flight.flightroute'>
-									<v-icon :size='mobile?"x-small":"small"' color='black' class='mx-1' :icon='mdiOpenInNew' />
+									<v-icon :size='mobile?"x-small":"small"' color='grey-lighten-4' class='mx-1' :icon='mdiOpenInNew' />
 								</a>
 							</v-col>
 				
 							<v-col cols='auto' class='ma-0 pa-0'>
-								<v-icon class='fab-fix cl' @click='toggleCallsign' :size='mobile?"x-small":"default"' color='primary' :icon='callsignArrowDirection' />
+								<v-icon class='fab-fix cl' @click='toggleCallsign' :size='mobile?"x-small":"default"' :color='callsignArrowColor' :icon='callsignArrowDirection' />
 							</v-col>
 
 							<v-col cols='12' md='auto' class='ma-0 pa-0 ml-1'>
-								<span class='mono-numbers'>{{ flight.callsign }} </span>
+								<span class='mono-numbers '>{{ flight.callsign }} </span>
 							</v-col>
 
 						</template>
@@ -39,7 +39,8 @@
 						</v-tooltip>
 
 						<v-col cols='auto' class='ma-0 pa-0'  :class='{"cl": flight.aircraft.url_photo}' @click='setPhotoUrl'>
-							<v-icon color='black' class='mr-1' v-if='flight.aircraft.url_photo' :size='mobile?"x-small":"small"' :icon='mdiCamera' />
+							<!-- grey-lighten-4 -->
+							<v-icon color='grey-lighten-4' class='mr-1' v-if='flight.aircraft.url_photo' :size='mobile?"x-small":"small"' :icon='mdiCamera' />
 							{{ flight.aircraft.manufacturer }} {{ flight.aircraft.type }}
 						</v-col>
 
@@ -72,7 +73,7 @@
 </template>
 
 <script setup lang="ts">
-import { mdiCamera, mdiChevronDown, mdiChevronUp, mdiOpenInNew } from '@mdi/js';
+import { mdiCamera, mdiArrowCollapse, mdiArrowExpand, mdiOpenInNew } from '@mdi/js';
 import type { TAdsbdb } from '@/types';
 import Flightroute from '@/components/Authenticated/FlightRoute.vue';
 import { useDisplay } from 'vuetify';
@@ -80,11 +81,17 @@ import { useDisplay } from 'vuetify';
 const { mobile } = useDisplay();
 
 const backgroundColor = computed(() :string => {
-	return `index-background_${props.index % 2 === 0 ? 'odd' : 'even'}`;
+	return `bg-grey-darken-${props.index % 2 === 0 ? '3' : '4'}`;
 });
+
 const callsignArrowDirection = computed((): string => {
-	return showExtra.value ? mdiChevronUp : mdiChevronDown;
+	return showExtra.value ? mdiArrowCollapse : mdiArrowExpand ;
 });
+
+const callsignArrowColor = computed((): string => {
+	return showExtra.value ? 'primary' : 'secondary' ;
+});
+
 const calcAltitude = computed((): string => {
 	const altitude = props.flight.altitude;
 	if (!altitude) return '';
@@ -140,9 +147,9 @@ watch(callsign, (i) => {
 
 <style scoped lang="scss">
 
-.index-background_odd {
-	background-color: rgba(255,255,255,.45);
-}
+// .index-background_odd {
+// 	background-color: rgba(255,255,255,.45);
+// }
 
 .all-rows{
 	min-height: 2rem;

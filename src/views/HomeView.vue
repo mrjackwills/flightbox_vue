@@ -27,9 +27,9 @@
 								<v-col cols='12' md='2' class='ma-0 pa-0'>
 									<v-row class='ma-0 pa-0' align='center' :justify='mobile?"center":"end"' v-if='currentFlights>0'>
 										<v-col cols='auto' class='ma-0 pa-0'>
-											<v-switch small v-model='metric' />
+											<v-switch density='compact' flat color='primary' v-model='metric' />
 										</v-col>
-										<v-col cols='auto' class='ml-2 mt-n5 ma-0 pa-0 text-uppercase unselectable' :class='{"text-haze":metric, "small-text": mobile}' >
+										<v-col cols='auto' class='ml-2 mt-n5 font-weight-bold ma-0 pa-0 text-uppercase unselectable' :class='{"text-primary":metric, "small-text": mobile}' >
 											metric
 										</v-col>
 									</v-row>
@@ -48,7 +48,7 @@
 		</v-expand-transition>
 		<v-row justify='center' align='center' class='minh' v-if='!flightInit'>
 			<v-col cols='auto' class='ma-0 pa-0'>
-				<v-progress-circular indeterminate color='offwhite' />
+				<v-progress-circular indeterminate color='primary' />
 			</v-col>
 		</v-row>
 
@@ -141,6 +141,19 @@ const initTimeout = ref(0);
 const updateCount = ref(30);
 const updateInterval = ref(0);
 
+// const startInterval = (): void => {
+// 	clearInterval(updateInterval.value);
+// 	updateInterval.value = window.setInterval(() => {
+// 		updateCountdown.value --;
+// 		if (uptimeWs.value) uptimeWs.value ++;
+// 		if (uptime.value) uptime.value ++;
+// 		if (uptimeApp) uptimeApp.value ++;
+
+// 		if (updateCountdown.value === 1) sendPhoto();
+// 		if (updateCountdown.value === 0) updateCountdown.value = 300;
+// 	}, 1000);
+// };
+
 const resetUpdateCounter = (): void => {
 	updateCount.value = 30;
 };
@@ -217,6 +230,9 @@ const startUpdateTimeout = (): void => {
 		} else {
 			updateCount.value --;
 		}
+		if (uptimeWs.value) uptimeWs.value ++;
+		if (uptime.value) uptime.value ++;
+		if (uptimeApp) uptimeApp.value ++;
 	}, 1000);
 };
 

@@ -16,20 +16,12 @@
 					<v-row justify='space-between' align='center' no-gutters>
 
 						<v-col cols='auto' class='ma-0 pa-0'>
-							<v-icon dense color='black' class='mr-1' :size='mobile ? `x-small`:`default`' :icon='item.icon' />
+							<v-icon dense color='white' class='mr-1' :size='mobile ? `x-small`:`default`' :icon='item.icon' />
 							<span class='black--text unselectable' :class='{"small-text": mobile}'>{{ item.text }}:</span>
 						</v-col>
 
 						<v-col cols='auto' class='ma-0 pa-0' :class='{"mr-1" : rowIndex === 0 && mdAndUp, "cl": item.copy}' >
 							
-							<!-- <v-tooltip
-								v-if='item.copy'
-								:open-on-hover='false'
-								top
-								tool
-								v-model='showToolTip'
-							>
-								<template v-slot:activator='{ props }'> -->
 							<section v-if='item.copy'>
 								<v-row  class='black--text mono-numbers ma-0 pa-0' :class='{"small-text": mobile}' @click='toCopy(item.value)' align='center' justify='space-between'>
 									<v-col class='ma-0 pa-0' cols='auto'>

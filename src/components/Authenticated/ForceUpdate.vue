@@ -5,7 +5,7 @@
 		:size='mobile ? `small`:`default`'
 		:variant='buttonDisabled ?"outlined":"flat"'
 		class='fab-fix elevation-0'
-		color='primary'
+		color='secondary'
 		dark
 		rounded
 	>

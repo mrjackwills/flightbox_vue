@@ -29,8 +29,8 @@
 					<v-btn
 						@click='login'
 						:disabled='buttonDisabled'
-						color='primary'
 						:variant='buttonDisabled ?"outlined":"flat"'
+						color='primary'
 						rounded
 					>
 						login

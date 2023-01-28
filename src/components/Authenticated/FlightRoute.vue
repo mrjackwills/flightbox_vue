@@ -1,10 +1,10 @@
 <template>
-	<v-row class='ma-0 pa-0 flightroutebox' align='center' justify='center'>
+	<v-row class='ma-0 pa-0 flightroutebox bg-black' align='center' justify='center'>
 
-		<v-col v-for='(item, index) in flightrouteRow' :key='index' class='ma-0 pa-0 ' cols='12' xl='10'  :class='{"small-text": mobile, "pt-1" : index}' >
+		<v-col v-for='(item, index) in flightrouteRow' :key='index' class='ma-0 pa-0 grey-darken-2' cols='12' xl='10'  :class='{"small-text": mobile, "pt-1" : index}' >
 			<v-row class='ma-0 pa-0 py-1 pl-2' justify='start' :class='`text-${color(index)}`' align='center'>
 
-				<v-col cols='4' sm='2'  class='ma-0 pa-0'>
+				<v-col cols='4' sm='2' class='ma-0 pa-0'>
 
 					<v-row class='ma-0 pa-0'  justify='start' align='center' >
 						<v-col cols='auto' class='ma-0 pa-0 mr-1'>
@@ -72,7 +72,7 @@ const flightrouteRow = computed((): Array<TFlightRouteRow> => {
 });
 
 const color = (index: number) : string => {
-	return index ? 'haze' : 'primary';
+	return index ? 'secondary' : 'primary';
 };
 const mapHref = (index: number): string => {
 	const query = index ? `${props.flightroute.destination.latitude},${props.flightroute.destination.longitude}` : `${props.flightroute.origin.latitude},${props.flightroute.origin.longitude}`;
@@ -92,9 +92,9 @@ const props = defineProps({
 </script>
 
 <style scoped>
-.flightroutebox{
+/* .flightroutebox{
 	background-color: rgba(0,0,0,.8);
-}
+} */
 
 .divider{
 	border-top: 1px solid rgba(255,255,255,.35)

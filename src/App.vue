@@ -7,8 +7,8 @@
 					align='center'
 					justify='center'
 				>
-					<v-col cols='11' lg='8' no-gutters class='ma-0 pa-0'>
-						<v-card transition='fade-transition' class='elevation-0 ma-0 pa-0' color='secondary' id='main_card'>
+					<v-col cols='11' no-gutters class='ma-0 pa-0'>
+						<v-card transition='fade-transition' class='elevation-0 ma-0 pa-0 mb-3' color='grey-darken-4' id='main_card'>
 							<AppToolbar />
 							<v-card-text >
 								<router-view  />
