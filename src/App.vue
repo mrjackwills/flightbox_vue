@@ -95,15 +95,13 @@ onMounted(() => {
 
 </script>
 
-<style scoped lang="scss">
+<style>
 
 #main_card {
 	border-radius: 1rem;
 }
 
-.vh-fix :v-deep .v-application--wrap {
-	min-height: 100vh;
-	min-height: calc(var(--vh, 100vh) * 100);
+.v-application__wrap {
+  min-height: 100dvh !important;
 }
-
 </style>
