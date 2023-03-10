@@ -1,20 +1,23 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.2'>v0.1.2</a>
+### 2023-03-10
+
 ### Chores
-+ create_release updated, [300c870e15bac3f40854ab3d740b76db33d913b9]
-+ dependencies updated, [8bce25ec239a2413a2506112a9210f097e4c07ba], [8de6f1f8face73fdf77b8dc1f15bc7464b75f0bd]
-+ devcontainer updated, [a4d5ab3334fed1d231c8e725ef612ef0dd5ee2e4]
++ create_release updated, [300c870e](https://github.com/mrjackwills/flightbox_vue/commit/300c870e15bac3f40854ab3d740b76db33d913b9)
++ dependencies updated, [8bce25ec](https://github.com/mrjackwills/flightbox_vue/commit/8bce25ec239a2413a2506112a9210f097e4c07ba), [8de6f1f8](https://github.com/mrjackwills/flightbox_vue/commit/8de6f1f8face73fdf77b8dc1f15bc7464b75f0bd)
++ devcontainer updated, [a4d5ab33](https://github.com/mrjackwills/flightbox_vue/commit/a4d5ab3334fed1d231c8e725ef612ef0dd5ee2e4)
 
 ### Docs
-+ readme updated, [cf6058625abc6a8979a968e7d5da756bf5dc02a8]
++ readme updated, [cf605862](https://github.com/mrjackwills/flightbox_vue/commit/cf6058625abc6a8979a968e7d5da756bf5dc02a8)
 
 ### Features
-+ use content-class for tooltip, [7775a2da83381c9ccae1aafdf2c2f704840ccd53]
++ use content-class for tooltip, [7775a2da](https://github.com/mrjackwills/flightbox_vue/commit/7775a2da83381c9ccae1aafdf2c2f704840ccd53)
 
 ### Fixes
-+ 100% height v-app fix, [9093af55f3cc374add5b2eaba3ebb35aa5cac4ad]
-+ temporary(?) snackbar fix, [3688b3b0069ff885cead6c6bb6be35b622aa1159]
++ 100% height v-app fix, [9093af55](https://github.com/mrjackwills/flightbox_vue/commit/9093af55f3cc374add5b2eaba3ebb35aa5cac4ad)
++ temporary(?) snackbar fix, [3688b3b0](https://github.com/mrjackwills/flightbox_vue/commit/3688b3b0069ff885cead6c6bb6be35b622aa1159)
 
 ### Refactors
-+ dead code removed, [8fe9b0627acf714a65cbfa9f24842fa46d614509]
++ dead code removed, [8fe9b062](https://github.com/mrjackwills/flightbox_vue/commit/8fe9b0627acf714a65cbfa9f24842fa46d614509)
 
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.1'>v0.1.1</a>
 ### 2023-01-27
