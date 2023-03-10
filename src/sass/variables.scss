@@ -20,12 +20,6 @@ html{
 	text-transform: lowercase !important;
 }
 
-// .tooltip-z 
-// .v-overlay__content {
-// 	opacity: 0 !important;
-// 	background: black!important;
-// }
-
 .fab-fix:focus::before {
 	 opacity: 0 !important;
 }
@@ -50,6 +44,12 @@ html{
 	#flightbox{
 		background-size:contain;
 	}
+}
+
+
+// This is a, hopefully, temporary fix for a snackbar issue - https://github.com/vuetifyjs/vuetify/issues/16432
+div.v-snackbar:not(.v-snackbar--absolute) {
+	height: 100% !important;
 }
 
 
