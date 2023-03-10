@@ -8,7 +8,7 @@
 	The frontend for <a href='https://flights.mrjackwills.com' target='_blank' rel='noopener noreferrer'>flightbox</a>, powered by <a href='https://www.staticpi.com' target='_blank' rel='noopener noreferrer'>staticPi.com</a>
 </p>
 <p align="center">
-	Built using <a href='https://vuejs.org/' target='_blank' rel='noopener noreferrer'>Vue.js</a>, and <a href='https://www.typescriptlang.org/' target='_blank' rel='noopener noreferrer'>Typescript</a>
+	Built using <a href='https://vuejs.org/' target='_blank' rel='noopener noreferrer'>Vue.js</a>, and <a href='https://www.typescriptlang.org/' target='_blank' rel='noopener noreferrer'>TypeScript</a>
 </p>
 
 <p align="center">
@@ -32,13 +32,13 @@
 
 ## Required services
 
-1) <a href='https://www.staticpi.com/' target='_blank' rel='noopener noreferrer'>staticPi</a> - the simple and secure messaging service
+1) <a href='https://www.staticpi.com/' target='_blank' rel='noopener noreferrer'>staticPi</a> - the simple messaging service
 
 File that are required by flightbox
 | file | reason|
 |---|---|
-|```./.env.development```	| development enviromental variables|
-|```./.env.development```	| productions enviromental variables|
+|```./.env.development```	| development environmental variables|
+|```./.env.development```	| productions environmental variables|
 
 ### Development
 ---
