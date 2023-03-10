@@ -32,7 +32,7 @@
 										<span class='text-danger' v-if='!online'> [ cached ]</span>
 									</v-col>
 								</v-row>
-								<v-tooltip v-if='showToolTip' :open-on-click='true' :open-on-hover='false' activator='parent' location='top center' class='tooltip-z'>
+								<v-tooltip v-if='showToolTip' :open-on-click='true' :open-on-hover='false' activator='parent' location='top center' content-class='tooltip'>
 									<span>copied to clipboard</span>
 								</v-tooltip>
 							</section>

@@ -23,7 +23,7 @@
 					</section>
 
 					<section v-else>
-						<a :href='href' target='_blank' rel='noopener noreferrer' clas='fff'>
+						<a :href='href' target='_blank' rel='noopener noreferrer'>
 							<v-icon color='black' class='' href='' :icon='mdiGithub' />
 						</a>
 						<span @click='buildInfo'>
@@ -79,6 +79,7 @@ watch(authenticated, (i) => {
 .lowercase-button{
 	text-transform: lowercase;
 }
+
 a {
 	color: #000000!important;
 	text-decoration: none;

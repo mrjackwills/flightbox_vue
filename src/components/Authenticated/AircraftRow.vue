@@ -34,7 +34,7 @@
 
 					<v-row class='ma-0 pa-0' align='center'>
 
-						<v-tooltip v-if='!mobile && flight.aircraft.url_photo_thumbnail' activator='parent' location='top'>
+						<v-tooltip v-if='!mobile && flight.aircraft.url_photo_thumbnail' activator='parent' location='top' content-class='tooltip'>
 							<v-img width='250px' eager :src='flight.aircraft.url_photo_thumbnail' />
 						</v-tooltip>
 

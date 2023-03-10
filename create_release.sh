@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# v0.0.12
+# Vue release
+# v0.1.0
 
 PACKAGE_NAME='flightbox_vue_site'
 
@@ -127,12 +128,12 @@ update_release_body_and_changelog () {
 	echo -e "# <a href='${GIT_REPO_URL}/releases/tag/${NEW_TAG_WITH_V}'>${NEW_TAG_WITH_V}</a>\n${DATE_SUBHEADING}${CHANGELOG_ADDITION}$(cat CHANGELOG.md)" > CHANGELOG.md
 
 	# Update changelog to add links to commits [hex:8](url_with_full_commit)
-	# "[aaaaaaaaaabbbbbbbbbbccccccccccddddddddd]" -> "[aaaaaaaa](https:/www.../commit/aaaaaaaaaabbbbbbbbbbccccccccccddddddddd),"
-	sed -i -E "s=(\s)\[([0-9a-f]{8})([0-9a-f]{32})\]= [\2](${GIT_REPO_URL}/commit/\2\3),=g" ./CHANGELOG.md
+	# "[aaaaaaaaaabbbbbbbbbbccccccccccddddddddd]" -> "[aaaaaaaa](https:/www.../commit/aaaaaaaaaabbbbbbbbbbccccccccccddddddddd)"
+	sed -i -E "s=(\s)\[([0-9a-f]{8})([0-9a-f]{32})\]= [\2](${GIT_REPO_URL}/commit/\2\3)=g" CHANGELOG.md
 
-	# Update changelog to add links to closed issues - comma included!
-	# "closes #1" -> "closes [#1](https:/www.../issues/1)"
-	sed -i -r -E "s=closes \#([0-9]+)=closes [#\1](${GIT_REPO_URL}/issues/\1)=g" ./CHANGELOG.md
+	# Update changelog to add links to closed issues
+	# "closes #1" -> "closes [#1](https:/www.../issues/1)""
+	sed -i -r -E "s=closes \#([0-9]+)=closes [#\1](${GIT_REPO_URL}/issues/\1)=g" CHANGELOG.md
 }
 
 update_json () {
@@ -206,10 +207,21 @@ release_continue () {
 	ask_continue
 
 }
+
+# Check repository for typos
+check_typos () {
+	echo -e "\n${PURPLE}check typos${RESET}"
+	typos
+	ask_continue
+}
+
 # Full flow to create a new release
 release_flow() {
+	check_typos
+
 	check_git
 	get_git_remote_url
+	
 	linter
 	npm_build
 	
