@@ -104,4 +104,9 @@ onMounted(() => {
 .v-application__wrap {
   min-height: 100dvh !important;
 }
+
+.tooltip {
+	background: rgba(0,0,0,.75)!important;
+}
+
 </style>
