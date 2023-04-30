@@ -24,15 +24,16 @@
 		"vscode": {
 				// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"dbaeumer.vscode-eslint",
-				"mutantdino.resourcemonitor",
-				"meganrogge.template-string-converter",
 				"bungcip.better-toml",
-				"wix.vscode-import-cost",
 				"christian-kohler.path-intellisense",
+				"dbaeumer.vscode-eslint",
+				"meganrogge.template-string-converter",
+				"mutantdino.resourcemonitor",
 				"timonwong.shellcheck",
 				"vue.volar",
-				"vue.vscode-typescript-vue-plugin"
+				"vue.vscode-typescript-vue-plugin",
+				"wix.vscode-import-cost",
+				"yoavbls.pretty-ts-errors"
 			]
 		}
 	},

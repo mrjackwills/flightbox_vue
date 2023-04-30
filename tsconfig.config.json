@@ -1,9 +1,14 @@
 {
-	"extends": "@vue/tsconfig/tsconfig.node.json",
+	"extends": "@vue/tsconfig/tsconfig.json",
 	"include": ["vite.config.*", "vitest.config.*", "cypress.config.*", "playwright.config.*"],
 	"compilerOptions": {
 	"experimentalDecorators": true,
 	  "composite": true,
 	  "types": ["node", "vite-plugin-pwa/client"]
 	}
-  }
+}
+
+
+
+
+
