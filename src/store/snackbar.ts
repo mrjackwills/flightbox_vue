@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ModuleName } from '@/types/enum_module';
 
-export const snackbarStore = defineStore(ModuleName.SNACKBAR, {
+export const snackbarModule = defineStore(ModuleName.SNACKBAR, {
 
 	state: () => ({
 		icon: '',

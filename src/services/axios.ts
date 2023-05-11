@@ -1,6 +1,5 @@
 import { env } from '@/vanillaTS/env';
 import { snackError, snackReset } from './snack';
-import { userModule, websocketModule } from '@/store';
 import Axios, { AxiosError, type AxiosInstance } from 'axios';
 
 // Some kind of dirty work around for strict axios typing?

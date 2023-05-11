@@ -1,5 +1,4 @@
 import { env } from '@/vanillaTS/env';
-import { userModule } from '@/store';
 
 export class CreateWs {
 	#ws?: WebSocket;

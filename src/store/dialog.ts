@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ModuleName } from '@/types/enum_module';
 
-export const dialogStore = defineStore(ModuleName.DIALOG, {
+export const dialogModule = defineStore(ModuleName.DIALOG, {
 
 	state: () => ({
 		imgSrc: '',

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ModuleName } from '@/types/enum_module';
 
-export const flightboxStatusStore = defineStore(ModuleName.FLIGHTBOX_STATUS, {
+export const flightboxStatusModule = defineStore(ModuleName.FLIGHTBOX_STATUS, {
 
 	state: () => ({
 		api_version: '',

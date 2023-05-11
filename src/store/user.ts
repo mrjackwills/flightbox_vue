@@ -1,16 +1,16 @@
-import { aircraftStore } from './aircraft';
+import { aircraftModule } from './aircraft';
 import { defineStore } from 'pinia';
-import { dialogStore } from './dialog';
-import { flightboxStatusStore } from './flightboxStatus';
-import { loadingStore } from './loading';
+import { dialogModule } from './dialog';
+import { flightboxStatusModule } from './flightboxStatus';
+import { loadingModule } from './loading';
 import { ModuleName } from '@/types/enum_module';
 import { snackError } from '@/services/snack';
-import { websocketStore } from './websocket';
+import { websocketModule } from './websocket';
 // import { useRoute, useRouter } from 'vue-router';
 import { getActivePinia } from 'pinia';
 import { FrontendRoutes } from '@/types/enum_routes';
 
-export const userStore = defineStore(ModuleName.USER, {
+export const userModule = defineStore(ModuleName.USER, {
 	
 	state: () => ({
 		authenticated: false,
@@ -19,11 +19,11 @@ export const userStore = defineStore(ModuleName.USER, {
 	actions: {
 		logout (message?: string): void {
 			this.authenticated = false;
-			loadingStore().set_loading(false);
-			flightboxStatusStore().$reset();
-			aircraftStore().$reset();
-			websocketStore().closeWS();
-			dialogStore().$reset();
+			loadingModule().set_loading(false);
+			flightboxStatusModule().$reset();
+			aircraftModule().$reset();
+			websocketModule().closeWS();
+			dialogModule().$reset();
 			if (message) snackError({ message });
 			getActivePinia()?.router().push(FrontendRoutes.LOGIN);
 		},
