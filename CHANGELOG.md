@@ -1,3 +1,13 @@
+### Chores
++ dependencies updated [56f090b9692ef8327368e5a88620429c1dde959a], [3fa0af5ac03c0c2beec315149edcffb85dd46a99]
+
+### Features
++ autoimport pinia module, [e72d6fc75da8de52109d36083cc4178f20d98a50]
++ typed defineProps, [6b5bccc932c4e8798a9758f38c0026b050d840b1]
+
+### Fixes
++ github action only on tag, [97f330f3457ca6cee35fc7b97070e22ab9498bff]
+
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.2'>v0.1.2</a>
 ### 2023-03-10
 
