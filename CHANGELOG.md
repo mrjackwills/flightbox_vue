@@ -1,12 +1,12 @@
 ### Chores
-+ dependencies updated [56f090b9692ef8327368e5a88620429c1dde959a], [3fa0af5ac03c0c2beec315149edcffb85dd46a99]
++ dependencies updated [17018b6c829f9352ba40bedee046f40fa6811b5a], [b0e643945c8488c41404473bb95ee2c15f7ccb75]
 
 ### Features
-+ autoimport pinia module, [e72d6fc75da8de52109d36083cc4178f20d98a50]
-+ typed defineProps, [6b5bccc932c4e8798a9758f38c0026b050d840b1]
++ autoimport pinia module, [379d1e61255a6f8cf420ef7d5119ab6b6fdb25a5]
++ typed defineProps, [d4430a65c76e8bd358410661a480374f01fa3053]
 
 ### Fixes
-+ github action only on tag, [97f330f3457ca6cee35fc7b97070e22ab9498bff]
++ github action only on tag, [960a6b56fb034ef5c14e3efad9d346826302ed4b]
 
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.2'>v0.1.2</a>
 ### 2023-03-10
