@@ -79,22 +79,10 @@ const mapHref = (index: number): string => {
 	return `https://www.google.com/maps/place/@${query},14z/`;
 };
 
-const props = defineProps({
-	flightroute: {
-		type: Object as () => TFlightRoute,
-		required: true
-	},
-	fl_index: {
-		type: Number,
-		required: true
-	}
-});
+const props = defineProps<{flightroute: TFlightRoute, fl_index: number}>();
 </script>
 
 <style scoped>
-/* .flightroutebox{
-	background-color: rgba(0,0,0,.8);
-} */
 
 .divider{
 	border-top: 1px solid rgba(255,255,255,.35)

@@ -122,21 +122,11 @@ const toggleCallsign = (): void => {
 	showExtra.value = !showExtra.value;
 };
 
-const props = defineProps({
-	flight: {
-		type: Object as () => TAdsbdb,
-		required: true
-	},
-	index: {
-		type: Number,
-		required: true,
-	},
-	showDivider: {
-		type: Boolean,
-		required: true
-	},
-	
-});
+const props = defineProps<{
+	flight: TAdsbdb,
+	index: number,
+	showDivider: boolean,
+}>();
 
 watch(callsign, (i) => {
 	if (!i) showExtra.value = false;
