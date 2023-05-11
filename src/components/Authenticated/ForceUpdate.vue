@@ -30,12 +30,7 @@ const { mobile } = useDisplay();
 
 const emit = defineEmits([ 'refresh' ]);
 
-const props = defineProps({
-	updateCount: {
-		type: Number,
-		required: true
-	}
-});
+const props = defineProps<{updateCount: number}>();
 
 const buttonDisabled = computed(() : boolean=> {
 	return loading.value || updating.value;

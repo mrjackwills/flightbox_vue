@@ -1,21 +1,13 @@
-### 2023-03-10
+### 2023-05-11
 
 ### Chores
-+ create_release updated, [300c870e15bac3f40854ab3d740b76db33d913b9]
-+ dependencies updated, [8bce25ec239a2413a2506112a9210f097e4c07ba], [8de6f1f8face73fdf77b8dc1f15bc7464b75f0bd]
-+ devcontainer updated, [a4d5ab3334fed1d231c8e725ef612ef0dd5ee2e4]
-
-### Docs
-+ readme updated, [cf6058625abc6a8979a968e7d5da756bf5dc02a8]
++ dependencies updated, [17018b6c829f9352ba40bedee046f40fa6811b5a], [b0e643945c8488c41404473bb95ee2c15f7ccb75]
 
 ### Features
-+ use content-class for tooltip, [7775a2da83381c9ccae1aafdf2c2f704840ccd53]
++ autoimport pinia module, [379d1e61255a6f8cf420ef7d5119ab6b6fdb25a5]
++ typed defineProps, [d4430a65c76e8bd358410661a480374f01fa3053]
 
 ### Fixes
-+ 100% height v-app fix, [9093af55f3cc374add5b2eaba3ebb35aa5cac4ad]
-+ temporary(?) snackbar fix, [3688b3b0069ff885cead6c6bb6be35b622aa1159]
-
-### Refactors
-+ dead code removed, [8fe9b0627acf714a65cbfa9f24842fa46d614509]
++ github action only on tag, [960a6b56fb034ef5c14e3efad9d346826302ed4b]
 
 see <a href='https://github.com/mrjackwills/flightbox_vue/blob/main/CHANGELOG.md'>CHANGELOG.md</a> for more details

@@ -1,3 +1,16 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.3'>v0.1.3</a>
+### 2023-05-11
+
+### Chores
++ dependencies updated, [17018b6c](https://github.com/mrjackwills/flightbox_vue/commit/17018b6c829f9352ba40bedee046f40fa6811b5a), [b0e64394](https://github.com/mrjackwills/flightbox_vue/commit/b0e643945c8488c41404473bb95ee2c15f7ccb75)
+
+### Features
++ autoimport pinia module, [379d1e61](https://github.com/mrjackwills/flightbox_vue/commit/379d1e61255a6f8cf420ef7d5119ab6b6fdb25a5)
++ typed defineProps, [d4430a65](https://github.com/mrjackwills/flightbox_vue/commit/d4430a65c76e8bd358410661a480374f01fa3053)
+
+### Fixes
++ github action only on tag, [960a6b56](https://github.com/mrjackwills/flightbox_vue/commit/960a6b56fb034ef5c14e3efad9d346826302ed4b)
+
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.2'>v0.1.2</a>
 ### 2023-03-10
 

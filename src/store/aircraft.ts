@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { ModuleName } from '@/types/enum_module';
 import type { TAdsbdb } from '@/types';
 
-export const aircraftStore = defineStore(ModuleName.AIRCRAFT, {
+export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 
 	state: () => ({
 		_current_flights: [] as Array<TAdsbdb>,

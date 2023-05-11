@@ -1,6 +1,7 @@
 <template>
 	<v-app class='ma-0 pa-0' id='flightbox'>
 		<v-main>
+			
 			<v-container class='fill-height' fluid >
 				<v-row
 					class='fill-height'
@@ -99,10 +100,6 @@ onMounted(() => {
 
 #main_card {
 	border-radius: 1rem;
-}
-
-.v-application__wrap {
-  min-height: 100dvh !important;
 }
 
 .tooltip {

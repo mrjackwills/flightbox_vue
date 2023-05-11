@@ -89,11 +89,6 @@ const clear = ():void => {
 	clearTimeout(copyTimeout.value);
 };
 
-defineProps({
-	toDisplay: {
-		type: Array as () => TDataToDisplay,
-		required: true
-	}
-});
+defineProps<{toDisplay: TDataToDisplay}>();
 
 </script>
