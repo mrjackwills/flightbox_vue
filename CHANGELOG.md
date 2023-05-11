@@ -1,5 +1,5 @@
 ### Chores
-+ dependencies updated [17018b6c829f9352ba40bedee046f40fa6811b5a], [b0e643945c8488c41404473bb95ee2c15f7ccb75]
++ dependencies updated, [17018b6c829f9352ba40bedee046f40fa6811b5a], [b0e643945c8488c41404473bb95ee2c15f7ccb75]
 
 ### Features
 + autoimport pinia module, [379d1e61255a6f8cf420ef7d5119ab6b6fdb25a5]
