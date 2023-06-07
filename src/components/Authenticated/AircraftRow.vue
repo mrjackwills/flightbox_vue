@@ -64,7 +64,7 @@
 			
 		<v-expand-transition>
 			<v-col cols='12' class='ma-0 pa-0' v-if='showExtra && flight.flightroute'>
-				<Flightroute :flightroute='flight.flightroute' :fl_index='index' />
+				<FlightRoute :flightroute='flight.flightroute' :fl_index='index' />
 			</v-col>
 		</v-expand-transition>
 
