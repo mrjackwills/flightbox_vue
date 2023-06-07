@@ -34,7 +34,7 @@
 
 					<v-row class='ma-0 pa-0' align='center'>
 
-						<v-tooltip v-if='!mobile && flight.aircraft.url_photo_thumbnail' activator='parent' location='top' content-class='tooltip'>
+						<v-tooltip v-if='!mobile_platform && flight.aircraft.url_photo_thumbnail' activator='parent' location='top' content-class='tooltip'>
 							<v-img width='250px' eager :src='flight.aircraft.url_photo_thumbnail' />
 						</v-tooltip>
 
@@ -64,7 +64,7 @@
 			
 		<v-expand-transition>
 			<v-col cols='12' class='ma-0 pa-0' v-if='showExtra && flight.flightroute'>
-				<Flightroute :flightroute='flight.flightroute' :fl_index='index' />
+				<FlightRoute :flightroute='flight.flightroute' :fl_index='index' />
 			</v-col>
 		</v-expand-transition>
 
@@ -74,10 +74,11 @@
 <script setup lang="ts">
 import { mdiCamera, mdiArrowCollapse, mdiArrowExpand, mdiOpenInNew } from '@mdi/js';
 import type { TAdsbdb } from '@/types';
-import Flightroute from '@/components/Authenticated/FlightRoute.vue';
 import { useDisplay } from 'vuetify';
 
 const { mobile } = useDisplay();
+
+const mobile_platform = ref(false);
 
 const backgroundColor = computed(() :string => {
 	return `bg-grey-darken-${props.index % 2 === 0 ? '3' : '4'}`;
@@ -85,6 +86,17 @@ const backgroundColor = computed(() :string => {
 
 const callsignArrowDirection = computed((): string => {
 	return showExtra.value ? mdiArrowCollapse : mdiArrowExpand ;
+});
+
+const platform = useDisplay().platform;
+
+watch(() => platform.value, (i) => {
+	mobile_platform.value = i.ios || i.android;
+});
+
+onMounted(() => {
+	const platform = useDisplay().platform.value;
+	mobile_platform.value = platform.ios || platform.android;
 });
 
 const callsignArrowColor = computed((): string => {

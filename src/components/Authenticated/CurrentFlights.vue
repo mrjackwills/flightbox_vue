@@ -44,7 +44,6 @@
 <script setup lang="ts">
 
 import type { TAdsbdb } from '@/types';
-import AircraftRow from '@/components/Authenticated/AircraftRow.vue';
 const aircraftStore = aircraftModule();
 
 const current_flights = computed((): Array<TAdsbdb> => {

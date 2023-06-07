@@ -5,6 +5,7 @@ import viteCompression from 'vite-plugin-compression';
 import { VitePWA } from 'vite-plugin-pwa';
 import type { VitePWAOptions } from 'vite-plugin-pwa';
 import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
 
 // vite.config.js
 
@@ -63,6 +64,7 @@ export default defineConfig({
 		vuetify({
 			autoImport: true,
 		}),
+		Components(),
 		AutoImport({
 			include: [
 				/\.[tj]sx?$/,
