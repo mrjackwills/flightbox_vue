@@ -13,7 +13,6 @@ import { mdiDesktopClassic, mdiFormatListNumbered, mdiLanConnect, mdiMonitorShim
 import { secondsToText } from '@/vanillaTS/secondsToText';
 import type { TDataToDisplay } from '@/types';
 import { useDisplay } from 'vuetify';
-import DisplayRows from '@/components/Authenticated/DisplayRows.vue';
 
 const { mobile } = useDisplay();
 const [ aircraftStore, flightboxStatusStore, ] = [ aircraftModule(), flightboxStatusModule() ];

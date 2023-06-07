@@ -58,7 +58,6 @@
 <script setup lang="ts">
 import { mdiContentCopy } from '@mdi/js';
 import type { TDataToDisplay } from '@/types';
-import AppDivider from '@/components/AppDivider.vue';
 import { useClipboard } from '@vueuse/core';
 
 import { useDisplay } from 'vuetify';

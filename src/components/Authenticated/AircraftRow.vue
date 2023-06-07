@@ -74,7 +74,6 @@
 <script setup lang="ts">
 import { mdiCamera, mdiArrowCollapse, mdiArrowExpand, mdiOpenInNew } from '@mdi/js';
 import type { TAdsbdb } from '@/types';
-import Flightroute from '@/components/Authenticated/FlightRoute.vue';
 import { useDisplay } from 'vuetify';
 
 const { mobile } = useDisplay();

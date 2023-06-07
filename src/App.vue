@@ -28,10 +28,6 @@
 
 <script setup lang='ts'>
 
-import AppSnackbar from '@/components/AppSnackbar.vue';
-import AppDialog from '@/components/AppDialog.vue';
-import AppFooter from '@/components/AppFooter.vue';
-import AppToolbar from '@/components/AppToolbar.vue';
 import { snackSuccess } from '@/services/snack';
 import { useRegisterSW } from 'virtual:pwa-register/vue';
 import { registerSW } from 'virtual:pwa-register';

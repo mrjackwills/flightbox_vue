@@ -66,11 +66,6 @@
 </template>
 
 <script setup lang='ts'>
-import CurrentFlights from '@/components/Authenticated/CurrentFlights.vue';
-import ToggleScreen from '@/components/Authenticated/ToggleScreen.vue';
-import AppOffline from '@/components/Authenticated/AppOffline.vue';
-import PiInfo from '@/components/Authenticated/PiInfo.vue';
-import ForceUpdate from '@/components/Authenticated/ForceUpdate.vue';
 import { parseMessage } from '@/vanillaTS/messageParser';
 import { snackError } from '@/services/snack';
 import type { TWSFromFlightBox } from '@/types';
