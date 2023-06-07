@@ -1,13 +1,10 @@
-### 2023-05-11
+### 2023-06-07
 
 ### Chores
-+ dependencies updated, [17018b6c829f9352ba40bedee046f40fa6811b5a], [b0e643945c8488c41404473bb95ee2c15f7ccb75]
++ dependencies updated, [ec0f30b40d1dcb82cf1a3739c5593342a2068df5], [766cd243b1be1b6033f88e904e74b4277c66afd2]
 
 ### Features
-+ autoimport pinia module, [379d1e61255a6f8cf420ef7d5119ab6b6fdb25a5]
-+ typed defineProps, [d4430a65c76e8bd358410661a480374f01fa3053]
-
-### Fixes
-+ github action only on tag, [960a6b56fb034ef5c14e3efad9d346826302ed4b]
++ use vuetify platform for v-if thumbnail tooltip, [cb5402173370e1bf1eb2f99dad695bb5f8caae94]
++ use unplugin-vue-components to autoimport, [d7aed978204d6dbc632c1ea6084552ac713badf5]
 
 see <a href='https://github.com/mrjackwills/flightbox_vue/blob/main/CHANGELOG.md'>CHANGELOG.md</a> for more details
