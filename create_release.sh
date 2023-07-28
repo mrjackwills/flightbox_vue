@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Vue release
-# v0.1.0
+# v0.2.0
 
 PACKAGE_NAME='flightbox_vue_site'
 
@@ -67,9 +67,7 @@ update_patch () {
 }
 
 get_git_remote_url() {
-	REMOTE_ORIGIN=$(git config --get remote.origin.url)
-	TO_REMOVE=".git"
-	GIT_REPO_URL="${REMOTE_ORIGIN//$TO_REMOVE}"
+	GIT_REPO_URL="$(git config --get remote.origin.url | sed 's/\.git$//')"
 }
 
 check_git() {
@@ -154,7 +152,7 @@ update_version_number_in_files () {
 # create new semver version based on user input
 # Set MAJOR MINOR PATCH
 check_tag () {
-	LATEST_TAG=$(git describe --tags --abbrev=0 --always)
+	LATEST_TAG=$(git describe --tags "$(git rev-list --tags --max-count=1)")
 	echo -e "\nCurrent tag: ${PURPLE}${LATEST_TAG}${RESET}\n"
 	echo -e "${YELLOW}Choose new tag version:${RESET}\n"
 	if [[ $LATEST_TAG =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-((0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*))*))?(\+([0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*))?$ ]]
