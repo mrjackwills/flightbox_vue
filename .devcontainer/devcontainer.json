@@ -18,7 +18,7 @@
 	// Set *default* container specific settings.json values on container create.
 	// Add the IDs of extensions you want installed when the container is created.
 
-	"postCreateCommand":"mkdir /tmp/typos && wget https://github.com/crate-ci/typos/releases/download/v1.13.10/typos-v1.13.10-x86_64-unknown-linux-musl.tar.gz -O /tmp/typos-v1.13.10-x86_64-unknown-linux-musl.tar.gz && tar -xvf /tmp/typos-v1.13.10-x86_64-unknown-linux-musl.tar.gz -C /tmp/typos && install -Dm 755 /tmp/typos/typos -t \"${HOME}/.local/bin\" && rm -rf /tmp/typos",
+	"postCreateCommand": "TYPOS_V=$(curl -s 'https://api.github.com/repos/crate-ci/typos/releases/latest' | grep '\"tag_name\":' | sed -E 's/.*\"([^\"]+)\".*/\\1/') && mkdir /tmp/typos && wget \"https://github.com/crate-ci/typos/releases/download/$TYPOS_V/typos-$TYPOS_V-x86_64-unknown-linux-musl.tar.gz\" -O \"/tmp/typos-$TYPOS_V-x86_64-unknown-linux-musl.tar.gz\" && tar -xvf \"/tmp/typos-$TYPOS_V-x86_64-unknown-linux-musl.tar.gz\" -C /tmp/typos && install -Dm 755 /tmp/typos/typos -t \"${HOME}/.local/bin\" && rm -rf /tmp/typos",
 
 	"customizations": {
 		"vscode": {
