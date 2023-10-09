@@ -1,3 +1,6 @@
+### Chores
++ dependencies updated, [f8baeb9be44375105ddf71f66f0caa7ae7969030], [eebbcaf97b0a8333b25d53b055f181467f6c13a1], [b3e35d7402c38641e53d3dd50583fec2e6f8350c], [75f0f9470d680894b0494f894a44545328f6cdb1]
+
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.5'>v0.1.5</a>
 ### 2023-07-28
 
