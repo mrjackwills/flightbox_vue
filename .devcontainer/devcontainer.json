@@ -24,7 +24,6 @@
 		"vscode": {
 				// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"bungcip.better-toml",
 				"christian-kohler.path-intellisense",
 				"dbaeumer.vscode-eslint",
 				"meganrogge.template-string-converter",
