@@ -1,12 +1,11 @@
 ### Chores
-+ dependencies updated, [f8baeb9be44375105ddf71f66f0caa7ae7969030], [eebbcaf97b0a8333b25d53b055f181467f6c13a1], [b3e35d7402c38641e53d3dd50583fec2e6f8350c], [75f0f9470d680894b0494f894a44545328f6cdb1], [0ac0937c5e58d5cf01d71bbaf155ddbe1f5e2ef1]
-+ GitHub workflow updated, [1929aa40036999b04fff9366dc6801aa8fbc0748]
-+ .devcontainer updated, [b22a938baa980dfc016122412467f87ac6262961]
++ GitHub workflow updated, [939880a5b55abb3738cb0dd5f71445aa57de9010]
++ dependencies updated, [1b262493c78e7ea54a0c682ba3eab07df392748a], [0c5dbd9c1df32bd54ca63edaf4187eeb82342e3c], [89b41a506567ddc1a72d8ad22b6c08c1f639f063]
++ .devcontainer updated, [c7a27c3b198984f91c74ee75e62cce3bca211fcb], [a32cc23b6c7e1966818d550bc11e0edfc276eb94]
 
 ### Refactors
-+ AircraftRow watch method, [1f180eaae671ddfbf12ce609601512d652e7dd17
++ AircraftRow watch method, [d36d84748a21b1b82a408468621595602e1611c3]
 
-]
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.5'>v0.1.5</a>
 ### 2023-07-28
 
