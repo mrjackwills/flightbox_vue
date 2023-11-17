@@ -90,7 +90,7 @@ const callsignArrowDirection = computed((): string => {
 
 const platform = useDisplay().platform;
 
-watch(() => platform.value, (i) => {
+watch(platform, (i) => {
 	mobile_platform.value = i.ios || i.android;
 });
 
