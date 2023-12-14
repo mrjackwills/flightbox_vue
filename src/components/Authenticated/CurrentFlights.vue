@@ -8,7 +8,8 @@
 						<v-col cols='3' class='ma-0 pa-0' v-for='(item, index) in headers' :key='index' :class='{"text-right": index > 1}'>
 							<v-row class='ma-0 pa-0' align='center' justify='start'>
 								<v-col cols='12' class='ma-0 pa-0'>
-									<span class='font-weight-bold text-uppercase unselectable text-grey-lighten-3'>{{ item }}</span>
+									<span class='font-weight-bold text-uppercase unselectable text-grey-lighten-3'>{{ item.name }}</span>
+									<v-icon :icon='get_icon(item.sort_by) ' size='x-small' class='ml-3' @click='sort_click(item.sort_by)'/>
 								</v-col>
 							</v-row>
 						</v-col>
@@ -43,7 +44,8 @@
 
 <script setup lang="ts">
 
-import type { TAdsbdb } from '@/types';
+import type { TAdsbdb, TSortBy, u } from '@/types';
+import { mdiArrowDownThick, mdiArrowUpThick, mdiSort } from '@mdi/js';
 const aircraftStore = aircraftModule();
 
 const current_flights = computed((): Array<TAdsbdb> => {
@@ -56,11 +58,58 @@ const number_current_flights = computed((): number => {
 	return current_flights.value.length;
 });
 
+const get_icon = (x: TSortBy): string => {
+	if (sort_by.value === x) {
+		if (sort_asc.value) return mdiArrowDownThick;
+		else return mdiArrowUpThick;
+	}
+	return mdiSort;
+};
+
+const sort_click = (x: TSortBy): void => {
+	if (!sort_by.value || sort_by.value !== x) {
+		sort_by.value = x;
+	} else {
+		sort_asc.value = !sort_asc.value;
+	}
+};
+
+const sort_by = computed({
+	get (): u<TSortBy> {
+		return aircraftStore.sort_by;
+	},
+	set (b: u<TSortBy>): void {
+		aircraftStore.set_sort_by(b);
+	}
+});
+
+const sort_asc = computed({
+	get (): boolean {
+		return aircraftStore.sort_asc;
+	},
+	set (b: boolean): void {
+		aircraftStore.set_sort_asc(b);
+	}
+});
+
 const headers = [
-	'callsign',
-	'aircraft ( mode_s )',
-	'owner',
-	'altitude',
+	{
+		name: 'callsign',
+		sort_by: 'callsign' as TSortBy,
+	},
+	{
+		name: 'aircraft (mode_s)',
+		sort_by: 'aircraft' as TSortBy,
+	},
+	{
+		name: 'owner',
+		sort_by: 'owner' as TSortBy,
+	},
+	{
+		name: 'altitude',
+		sort_by: 'altitude' as TSortBy,
+	},
+
 ];
 </script>
 
