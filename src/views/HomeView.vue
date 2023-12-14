@@ -147,12 +147,12 @@ const ws_connected = computed(() => {
 
 const initCount = ref(0);
 const initTimeout = ref(0);
-const updateCount = ref(30);
+const updateCount = ref(60);
 const updateInterval = ref(0);
 const offlineTimeout = ref(0);
 
 const resetUpdateCounter = (): void => {
-	updateCount.value = 30;
+	updateCount.value = 60;
 };
 
 const addWSHandlers = (): void => {
@@ -253,15 +253,17 @@ const wsDataHandler = async (message: TWSFromFlightBox): Promise<void> => {
 		uptime.value = message.data.data.uptime;
 		uptimeApp.value = message.data.data.uptime_app;
 		uptimeWs.value = message.data.data.uptime_ws;
-		initCount.value = 0;
-		if (!init.value) startUpdateTimeout();
-		flightboxStatusStore.set_init(true);
 		loading.value = false;
 		break;
 	}
 	case 'flights': {
 		aircraftStore.set_current_flights(message.data.data);
 		aircraftStore.set_init(true);
+		if (!init.value) {
+			startUpdateTimeout();
+			flightboxStatusStore.set_init(true);
+		}
+		initCount.value = 0;
 	}
 	}
 };
