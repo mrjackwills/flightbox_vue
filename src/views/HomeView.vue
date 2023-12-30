@@ -221,7 +221,7 @@ const send_status = (): void => {
 };
 
 const startUpdateTimeout = (): void => {
-	updateInterval.value = setInterval(() => {
+	updateInterval.value = window.setInterval(() => {
 		if (updateCount.value === 0) {
 			send_status_and_flights();
 			resetUpdateCounter();

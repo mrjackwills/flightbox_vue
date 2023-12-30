@@ -76,7 +76,7 @@ const logout = (message = 'you have been logged out'): void => {
 const visibilityChange = (_e: Event): void => {
 	isHidden.value = document.hidden;
 	if (isHidden.value) {
-		logoutTimeout.value = setTimeout(() => {
+		logoutTimeout.value = window.setTimeout(() => {
 			logout();
 		}, 1000 * 60 * 7.5);
 	} else {

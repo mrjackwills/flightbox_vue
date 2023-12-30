@@ -79,7 +79,7 @@ const toCopy = (value: string): void => {
 	showToolTip.value = true;
 	clear();
 	useClipboard().copy(value);
-	copyTimeout.value = setTimeout(() => {
+	copyTimeout.value = window.setTimeout(() => {
 		showToolTip.value = false;
 	}, 1250);
 };

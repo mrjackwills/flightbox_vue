@@ -5,11 +5,14 @@
 				<section v-if='number_current_flights' class='black--text'>
 
 					<v-row class='ma-0 pa-0 text-left headers pa-2 bg-primary' justify='space-between' align='center'>
-						<v-col cols='3' class='ma-0 pa-0' v-for='(item, index) in headers' :key='index' :class='{"text-right": index > 1}'>
+						<v-col cols='3' class='ma-0 pa-0' v-for='(item, index) in headers' :key='index'
+							:class='{ "text-right": index > 1 }'>
 							<v-row class='ma-0 pa-0' align='center' justify='start'>
 								<v-col cols='12' class='ma-0 pa-0'>
-									<span class='font-weight-bold text-uppercase unselectable text-grey-lighten-3'>{{ item.name }}</span>
-									<v-icon :icon='get_icon(item.sort_by) ' size='x-small' class='ml-3' @click='sort_click(item.sort_by)'/>
+									<span class='font-weight-bold text-uppercase unselectable text-grey-lighten-3'>{{
+										item.name }}</span>
+									<v-icon :icon='get_icon(item.sort_by)' size='x-small' class='ml-3'
+										@click='sort_click(item.sort_by)' />
 								</v-col>
 							</v-row>
 						</v-col>
@@ -19,14 +22,15 @@
 					<v-row class='ma-0 pa-0 text-left' justify='space-between' align='center'>
 
 						<v-col cols='12' class='ma-0 pa-0'>
-							<section v-for='(flight, index) in current_flights' :key='index'>
-								<AircraftRow :flight='flight' :showDivider='index !== number_current_flights -1' :index='index' />
+							<section v-for='(flight, index) in current_flights' :key='flight.aircraft.mode_s'>
+								<AircraftRow :flight='flight' :showDivider='index !== number_current_flights - 1'
+									:index='index' />
 							</section>
 						</v-col>
 					</v-row>
-		
+
 				</section>
-			
+
 			</v-expand-transition>
 			<v-row class='ma-0 pa-0' align='center' justify='center' v-if='!number_current_flights'>
 				<v-col cols='auto' class='ma-0 pa-0 text-h6 unselectable'>
@@ -69,8 +73,10 @@ const get_icon = (x: TSortBy): string => {
 const sort_click = (x: TSortBy): void => {
 	if (!sort_by.value || sort_by.value !== x) {
 		sort_by.value = x;
-	} else {
+	} else if (sort_asc.value) {
 		sort_asc.value = !sort_asc.value;
+	} else if (!sort_asc.value) {
+		aircraftStore.reset_sort();
 	}
 };
 
@@ -111,11 +117,11 @@ const headers = [
 	},
 
 ];
+
 </script>
 
 <style>
 .headers {
 	border-top-right-radius: .35rem;
 	border-top-left-radius: .35rem;
-}
-</style>
+}</style>

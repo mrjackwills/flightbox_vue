@@ -6,6 +6,7 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 
 	state: () => ({
 		_current_flights: [] as Array<TAdsbdb>,
+		unsorted_flights: [] as Array<TAdsbdb>,
 		init: false,
 		metric: false,
 		sort_by: undefined as u<TSortBy>,
@@ -13,7 +14,7 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 	}),
 
 	getters: {
-		// no, need to use self.sort_by
+		
 		current_flights: (state): Array<TAdsbdb> => {
 			if (!state.sort_by) {
 				return state._current_flights.sort((a, b) => {
@@ -54,7 +55,6 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 						const callsign_a = a.callsign || 'z';
 						const callsign_b = b.callsign || 'z';
 						if (state.sort_asc) {
-
 							return callsign_a >= callsign_b ? 1 : -1;
 						} else {
 							return callsign_a >= callsign_b ? -1 : 1;
@@ -64,25 +64,6 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 			}
 		},
 
-		// } else if (state.sort_by === 'aircraft') {
-		// 	return state._current_flights.sort((a, b) => {
-		// 		return a.aircraft.icao_type > b.aircraft.icao_type ? 1 : 0;
-		// 		// ) {
-		// 		// 	return -1; // Name A should come before Name B
-		// 		// }
-		// 		// if (a.aircraft.icao_type > b.aircraft.icao_type) {
-		// 		// 	return 1; // Name B should come before Name A
-		// 		// }
-		// 		// return 0; // Names are equal
-		// 	});
-		// 	// } else if (state.sort_by === 'altitude') {
-		// 	// 	return state._current_flights.sort((a, b) => a.aircraft.altitude > b.aircraft.altitude);
-		// 	// } else if (state.sort_by === 'owner') {
-		// 	// 	return state._current_flights.sort((a, b) => a.aircraft.owner > b.aircraft.owner);
-		// }
-		// // return state._current_flights.sort((a, b) => a.aircraft.callsign > b.aircraft.callsign);
-		// },
-
 		number_current_flights (): number {
 			return this.current_flights.length;
 		},
@@ -91,6 +72,7 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 	actions: {
 		set_current_flights (a: Array<TAdsbdb>): void {
 			this._current_flights = a;
+			this.unsorted_flights = [ ...a ];
 		},
 
 		set_init (b: boolean): void {
@@ -107,6 +89,12 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 
 		set_sort_asc (b: boolean) {
 			this.sort_asc = b;
+		},
+
+		reset_sort () {
+			this.sort_by = undefined;
+			this.sort_asc = true;
+			this._current_flights = [ ...this.unsorted_flights ];
 		}
 	}
 
