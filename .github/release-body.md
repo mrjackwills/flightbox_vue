@@ -1,11 +1,14 @@
-### 2023-11-17
+### 2023-12-30
 
 ### Chores
-+ GitHub workflow updated, [939880a5b55abb3738cb0dd5f71445aa57de9010]
-+ dependencies updated, [1b262493c78e7ea54a0c682ba3eab07df392748a], [0c5dbd9c1df32bd54ca63edaf4187eeb82342e3c], [89b41a506567ddc1a72d8ad22b6c08c1f639f063]
-+ .devcontainer updated, [c7a27c3b198984f91c74ee75e62cce3bca211fcb], [a32cc23b6c7e1966818d550bc11e0edfc276eb94]
++ autoimport, [77fc16f8e3a12222d82bbba257981f95240d2802]
++ .devcontainer updated, [03424be3dcf99b50874f1e3be30966332ce14aa4]
++ dependencies updated, [7cbf06cdd159f9746eaa0aa1d8a4ce0742d59c53], [f822a0f549663e82c5c9f27ef10a02ec2c1ae6aa] 
 
-### Refactors
-+ AircraftRow watch method, [d36d84748a21b1b82a408468621595602e1611c3]
+### Features
++ Data table sort & reset, [79446754587ae9e3c26944a6738e38635fcb31bd]
+
+### Fixes
++ update countdown from 30 to 60 seconds, [fe68b0154876fa8a88f7b09a6aab448139f46f8b]
 
 see <a href='https://github.com/mrjackwills/flightbox_vue/blob/main/CHANGELOG.md'>CHANGELOG.md</a> for more details

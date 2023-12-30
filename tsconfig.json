@@ -1,6 +1,8 @@
 {
 	"compilerOptions": {
 		"baseUrl": ".",
+		"composite": true,
+		"types": ["node", "vite-plugin-pwa/client"],
 		"target": "ESNext",
 		"useDefineForClassFields": true,
 		"module": "ESNext",
@@ -21,9 +23,8 @@
 		}
 	},
 	"extends": "@vue/tsconfig/tsconfig.dom.json",
-	"types": ["node", "vite-plugin-pwa/client", "vuetify", ],
+	"types": ["vite-plugin-pwa/client", "vuetify", ],
 	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-	"references": [{ "path": "./tsconfig.config.json" }],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules"],
 }
 

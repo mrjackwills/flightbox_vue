@@ -59,6 +59,8 @@ export type TFlightRoute = {
 
 export type TAdsbdb = TAircraftAltitude & { flightroute?: TFlightRoute }
 
+export type TSortBy = 'altitude' | 'aircraft' | 'owner' | 'callsign'
+
 export type TFlights = { current_flights: Array<TAdsbdb> }
 
 export type TFlightRouteRow = { [ K in 'icao' | 'iata' |'name' |'country_name' | 'municipality']: string }

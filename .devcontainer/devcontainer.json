@@ -24,6 +24,7 @@
 				"bungcip.better-toml",
 				"christian-kohler.path-intellisense",
 				"dbaeumer.vscode-eslint",
+				"foxundermoon.shell-format",
 				"meganrogge.template-string-converter",
 				"mutantdino.resourcemonitor",
 				"timonwong.shellcheck",
