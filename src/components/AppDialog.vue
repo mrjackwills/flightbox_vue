@@ -2,13 +2,13 @@
 	<v-dialog
 		:max-width='maxWidth'
 		v-model='visible'
-		overlay-opacity='1'
+		opacity='.55'
 		scroll-strategy='close'
 		width='100%'
 		eager
 	>
 		<v-card v-intersect='onIntersect' color='grey-darken-3' class='elevation-0'>
-			<v-img :src='imgSrc' width='100%' max-height='80vh' contain class='mt-4'/>
+			<v-img :src='imgSrc' width='100%' :max-height='maxHeight' contain class='mt-1'/>
 			<v-row align='center' :justify='smAndDown?"center":"space-between"' class='pa-0 ma-0 grey-darken-3'  :class='titlePadding'>
 				<v-col cols='12' md='auto' class='ma-0 pa-0 white--text' :class='{titleSize, "text-center": mobile}'>
 					{{ title }}
@@ -43,6 +43,10 @@ const imgSrc = computed((): string => {
 });
 const maxWidth = computed(() => {
 	return mobile.value ? '95vw': '65vw';
+});
+
+const maxHeight = computed(() => {
+	return mobile.value ? '80vh': '50vh';
 });
 const title = computed(() => {
 	return dialogStore.title ?? 'warning';
