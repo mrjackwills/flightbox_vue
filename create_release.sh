@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# Vue release
-# v0.2.0
-
-PACKAGE_NAME='flightbox_vue_site'
+# release_vue v0.2.5
 
 # Colours for echo
 RED='\033[0;31m'
@@ -11,7 +8,6 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 PURPLE='\033[0;35m'
 RESET='\033[0m'
-
 
 STAR_LINE='****************************************'
 CWD=$(pwd)
@@ -24,9 +20,9 @@ error_close() {
 	exit 1
 }
 
-if [ -z "$PACKAGE_NAME" ]
-then
-	error_close "No package name"
+# Check that dialog is installed
+if ! [ -x "$(command -v dialog)" ]; then
+	error_close "dialog is not installed"
 fi
 
 # $1 string - question to ask
@@ -34,10 +30,9 @@ ask_yn () {
 	printf "%b%s? [y/N]:%b " "${GREEN}" "$1" "${RESET}"
 }
 
-ask_continue () {
+ask_continue() {
 	ask_yn "continue"
-	if [[ ! "$(user_input)" =~ ^y$ ]] 
-	then 
+	if [[ ! "$(user_input)" =~ ^y$ ]]; then
 		exit
 	fi
 }
@@ -48,55 +43,47 @@ user_input() {
 	echo "$data"
 }
 
-update_major () {
+# semver major update
+update_major() {
 	local bumped_major
 	bumped_major=$((MAJOR + 1))
 	echo "${bumped_major}.0.0"
 }
 
-update_minor () {
+# semver minor update
+update_minor() {
 	local bumped_minor
 	bumped_minor=$((MINOR + 1))
+	MINOR=bumped_minor
 	echo "${MAJOR}.${bumped_minor}.0"
 }
 
-update_patch () {
+# semver patch update
+update_patch() {
 	local bumped_patch
 	bumped_patch=$((PATCH + 1))
+	PATCH=bumped_patch
 	echo "${MAJOR}.${MINOR}.${bumped_patch}"
 }
 
+# Get the url of the github repo, strip .git from the end of it
 get_git_remote_url() {
 	GIT_REPO_URL="$(git config --get remote.origin.url | sed 's/\.git$//')"
 }
 
+# Check currently on dev branch & git is clean
 check_git() {
 	CURRENT_GIT_BRANCH=$(git branch --show-current)
 	GIT_CLEAN=$(git status --porcelain)
-	if [[ -n $GIT_CLEAN ]]
-	then
+	if [[ -n $GIT_CLEAN ]]; then
 		error_close "git dirty"
 	fi
-	if [[ ! "$CURRENT_GIT_BRANCH" =~ ^dev$ ]]
-	then
+	if [[ ! "$CURRENT_GIT_BRANCH" =~ ^dev$ ]]; then
 		error_close "not on dev branch"
 	fi
 }
 
-check_git_update() {
-	CURRENT_GIT_BRANCH=$(git branch --show-current)
-	GIT_CLEAN=$(git status --porcelain)
-	if [[ -n $GIT_CLEAN ]]
-	then
-		error_close "git dirty"
-	fi
-	if [[ ! "$CURRENT_GIT_BRANCH" =~ ^chore/npm_update$ ]]
-	then
-		error_close "not on chore/npm_update branch"
-	fi
-}
-
-
+# Ask user if current changelog is acceptable
 ask_changelog_update() {
 	echo "${STAR_LINE}"
 	RELEASE_BODY_TEXT=$(sed '/# <a href=/Q' CHANGELOG.md)
@@ -203,7 +190,6 @@ npm_build () {
 release_continue () {
 	echo -e "\n${PURPLE}$1${RESET}"
 	ask_continue
-
 }
 
 # Check repository for typos
@@ -248,6 +234,9 @@ release_flow() {
 	release_continue "git checkout main"
 	git checkout main
 
+	echo -e "${PURPLE}git pull origin main${RESET}"
+	git pull origin main
+	
 	release_continue "git merge --no-ff \"${RELEASE_BRANCH}\" -m \"chore: merge ${RELEASE_BRANCH} into main\"" 
 	git merge --no-ff "$RELEASE_BRANCH" -m "chore: merge ${RELEASE_BRANCH} into main"
 
