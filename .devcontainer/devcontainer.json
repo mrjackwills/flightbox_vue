@@ -3,23 +3,19 @@
 {
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"name": "Node.js & TypeScript",
-	"runArgs": ["--init"],
+	"runArgs": [
+		"--init"
+	],
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
-
 	"mounts": [
 		"source=/etc/localtime,target=/etc/localtime,type=bind,readonly"
 	],
-
-	// Set *default* container specific settings.json values on container create.
-	// Add the IDs of extensions you want installed when the container is created.
-
 	"postCreateCommand": "TYPOS_V=$(curl -s 'https://api.github.com/repos/crate-ci/typos/releases/latest' | grep '\"tag_name\":' | sed -E 's/.*\"([^\"]+)\".*/\\1/') && mkdir /tmp/typos && wget \"https://github.com/crate-ci/typos/releases/download/$TYPOS_V/typos-$TYPOS_V-x86_64-unknown-linux-musl.tar.gz\" -O \"/tmp/typos-$TYPOS_V-x86_64-unknown-linux-musl.tar.gz\" && tar -xvf \"/tmp/typos-$TYPOS_V-x86_64-unknown-linux-musl.tar.gz\" -C /tmp/typos && install -Dm 755 /tmp/typos/typos -t \"${HOME}/.local/bin\" && rm -rf /tmp/typos",
-	
 	"customizations": {
 		"vscode": {
-				// Add the IDs of extensions you want installed when the container is created.
+			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"bungcip.better-toml",
 				"christian-kohler.path-intellisense",
@@ -36,12 +32,10 @@
 			]
 		}
 	},
-
-
 	"remoteUser": "node",
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {
-				"version":"os-provided"
-			}
+			"version": "os-provided"
+		}
 	}
 }
