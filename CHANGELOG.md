@@ -1,9 +1,12 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.8'>v0.1.8</a>
+### 2024-02-12
+
 ### CHores
-+ create_release bump, [1dd3b530e4387b2cfc8c540fa8323464516f846a]
-+ .gitattributes updated, [578e44b7c85fab56732388051c254e337b4b8cd9]
++ create_release bump, [1dd3b530](https://github.com/mrjackwills/flightbox_vue/commit/1dd3b530e4387b2cfc8c540fa8323464516f846a)
++ .gitattributes updated, [578e44b7](https://github.com/mrjackwills/flightbox_vue/commit/578e44b7c85fab56732388051c254e337b4b8cd9)
 
 ### Fixes
-+ dialog opacity & height, [460ab454b8560909d64b00a58550e85401407cfb]
++ dialog opacity & height, [460ab454](https://github.com/mrjackwills/flightbox_vue/commit/460ab454b8560909d64b00a58550e85401407cfb)
 
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.7'>v0.1.7</a>
 ### 2023-12-30
