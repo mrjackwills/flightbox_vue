@@ -1,11 +1,14 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.9'>v0.1.9</a>
+### 2024-04-01
+
 ### Chores
-+ dependencies updated, [e872a321be50190c1e61045c391f73284743c84c], [7ec71551d3347fbadb2667595f8dc7bf1cf6eaa5] 
++ dependencies updated, [e872a321](https://github.com/mrjackwills/flightbox_vue/commit/e872a321be50190c1e61045c391f73284743c84c), [7ec71551](https://github.com/mrjackwills/flightbox_vue/commit/7ec71551d3347fbadb2667595f8dc7bf1cf6eaa5) 
 
 ### Fixes
-+ sort by methods not in computed, [95c7af62d0e57b369ec9cc4723d743b4bf3d6aff]
++ sort by methods not in computed, [95c7af62](https://github.com/mrjackwills/flightbox_vue/commit/95c7af62d0e57b369ec9cc4723d743b4bf3d6aff)
 
 ### Refactors
-+ dead code removed, [818b0f3315dd3f0bc325dcbed757c01096a19cf0]
++ dead code removed, [818b0f33](https://github.com/mrjackwills/flightbox_vue/commit/818b0f3315dd3f0bc325dcbed757c01096a19cf0)
 
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.8'>v0.1.8</a>
 ### 2024-02-12
