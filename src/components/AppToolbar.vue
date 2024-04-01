@@ -54,7 +54,7 @@ const authenticated = computed(() => {
 	return userStore.authenticated;
 });
 const icon = computed(() => {
-	return online ? mdiWifiArrowUpDown : mdiWifiStrengthAlertOutline ;
+	return online.value ? mdiWifiArrowUpDown : mdiWifiStrengthAlertOutline ;
 });
 const init = computed(() => {
 	return flightboxStatusStore.init;
