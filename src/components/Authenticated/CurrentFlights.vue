@@ -63,10 +63,6 @@ onMounted(() => {
 	sort_local();
 });
 
-// onMounted(() => {
-// 	local
-// })
-
 const init = computed((): boolean => {
 	return aircraftStore.init;
 });
