@@ -93,7 +93,6 @@ const sort_by = computed({
 		return aircraftStore.sort_by;
 	},
 	set (b: u<TSortBy>): void {
-		// return;
 		aircraftStore.set_sort_by(b);
 	}
 });
