@@ -1,12 +1,11 @@
-### 2024-04-01
+### 2024-05-06
 
 ### Chores
-+ dependencies updated, [e872a321be50190c1e61045c391f73284743c84c], [7ec71551d3347fbadb2667595f8dc7bf1cf6eaa5] 
++ dependencies updated, [be7071254356b885f347ac364350145d929c0e35]
++ .devcontainer dependencies updated, [1d6fbb4afd5f892f65b3702c23b71df91015f66f]
 
 ### Fixes
-+ sort by methods not in computed, [95c7af62d0e57b369ec9cc4723d743b4bf3d6aff]
-
-### Refactors
-+ dead code removed, [818b0f3315dd3f0bc325dcbed757c01096a19cf0]
++ footer & snackbar margins, [9a6430660bd7835b65dfc0c178b1eef39e8f744d]
++ add host to vite.config.ts, [7de6797814819e3db6a0a47bc04a39734ca789f3]
 
 see <a href='https://github.com/mrjackwills/flightbox_vue/blob/main/CHANGELOG.md'>CHANGELOG.md</a> for more details
