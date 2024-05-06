@@ -1,3 +1,14 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.10'>v0.1.10</a>
+### 2024-05-06
+
+### Chores
++ dependencies updated, [be707125](https://github.com/mrjackwills/flightbox_vue/commit/be7071254356b885f347ac364350145d929c0e35)
++ .devcontainer dependencies updated, [1d6fbb4a](https://github.com/mrjackwills/flightbox_vue/commit/1d6fbb4afd5f892f65b3702c23b71df91015f66f)
+
+### Fixes
++ footer & snackbar margins, [9a643066](https://github.com/mrjackwills/flightbox_vue/commit/9a6430660bd7835b65dfc0c178b1eef39e8f744d)
++ add host to vite.config.ts, [7de67978](https://github.com/mrjackwills/flightbox_vue/commit/7de6797814819e3db6a0a47bc04a39734ca789f3)
+
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.1.9'>v0.1.9</a>
 ### 2024-04-01
 

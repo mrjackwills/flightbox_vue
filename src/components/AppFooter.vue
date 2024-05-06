@@ -4,8 +4,9 @@
 		color='transparent'
 		app
 		absolute
+		class='ma-0 pa-0 py-1'
 	>
-		<v-row justify='center' align='center' class='no-gutters ma-0 pa-0 mt-n9 pt-9' >
+		<v-row justify='center' align='center' class='no-gutters ma-0 pa-0' >
 
 			<v-col cols='auto' class='no-gutters unselectable ma-0 pa-0'>
 				

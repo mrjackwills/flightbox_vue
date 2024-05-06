@@ -20,9 +20,9 @@
 			</v-container>
 		
 		</v-main>
+		<AppFooter />
 		<AppDialog />
 		<AppSnackbar />
-		<AppFooter />
 	</v-app>
 </template>
 
