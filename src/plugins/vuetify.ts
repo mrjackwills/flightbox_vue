@@ -14,7 +14,7 @@ export default createVuetify({
 	},
 	
 	theme: {
-		cspNonce: 'VUuEVJK2uSQci2yyZ9Rki9CZ7dac5meC',
+		cspNonce: document.querySelector<HTMLMetaElement>('meta[property=csp-nonce]')?.nonce,
 		themes: {
 			light: {
 				colors: {
