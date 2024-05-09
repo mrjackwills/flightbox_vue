@@ -90,7 +90,6 @@ export default defineConfig(({ mode }) => {
 				vueTemplate: false,
 			}),
 			VitePWA(pwaOptions),
-			// Handle this in nginx, else ignore index.html file, for nonce issues
 			viteCompression({ algorithm: 'brotliCompress', filter: /\.(js|mjs|json|css)$/i }),
 			viteCompression({ algorithm: 'gzip', filter: /\.(js|mjs|json|css)$/i }),
 		],
