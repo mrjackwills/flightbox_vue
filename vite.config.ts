@@ -53,7 +53,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
 	// 	navigateFallback: 'index.html',
 	// },
 };
-  
+
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
@@ -74,7 +74,7 @@ export default defineConfig({
 			imports: [
 				'vue',
 				'vue-router',
-				
+
 			],
 			dts: 'src/auto-imports.d.ts',
 			eslintrc: {
@@ -86,10 +86,11 @@ export default defineConfig({
 			vueTemplate: false,
 		}),
 		VitePWA(pwaOptions),
-		viteCompression({ algorithm: 'brotliCompress' }),
-		viteCompression({ algorithm: 'gzip' }),
+		viteCompression({ algorithm: 'brotliCompress', filter: /\.(js|mjs|json|css)$/i }),
+		viteCompression({ algorithm: 'gzip', filter: /\.(js|mjs|json|css)$/i }),
 	],
-	define: { 'process.env': {},
+	define: {
+		'process.env': {},
 		'import.meta.env.BUILD_DATE': Date.now(),
 		'import.meta.env.VERSION': JSON.stringify(process.env.npm_package_version),
 	},

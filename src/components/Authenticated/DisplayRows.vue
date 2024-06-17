@@ -1,5 +1,5 @@
 <template>
-	<v-col cols='12' class='text-center white--text text--body-1 mono-numbers'>
+	<v-col cols='12' class='text-center text-white text--body-1 mono-numbers'>
 
 		<section v-for='(row, index) in toDisplay' :key='index'>
 
@@ -16,14 +16,14 @@
 					<v-row justify='space-between' align='center' no-gutters>
 
 						<v-col cols='auto' class='ma-0 pa-0'>
-							<v-icon dense color='white' class='mr-1' :size='mobile ? `x-small`:`default`' :icon='item.icon' />
-							<span class='black--text unselectable' :class='{"small-text": mobile}'>{{ item.text }}:</span>
+							<v-icon dense color='primary' class='mr-1' :size='mobile ? `x-small`:`default`' :icon='item.icon' />
+							<span class='text-white unselectable' :class='{"small-text": mobile}'>{{ item.text }}:</span>
 						</v-col>
 
 						<v-col cols='auto' class='ma-0 pa-0' :class='{"mr-1" : rowIndex === 0 && mdAndUp, "cl": item.copy}' >
 							
 							<section v-if='item.copy'>
-								<v-row  class='black--text mono-numbers ma-0 pa-0' :class='{"small-text": mobile}' @click='toCopy(item.value)' align='center' justify='space-between'>
+								<v-row  class='text-white mono-numbers ma-0 pa-0' :class='{"small-text": mobile}' @click='toCopy(item.value)' align='center' justify='space-between'>
 									<v-col class='ma-0 pa-0' cols='auto'>
 										{{ item.value }}
 									</v-col>
@@ -36,7 +36,7 @@
 									<span>copied to clipboard</span>
 								</v-tooltip>
 							</section>
-							<span v-else class='black--text mono-numbers unselectable' :class='{"small-text": mobile}'>
+							<span v-else class='text-white mono-numbers unselectable' :class='{"small-text": mobile}'>
 								{{ item.value }} <span class='text-danger' v-if='!online'>[ cached ]</span>
 							</span>
 						</v-col>

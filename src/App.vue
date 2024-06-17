@@ -1,25 +1,21 @@
 <template>
 	<v-app class='ma-0 pa-0' id='flightbox'>
-		<v-main>
-			
-			<v-container class='fill-height' fluid >
+		<AppToolbar />
+		
+		<v-container class='ma-0 pa-0 fill-height' fluid >
+			<v-main>
 				<v-row
-					class='fill-height'
 					align='center'
 					justify='center'
+					class='ma-0 pa-0'
 				>
-					<v-col cols='11' no-gutters class='ma-0 pa-0'>
-						<v-card transition='fade-transition' class='elevation-0 ma-0 pa-0 mb-3' color='grey-darken-4' id='main_card'>
-							<AppToolbar />
-							<v-card-text >
-								<router-view  />
-							</v-card-text>
-						</v-card>
+					<v-col cols='11' md='12' no-gutters class='ma-0 pa-0 '>
+						<router-view  />
 					</v-col>
 				</v-row>
-			</v-container>
+			</v-main>
+		</v-container>
 		
-		</v-main>
 		<AppFooter />
 		<AppDialog />
 		<AppSnackbar />
@@ -94,12 +90,11 @@ onMounted(() => {
 
 <style>
 
-#main_card {
-	border-radius: 1rem;
-}
-
 .tooltip {
 	background: rgba(0,0,0,.75)!important;
 }
 
+#flightbox {
+	background-color: #212121;
+}
 </style>
