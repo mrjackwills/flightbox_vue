@@ -2,14 +2,14 @@
 	<v-row class='ma-0 pa-0 flightroutebox bg-black' align='center' justify='center'>
 
 		<v-col v-for='(item, index) in flightrouteRow' :key='index' class='ma-0 pa-0 grey-darken-2' cols='12' xl='10'  :class='{"small-text": mobile, "pt-1" : index}' >
-			<v-row class='ma-0 pa-0 py-1 pl-2' justify='start' :class='`text-${color(index)}`' align='center'>
+			<v-row class='ma-0 pa-0 pl-2' justify='start' :class='`text-${color(index)}`' align='center'>
 
 				<v-col cols='4' sm='2' class='ma-0 pa-0'>
 
 					<v-row class='ma-0 pa-0'  justify='start' align='center' >
 						<v-col cols='auto' class='ma-0 pa-0 mr-1'>
 							<v-icon
-								:size='mobile?"x-small":"small"'
+								size='x-small'
 								:color='color(index)' :icon='index === 0 ? mdiAirplaneTakeoff : mdiAirplaneLanding' />
 						</v-col>
 
@@ -25,13 +25,10 @@
 
 				</v-col>
 
-				<v-col cols='auto' class='ma-0 pa-0 px-4'>
+				<v-col md='auto'  class='ma-0 pa-0 font-weight-bold'>
 					<a :href='mapHref(index)' target='_blank' rel='noopener noreferrer'>
-						<v-icon :size='mobile?"x-small":"small"' :color='color(index)' :icon='mdiMapSearch'/>
+						<v-icon size='x-small' :color='color(index)' :icon='mdiMapSearch'/>
 					</a>
-				</v-col>
-
-				<v-col cols='12' md='auto'  class='ma-0 pa-0 font-weight-bold'>
 					{{ item.name }}, {{ item.municipality }}, {{ item.country_name }}
 				</v-col>
 

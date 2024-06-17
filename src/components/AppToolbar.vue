@@ -1,9 +1,9 @@
 <template>
-	<!-- color='grey-darken-3' -->
 	<v-toolbar
 		:height='toolbarHeight'
 		color='grey-darken-3'
 		id='toolbar'
+		app
 		dark
 		flat
 	>
@@ -12,10 +12,12 @@
 		<v-row align='center' justify='start' no-gutters class='pa-0 ma-0'>
 			<v-col cols='auto' class='unselectable ml-2' >
 				<span class='text-h4 white--text'>flightbox</span>
+				
 			</v-col>
 		</v-row>
 
 		<section v-if='authenticated && init'>
+			<span v-if='overhead > 0' class='mr-4'>{{ overhead }} overhead</span>
 
 			<v-icon
 				color='white'
@@ -50,6 +52,10 @@ const progressHeight = computed(() => {
 	return mobile.value ? '8' : '4';
 });
 
+const overhead = computed(() =>{
+	return aircraftModule().number_current_flights;
+});
+
 const authenticated = computed(() => {
 	return userStore.authenticated;
 });
@@ -73,9 +79,3 @@ const toolbarHeight = computed(() => {
 });
 
 </script>
-
-<style scoped>
-#toolbar {
-	border-radius: .80rem .80rem 0 0;
-}
-</style>

@@ -10,7 +10,7 @@
 		</v-row>
 		
 		<section v-else>
-			<v-row class='ma-0 pa-0' justify='center' align='center' v-if='init && flightInit && online'>
+			<v-row class='ma-0 pa-0 ' justify='center' align='center' v-if='init && flightInit && online'>
 				<v-col cols='12' class='ma-0 pa-0'>
 					<v-row align='center' justify='center' class='ma-0 pa-0'>
 						<v-col cols='12' lg='11' class='ma-0 pa-0'>
@@ -38,7 +38,7 @@
 										<v-col cols='auto' class='ma-0 pa-0'>
 											<v-switch density='compact' flat color='primary' v-model='metric' />
 										</v-col>
-										<v-col cols='auto' class='ml-2 mt-n5 font-weight-bold ma-0 pa-0 text-uppercase unselectable' :class='{"text-primary":metric, "small-text": smAndDown}' >
+										<v-col cols='auto' class='ml-2 mt-n5 font-weight-bold ma-0 pa-0 text-uppercase unselectable text-white' :class='{"text-primary":metric, "small-text": smAndDown}' >
 											metric
 										</v-col>
 									</v-row>

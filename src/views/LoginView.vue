@@ -1,44 +1,44 @@
 <template>
 	<section>
-		<v-card-text>
-			<v-row align='center' justify='center' class='ma-0 pa-0'>
-				<v-col cols='12' md='9' lg='6' class='ma-0 pa-0'>
-					<v-form
-						v-on:submit.prevent
-						method='post'
-					>
-						<v-text-field
-							v-model='password'
-							@click:append-inner='appendClick'
-							@keydown.enter='login'
-							:append-inner-icon='appendIcon'
-							:disabled='loading'
-							:prepend-inner-icon='mdiLock'
-							:type='fieldType'
-							autocomplete='password'
-							id='password'
-							label='password'
-						/>
-					</v-form>
-				</v-col>
-			</v-row>
-		</v-card-text>
-		<v-card-actions>
-			<v-row align='center' justify='center' class='ma-0 pa-0'>
-				<v-col cols='auto' class='ma-0 pa-0'>
-					<v-btn
-						@click='login'
-						:disabled='buttonDisabled'
-						:variant='buttonDisabled ?"outlined":"flat"'
-						color='primary'
-						rounded
-					>
-						login
+		<v-row align='center' justify='center' class='ma-0 pa-0'>
+			<v-col cols='12' md='9' lg='6' class='ma-0 pa-0'>
+				<v-form
+					v-on:submit.prevent
+					method='post'
+				>
+					<v-text-field
+						v-model='password'
+						@click:append-inner='appendClick'
+						@keydown.enter='login'
+						:append-inner-icon='appendIcon'
+						:disabled='loading'
+						:prepend-inner-icon='mdiLock'
+						:type='fieldType'
+						autocomplete='password'
+						id='password'
+						label='password'
+						variant='outlined'
+						color='white'
+						bg-color='grey-darken-3'
+					/>
+				</v-form>
+			</v-col>
+		</v-row>
+		<v-row align='center' justify='center' class='ma-0 pa-0'>
+			<v-col cols='auto' class='ma-0 pa-0'>
+				<v-btn
+					@click='login'
+					color='primary'
+					dark
+					:disabled='buttonDisabled'
+					:variant='buttonDisabled ?"outlined":"flat"'
+					rounded
+				>
+					login
 				
-					</v-btn>
-				</v-col>
-			</v-row>
-		</v-card-actions>
+				</v-btn>
+			</v-col>
+		</v-row>
 	</section>
 </template>
 
@@ -62,10 +62,10 @@ const fieldType = computed((): string => {
 	return passwordVisible.value ? 'text' : 'password';
 });
 const loading = computed({
-	get: function (): boolean {
+	get (): boolean {
 		return loadingStore.loading;
 	},
-	set: function (b: boolean): void {
+	set (b: boolean): void {
 		loadingStore.set_loading(b);
 	}
 });

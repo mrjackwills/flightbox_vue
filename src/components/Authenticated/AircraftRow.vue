@@ -1,7 +1,7 @@
 <template>
-	<v-row class='ma-0 pa-0 font-weight-bold text-grey-lighten-3' justify='center' align='center' >
+	<v-row class='ma-0 pa-0 text-grey-lighten-3' justify='center' align='center' >
 		<v-col cols='12' class='ma-0 pa-0 '>
-			<v-row class='ma-0 pa-0 font-weight-bold all-rows' :class='backgroundColor' justify='space-between' align='center' >
+			<v-row class='ma-0 pa-0  all-rows' :class='backgroundColor' justify='space-between' align='center' >
 				<v-col cols='3' class='ma-0 pa-0'  :class='{"small-text":mobile}'>
 
 					<v-row class='ma-0 pa-0' align='center' justify='start'>
@@ -9,12 +9,12 @@
 						<template v-if='flight.flightroute'>
 							<v-col cols='auto' class='ma-0 pa-0 mr-1'>
 								<a :href='href' target='_blank' rel='noopener noreferrer' v-if='flight.flightroute'>
-									<v-icon :size='mobile?"x-small":"small"' color='grey-lighten-4' class='mx-1' :icon='mdiOpenInNew' />
+									<v-icon size='x-small' color='grey-lighten-4' class='mx-1' :icon='mdiOpenInNew' />
 								</a>
 							</v-col>
 				
 							<v-col cols='auto' class='ma-0 pa-0'>
-								<v-icon class='fab-fix cl' @click='toggleCallsign' :size='mobile?"x-small":"default"' :color='callsignArrowColor' :icon='callsignArrowDirection' />
+								<v-icon class='fab-fix cl' @click='toggleCallsign' size='x-small' :color='callsignArrowColor' :icon='callsignArrowDirection' />
 							</v-col>
 
 							<v-col cols='12' md='auto' class='ma-0 pa-0 ml-1'>
@@ -39,7 +39,7 @@
 						</v-tooltip>
 
 						<v-col cols='auto' class='ma-0 pa-0'  :class='{"cl": flight.aircraft.url_photo}' @click='setPhotoUrl'>
-							<v-icon color='grey-lighten-4' class='mr-1' v-if='flight.aircraft.url_photo' :size='mobile?"x-small":"small"' :icon='mdiCamera' />
+							<v-icon color='grey-lighten-4' class='mr-1' v-if='flight.aircraft.url_photo' size='x-small' :icon='mdiCamera' />
 							{{ flight.aircraft.manufacturer }} {{ flight.aircraft.type }}
 						</v-col>
 
@@ -82,6 +82,7 @@ const mobile_platform = ref(false);
 
 const backgroundColor = computed(() :string => {
 	return `bg-grey-darken-${props.index % 2 === 0 ? '3' : '4'}`;
+
 });
 
 const callsignArrowDirection = computed((): string => {
@@ -108,9 +109,11 @@ const calcAltitude = computed((): string => {
 	if (!altitude) return '';
 	return metric.value? `${(altitude * 0.3048).toFixed(1) }m` : `${altitude}ft`;
 });
+
 const callsign = computed((): boolean => {
 	return !!props.flight.flightroute;
 });
+
 const href = computed((): string => {
 	if (!props.flight.callsign) return '';
 	return `https://www.flightradar24.com/${props.flight.callsign}`;
@@ -146,7 +149,7 @@ watch(callsign, (i) => {
 });
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 
 .all-rows{
 	min-height: 2rem;
