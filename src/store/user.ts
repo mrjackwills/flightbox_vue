@@ -4,7 +4,7 @@ import { dialogModule } from './dialog';
 import { flightboxStatusModule } from './flightboxStatus';
 import { loadingModule } from './loading';
 import { ModuleName } from '@/types/enum_module';
-import { snackError } from '@/services/snack';
+import { snackError, snackReset } from '@/services/snack';
 import { websocketModule } from './websocket';
 // import { useRoute, useRouter } from 'vue-router';
 import { getActivePinia } from 'pinia';
@@ -24,7 +24,10 @@ export const userModule = defineStore(ModuleName.USER, {
 			aircraftModule().$reset();
 			websocketModule().closeWS();
 			dialogModule().$reset();
-			if (message) snackError({ message });
+			if (message) {
+				snackReset();
+				snackError({ message });
+			}
 			getActivePinia()?.router().push(FrontendRoutes.LOGIN);
 		},
 		

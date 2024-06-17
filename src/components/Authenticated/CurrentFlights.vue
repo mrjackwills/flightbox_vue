@@ -176,16 +176,13 @@ const sort_local = (): void => {
 };
 
 watch(sort_asc, (_) => {
-	// handle the sort in here
 	sort_local();
 });
 watch(sort_by, (_) => {
-	// handle the sort in here
 	sort_local();
 });
 
 watch(current_flights, (i) => {
-	// handle the sort in here
 	local_current_flights.value = [ ...i ];
 	sort_local();
 });

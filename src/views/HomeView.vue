@@ -193,11 +193,12 @@ const initCheck = (): void => {
 			loading.value = false;
 		}
 		else if (initCount.value < 4) {
+			snackError({ message: 'No message received, retrying' });
 			send_status_and_flights();
 			initCheck();
 		}
 		else userStore.logout('unable to contact flightbox');
-	}, 10000);
+	}, 8500);
 };
 
 const refresh = () :void => {
