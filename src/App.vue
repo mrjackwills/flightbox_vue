@@ -2,7 +2,7 @@
 	<v-app class='ma-0 pa-0' id='flightbox'>
 		<AppToolbar />
 		
-		<v-container class='ma-0 pa-0' :class='authenticated?"": "fill-height"' fluid >
+		<v-container class='ma-0 pa-0' :class='authenticated && init?"": "fill-height"' fluid >
 			<v-main>
 				<v-row
 					align='center'
@@ -50,6 +50,10 @@ const logoutTimeout = ref(0);
 
 const authenticated = computed(() => {
 	return userStore.authenticated;
+});
+
+const init = computed(() => {
+	return aircraftModule().init;
 });
 
 useHead({
