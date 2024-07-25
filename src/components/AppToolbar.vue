@@ -17,8 +17,6 @@
 		</v-row>
 
 		<section v-if='authenticated && init'>
-			<span v-if='overhead > 0' class='mr-4'>{{ overhead }} overhead</span>
-
 			<v-icon
 				color='white'
 				class='mr-4'
@@ -50,10 +48,6 @@ const [ flightboxStatusStore, loadingStore, userStore ] = [ flightboxStatusModul
 
 const progressHeight = computed(() => {
 	return mobile.value ? '8' : '4';
-});
-
-const overhead = computed(() =>{
-	return aircraftModule().number_current_flights;
 });
 
 const authenticated = computed(() => {
