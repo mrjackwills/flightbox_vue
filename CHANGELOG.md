@@ -1,3 +1,12 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.2.1'>v0.2.1</a>
+### 2024-07-25
+
+### Chores
++ dependencies updated, [f6b920c1](https://github.com/mrjackwills/flightbox_vue/commit/f6b920c1aac33b8082a22466f3cf513fc89214fa), [3f1a4609](https://github.com/mrjackwills/flightbox_vue/commit/3f1a4609f09a8ae0d9e201f9b293f15f186dd7b1)
+
+### Fixes
++ fill-height when !authenticated & !init, [eb493f53](https://github.com/mrjackwills/flightbox_vue/commit/eb493f530b9ec0344ee7cbc4ecd3fc9226ca2950), [0f70844b](https://github.com/mrjackwills/flightbox_vue/commit/0f70844b800929bd8207a2181b0604536e47cac1)
+
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.2.0'>v0.2.0</a>
 ### 2024-06-17
 

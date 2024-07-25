@@ -2,7 +2,7 @@
 	<v-app class='ma-0 pa-0' id='flightbox'>
 		<AppToolbar />
 		
-		<v-container class='ma-0 pa-0 fill-height' fluid >
+		<v-container class='ma-0 pa-0' :class='authenticated && init?"": "fill-height"' fluid >
 			<v-main>
 				<v-row
 					align='center'
@@ -48,9 +48,17 @@ const [ aircraftStore, userStore ] = [ aircraftModule(), userModule() ];
 const isHidden = ref(false);
 const logoutTimeout = ref(0);
 
+const authenticated = computed(() => {
+	return userStore.authenticated;
+});
+
+const init = computed(() => {
+	return aircraftModule().init;
+});
+
 useHead({
 	title: () => {
-		if (userStore.authenticated && aircraftStore.init) {
+		if (authenticated.value && aircraftStore.init) {
 			return `flightbox - ${aircraftStore.number_current_flights} overhead`;
 		} else {
 			return `flightbox`;
