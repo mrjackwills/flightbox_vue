@@ -34,7 +34,7 @@
 
 			</v-expand-transition>
 			<v-row class='ma-0 pa-0' align='center' justify='center' v-if='!number_current_flights'>
-				<v-col cols='auto' class='ma-0 pa-0 text-h6 unselectable'>
+				<v-col cols='auto' class='ma-0 pa-0 text-h6 unselectable text-grey-lighten-3'>
 					no flights overhead
 				</v-col>
 			</v-row>
