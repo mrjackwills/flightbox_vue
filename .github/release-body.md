@@ -1,9 +1,13 @@
-### 2024-07-25
+### 2024-09-06
 
 ### Chores
-+ dependencies updated, [f6b920c1aac33b8082a22466f3cf513fc89214fa], [3f1a4609f09a8ae0d9e201f9b293f15f186dd7b1]
++ dependencies updated, [6ec2d8837681099be72f5ab5df69f0416706da6c], [a4d2ab3b216b5128a6f12f64ad214b285df8701d]
++ GitHub action dependency updated, [35445a802ae5b5a78a84694c5f4f339020c6e2a8]
+
+### Docs
++ screenshot updated, [a26139fb72058ef74519c859f720b3bb10b93e55], [361da9695c8a29f624f4bc83087c8ab63c8baa21]
 
 ### Fixes
-+ fill-height when !authenticated & !init, [eb493f530b9ec0344ee7cbc4ecd3fc9226ca2950], [0f70844b800929bd8207a2181b0604536e47cac1]
++ no flights text colour, [98e2ff53747672cb32f96f05591adc32cf9181fe]
 
 see <a href='https://github.com/mrjackwills/flightbox_vue/blob/main/CHANGELOG.md'>CHANGELOG.md</a> for more details
