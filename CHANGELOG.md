@@ -1,12 +1,15 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.2.2'>v0.2.2</a>
+### 2024-09-06
+
 ### Chores
-+ dependencies updated, [6ec2d8837681099be72f5ab5df69f0416706da6c], [a4d2ab3b216b5128a6f12f64ad214b285df8701d]
-+ GitHub action dependency updated, [35445a802ae5b5a78a84694c5f4f339020c6e2a8]
++ dependencies updated, [6ec2d883](https://github.com/mrjackwills/flightbox_vue/commit/6ec2d8837681099be72f5ab5df69f0416706da6c), [a4d2ab3b](https://github.com/mrjackwills/flightbox_vue/commit/a4d2ab3b216b5128a6f12f64ad214b285df8701d)
++ GitHub action dependency updated, [35445a80](https://github.com/mrjackwills/flightbox_vue/commit/35445a802ae5b5a78a84694c5f4f339020c6e2a8)
 
 ### Docs
-+ screenshot updated, [a26139fb72058ef74519c859f720b3bb10b93e55], [361da9695c8a29f624f4bc83087c8ab63c8baa21]
++ screenshot updated, [a26139fb](https://github.com/mrjackwills/flightbox_vue/commit/a26139fb72058ef74519c859f720b3bb10b93e55), [361da969](https://github.com/mrjackwills/flightbox_vue/commit/361da9695c8a29f624f4bc83087c8ab63c8baa21)
 
 ### Fixes
-+ no flights text colour, [98e2ff53747672cb32f96f05591adc32cf9181fe]
++ no flights text colour, [98e2ff53](https://github.com/mrjackwills/flightbox_vue/commit/98e2ff53747672cb32f96f05591adc32cf9181fe)
 
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.2.1'>v0.2.1</a>
 ### 2024-07-25
