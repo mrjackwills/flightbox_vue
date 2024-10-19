@@ -1,13 +1,11 @@
-### 2024-09-06
+### 2024-10-19
 
 ### Chores
-+ dependencies updated, [6ec2d8837681099be72f5ab5df69f0416706da6c], [a4d2ab3b216b5128a6f12f64ad214b285df8701d]
-+ GitHub action dependency updated, [35445a802ae5b5a78a84694c5f4f339020c6e2a8]
-
-### Docs
-+ screenshot updated, [a26139fb72058ef74519c859f720b3bb10b93e55], [361da9695c8a29f624f4bc83087c8ab63c8baa21]
++ create_release.sh, [a41a54539a0fbab769f1bc8700d597a8da0a7693]
++ .devcontainer updated, [813d360cc93dc1a4d31fe034ecb291f97bc6c2f2]
++ dependencies updated, [c4348f7f0d884fff635c186f50857858be28d041]
 
 ### Fixes
-+ no flights text colour, [98e2ff53747672cb32f96f05591adc32cf9181fe]
++ vite.config css, [8af95e4d4e06084ba859a3a88e22875da8013928]
 
 see <a href='https://github.com/mrjackwills/flightbox_vue/blob/main/CHANGELOG.md'>CHANGELOG.md</a> for more details
