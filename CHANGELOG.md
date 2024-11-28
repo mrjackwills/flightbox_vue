@@ -1,5 +1,8 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.2.4'>v0.2.4</a>
+### 2024-11-28
+
 ### Chores
-+ dependencies updated, [98e253b4dbc8a954c70ccd8ba3329d5f94622e49]
++ dependencies updated, [98e253b4](https://github.com/mrjackwills/flightbox_vue/commit/98e253b4dbc8a954c70ccd8ba3329d5f94622e49)
 
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.2.3'>v0.2.3</a>
 ### 2024-10-19
