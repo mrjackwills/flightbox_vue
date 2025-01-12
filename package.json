@@ -1,7 +1,7 @@
 {
   "name": "flightbox_vue",
   "description": "frontend site for flightbox service",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "private": false,
   "homepage": "https://github.com/mrjackwills/flightbox_vue",
   "license": "MIT",
@@ -43,5 +43,5 @@
     "vite-plugin-vuetify": "^2.0.4",
     "vue-tsc": "^2.2.0"
   },
-  "buildDate": "Thu 28 2024 November 16:39:27 GMT"
+  "buildDate": "Sun 12 2025 January 22:57:51 GMT"
 }
