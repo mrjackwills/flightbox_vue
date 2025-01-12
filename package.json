@@ -1,7 +1,7 @@
 {
   "name": "flightbox_vue",
   "description": "frontend site for flightbox service",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "private": false,
   "homepage": "https://github.com/mrjackwills/flightbox_vue",
   "license": "MIT",
@@ -15,33 +15,33 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@vueuse/core": "^12.0.0",
+    "@vueuse/core": "^12.4.0",
     "@vueuse/head": "^2.0.0",
-    "axios": "^1.7.8",
-    "pinia": "^2.2.8",
-    "secure-json-parse": "3.0.1",
+    "axios": "^1.7.9",
+    "pinia": "^2.3.0",
+    "secure-json-parse": "3.0.2",
     "vue": "3.5.13",
     "vue-router": "^4.5.0",
-    "vuetify": "^3.7.4"
+    "vuetify": "^3.7.6"
   },
   "devDependencies": {
     "@mdi/js": "^7.4.47",
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.10.5",
     "@types/secure-json-parse": "^1.0.5",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^8.57.0",
-    "eslint-plugin-vue": "^9.31.0",
-    "sass": "^1.81.0",
-    "typescript": "5.6.3",
-    "unplugin-auto-import": "^0.18.6",
-    "unplugin-vue-components": "^0.27.5",
-    "vite": "^5.4.9",
+    "eslint-plugin-vue": "^9.32.0",
+    "sass": "^1.83.1",
+    "typescript": "5.7.3",
+    "unplugin-auto-import": "^19.0.0",
+    "unplugin-vue-components": "^28.0.0",
+    "vite": "^6.0.7",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-pwa": "^0.21.0",
+    "vite-plugin-pwa": "^0.21.1",
     "vite-plugin-vuetify": "^2.0.4",
-    "vue-tsc": "^2.1.10"
+    "vue-tsc": "^2.2.0"
   },
-  "buildDate": "Thu 28 2024 November 16:39:27 GMT"
+  "buildDate": "Sun 12 2025 January 22:57:51 GMT"
 }
