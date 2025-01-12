@@ -1,3 +1,6 @@
+### Chores
++ dependencies updated, [f811b0248fa1d945776fab42f7ecb22f67ad2c13]
+
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.2.4'>v0.2.4</a>
 ### 2024-11-28
 
