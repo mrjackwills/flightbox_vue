@@ -62,7 +62,7 @@ const flightrouteRow = computed((): Array<TFlightRouteRow> => {
 			icao: props.flightroute.destination.icao_code,
 			iata: props.flightroute.destination.iata_code,
 			name: props.flightroute.destination.name,
-			country_name: props.flightroute.destination.name,
+			country_name: props.flightroute.destination.country_name,
 			municipality: props.flightroute.destination.municipality
 		}
 	];
