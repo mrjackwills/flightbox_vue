@@ -1,3 +1,9 @@
+### Chores
++ dependencies updated, [14324a5865118e970e346439f823f6e8d6c25d50]
+
+### Fixes
++ destination name > country_name, [a4315cade50dd990f09a990d86b8a6c8654d45a8]
+
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.2.5'>v0.2.5</a>
 ### 2025-01-12
 
