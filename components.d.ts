@@ -16,6 +16,7 @@ declare module 'vue' {
     AppToolbar: typeof import('./src/components/AppToolbar.vue')['default']
     CurrentFlights: typeof import('./src/components/Authenticated/CurrentFlights.vue')['default']
     DisplayRows: typeof import('./src/components/Authenticated/DisplayRows.vue')['default']
+    ExpandAll: typeof import('./src/components/Authenticated/ExpandAll.vue')['default']
     FlightRoute: typeof import('./src/components/Authenticated/FlightRoute.vue')['default']
     ForceUpdate: typeof import('./src/components/Authenticated/ForceUpdate.vue')['default']
     PiInfo: typeof import('./src/components/Authenticated/PiInfo.vue')['default']

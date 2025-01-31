@@ -63,7 +63,7 @@
 		</v-col>
 			
 		<v-expand-transition>
-			<v-col cols='12' class='ma-0 pa-0' v-if='showExtra && flight.flightroute'>
+			<v-col cols='12' class='ma-0 pa-0' v-if='expanded && flight.flightroute'>
 				<FlightRoute :flightroute='flight.flightroute' :fl_index='index' />
 			</v-col>
 		</v-expand-transition>
@@ -85,8 +85,12 @@ const backgroundColor = computed(() :string => {
 
 });
 
+const all_expanded = computed(() => {
+	return aircraftModule().all_expanded;
+});
+
 const callsignArrowDirection = computed((): string => {
-	return showExtra.value ? mdiArrowCollapse : mdiArrowExpand ;
+	return showExtra.value || all_expanded.value ? mdiArrowCollapse : mdiArrowExpand ;
 });
 
 const platform = useDisplay().platform;
@@ -101,7 +105,7 @@ onMounted(() => {
 });
 
 const callsignArrowColor = computed((): string => {
-	return showExtra.value ? 'primary' : 'secondary' ;
+	return showExtra.value || all_expanded.value ? 'primary' : 'secondary' ;
 });
 
 const calcAltitude = computed((): string => {
@@ -124,6 +128,11 @@ const metric = computed((): boolean => {
 });
 
 const showExtra = ref(false);
+
+const expanded = computed(() => {
+	return aircraftModule().all_expanded || showExtra.value;
+
+});
 
 const setPhotoUrl = (): void => {
 	if (!props.flight.aircraft.url_photo) return;

@@ -26,6 +26,10 @@
 								<v-col cols='2' v-if='!smAndDown' class='ma-0 pa-0' />
 
 								<v-col cols='auto' class='ma-0 pa-0 mt-2'>
+									<ExpandAll @toggle='toggle' />
+								</v-col>
+
+								<v-col cols='auto' class='ma-0 pa-0 mt-2'>
 									<ToggleScreen @toggle='toggle' />
 								</v-col>
 
@@ -71,6 +75,7 @@ import { snackError } from '@/services/snack';
 import type { TWSFromFlightBox } from '@/types';
 import { ws } from '@/services/WS';
 import { useDisplay } from 'vuetify';
+import type ExpandAll from '@/components/Authenticated/ExpandAll.vue';
 
 const { smAndDown } = useDisplay();
 
