@@ -85,12 +85,8 @@ const backgroundColor = computed(() :string => {
 
 });
 
-const all_expanded = computed(() => {
-	return aircraftModule().all_expanded;
-});
-
 const callsignArrowDirection = computed((): string => {
-	return showExtra.value || all_expanded.value ? mdiArrowCollapse : mdiArrowExpand ;
+	return showExtra.value ? mdiArrowCollapse : mdiArrowExpand ;
 });
 
 const platform = useDisplay().platform;
@@ -105,7 +101,7 @@ onMounted(() => {
 });
 
 const callsignArrowColor = computed((): string => {
-	return showExtra.value || all_expanded.value ? 'primary' : 'secondary' ;
+	return showExtra.value ? 'primary' : 'secondary' ;
 });
 
 const calcAltitude = computed((): string => {
@@ -130,7 +126,7 @@ const metric = computed((): boolean => {
 const showExtra = ref(false);
 
 const expanded = computed(() => {
-	return aircraftModule().all_expanded || showExtra.value;
+	return showExtra.value;
 
 });
 
@@ -141,6 +137,10 @@ const setPhotoUrl = (): void => {
 	dialogStore.set_visible(true);
 	dialogStore.set_title(`${props.flight.aircraft.registered_owner}: ${props.flight.aircraft.manufacturer} ${props.flight.aircraft.type}`);
 };
+
+watch(() => aircraftModule().all_expanded, (i)=> {
+	showExtra.value = i;
+});
 
 const toggleCallsign = (): void => {
 	showExtra.value = !showExtra.value;
