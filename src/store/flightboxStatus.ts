@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ModuleName } from '@/types/enum_module';
+import { ModuleName } from '@/types/const_module';
 
 export const flightboxStatusModule = defineStore(ModuleName.FLIGHTBOX_STATUS, {
 
@@ -11,7 +11,7 @@ export const flightboxStatusModule = defineStore(ModuleName.FLIGHTBOX_STATUS, {
 		screen_on: false,
 		uptime: 0,
 		uptime_app: 0,
-		uptime_ws: 0,
+		uptime_ws: 0
 	}),
 
 	actions: {
@@ -38,6 +38,6 @@ export const flightboxStatusModule = defineStore(ModuleName.FLIGHTBOX_STATUS, {
 		},
 		set_uptime_ws (nu: number): void {
 			this.uptime_ws = nu;
-		},
+		}
 	}
 });

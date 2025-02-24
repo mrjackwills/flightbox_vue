@@ -1,16 +1,17 @@
 import { defineStore } from 'pinia';
-import { ModuleName } from '@/types/enum_module';
+import { ModuleName } from '@/types/const_module';
 import type { TAdsbdb, TSortBy, u } from '@/types';
 
 export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 
 	state: () => ({
+		all_expanded: false,
 		_current_flights: [] as Array<TAdsbdb>,
 		unsorted_flights: [] as Array<TAdsbdb>,
 		init: false,
 		metric: false,
 		sort_by: undefined as u<TSortBy>,
-		sort_asc: true,
+		sort_asc: true
 	}),
 
 	getters: {
@@ -21,10 +22,14 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 
 		number_current_flights (): number {
 			return this.current_flights.length;
-		},
+		}
 	},
 
 	actions: {
+		set_all_expanded (b: boolean): void {
+			this.all_expanded = b;
+		},
+
 		set_current_flights (a: Array<TAdsbdb>): void {
 			this._current_flights = a;
 			this.unsorted_flights = [ ...a ];

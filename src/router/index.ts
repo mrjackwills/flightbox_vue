@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import LoginView from '@/views/LoginView.vue';
-import { FrontendRoutes } from '@/types/enum_routes';
+import { FrontendRoutes } from '@/types/const_routes';
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,8 +27,12 @@ const router = createRouter({
 				else next();
 			}
 		},
-		{ path: FrontendRoutes.CATCHALL, name: 'not-found', redirect: { name: 'home' } },
-	],
+		{
+			path: FrontendRoutes.CATCHALL,
+			name: 'not-found',
+			redirect: { name: 'home' } 
+		}
+	]
 });
 
 export default router;

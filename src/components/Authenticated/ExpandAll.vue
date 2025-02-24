@@ -5,7 +5,7 @@
 		:size='mobile?`small`:`default`'
 		:variant='loading ?"outlined":"flat"'
 		class='fab-fix elevation-0'
-		color='danger'
+		:color='color'
 		rounded
 	>
 		<v-row align='center' justify='space-around' class='ma-0 pa-0'>
@@ -13,7 +13,7 @@
 				<v-icon class='mr-1' color='black' :icon='icon' />
 			</v-col>
 			<v-col cols='auto' class='ma-0 pa-0 text-black' >
-				turn screen {{ text }}
+				{{ text }} all
 			</v-col>
 		</v-row>
 
@@ -21,28 +21,32 @@
 </template>
 
 <script setup lang="ts">
-import { mdiMonitor, mdiMonitorOff } from '@mdi/js';
+import { mdiArrowCollapse, mdiArrowExpand } from '@mdi/js';
 import { useDisplay } from 'vuetify';
 
 const { mobile } = useDisplay();
 
-const emit = defineEmits([ 'toggle' ]);
-
-const icon = computed((): string => {
-	return screen_status.value ? mdiMonitorOff : mdiMonitor;
-});
 const loading = computed((): boolean => {
 	return loadingModule().loading;
 });
 
-const screen_status = computed((): boolean => {
-	return flightboxStatusModule().screen_on;
+const all_expanded = computed(() => {
+	return aircraftModule().all_expanded;
 });
+
+const color = computed(() => {
+	return all_expanded.value ? 'primary' : 'secondary';
+});
+
+const icon = computed((): string => {
+	return all_expanded.value ? mdiArrowCollapse : mdiArrowExpand;
+});
+
 const text = computed((): string => {
-	return screen_status.value ? 'off' : 'on';
+	return all_expanded.value ? 'minimize' : 'expand';
 });
 
 const toggle = (): void => {
-	emit('toggle');
+	aircraftModule().set_all_expanded(!all_expanded.value);
 };
 </script>

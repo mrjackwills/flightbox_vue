@@ -63,7 +63,7 @@
 		</v-col>
 			
 		<v-expand-transition>
-			<v-col cols='12' class='ma-0 pa-0' v-if='showExtra && flight.flightroute'>
+			<v-col cols='12' class='ma-0 pa-0' v-if='expanded && flight.flightroute'>
 				<FlightRoute :flightroute='flight.flightroute' :fl_index='index' />
 			</v-col>
 		</v-expand-transition>
@@ -80,13 +80,13 @@ const { mobile } = useDisplay();
 
 const mobile_platform = ref(false);
 
-const backgroundColor = computed(() :string => {
+const backgroundColor = computed((): string => {
 	return `bg-grey-darken-${props.index % 2 === 0 ? '3' : '4'}`;
 
 });
 
 const callsignArrowDirection = computed((): string => {
-	return showExtra.value ? mdiArrowCollapse : mdiArrowExpand ;
+	return showExtra.value ? mdiArrowCollapse : mdiArrowExpand;
 });
 
 const platform = useDisplay().platform;
@@ -101,13 +101,13 @@ onMounted(() => {
 });
 
 const callsignArrowColor = computed((): string => {
-	return showExtra.value ? 'primary' : 'secondary' ;
+	return showExtra.value ? 'primary' : 'secondary';
 });
 
 const calcAltitude = computed((): string => {
 	const altitude = props.flight.altitude;
 	if (!altitude) return '';
-	return metric.value? `${(altitude * 0.3048).toFixed(1) }m` : `${altitude}ft`;
+	return metric.value ? `${(altitude * 0.3048).toFixed(1) }m` : `${altitude}ft`;
 });
 
 const callsign = computed((): boolean => {
@@ -125,6 +125,11 @@ const metric = computed((): boolean => {
 
 const showExtra = ref(false);
 
+const expanded = computed(() => {
+	return showExtra.value;
+
+});
+
 const setPhotoUrl = (): void => {
 	if (!props.flight.aircraft.url_photo) return;
 	const dialogStore = dialogModule();
@@ -133,14 +138,18 @@ const setPhotoUrl = (): void => {
 	dialogStore.set_title(`${props.flight.aircraft.registered_owner}: ${props.flight.aircraft.manufacturer} ${props.flight.aircraft.type}`);
 };
 
+watch(() => aircraftModule().all_expanded, (i)=> {
+	showExtra.value = i;
+});
+
 const toggleCallsign = (): void => {
 	showExtra.value = !showExtra.value;
 };
 
 const props = defineProps<{
-	flight: TAdsbdb,
-	index: number,
-	showDivider: boolean,
+	flight: TAdsbdb;
+	index: number;
+	showDivider: boolean;
 }>();
 
 watch(callsign, (i) => {

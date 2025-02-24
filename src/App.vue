@@ -39,7 +39,12 @@ if ('serviceWorker' in navigator) {
 }
 
 const appUpdate = (): void => {
-	snackSuccess({ message: 'downloading updates', loading: true, timeout: 5000, icon: '' });
+	snackSuccess({
+		message: 'downloading updates',
+		loading: true,
+		timeout: 5000,
+		icon: '' 
+	});
 	window.setTimeout(() => updateServiceWorker(), 4500);
 };
 
@@ -67,17 +72,20 @@ useHead({
 	meta: [
 		{
 			name: `description`,
-			content: `flightbox`,
-		},
+			content: `flightbox`
+		}
 	],
-	link: [ { rel: 'canonical', href: `https://flights.mrjackwills.com` } ],
+	link: [ {
+		rel: 'canonical',
+		href: `https://flights.mrjackwills.com` 
+	} ]
 });
 
 const logout = (message = 'you have been logged out'): void => {
 	userStore.logout(message);
 };
 
-const visibilityChange = (_e: Event): void => {
+const visibilityChange = (_: Event): void => {
 	isHidden.value = document.hidden;
 	if (isHidden.value) {
 		logoutTimeout.value = window.setTimeout(() => {

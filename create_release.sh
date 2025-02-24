@@ -14,10 +14,9 @@ STAR_LINE='****************************************'
 CWD=$(pwd)
 BUILD_DATE=$(date "+%a %d %Y %B %T %Z")
 
-
 # $1 string - error message
 error_close() {
-	echo -e "\n${RED}ERROR - EXITED: ${YELLOW}$1${RESET}\n";
+	echo -e "\n${RED}ERROR - EXITED: ${YELLOW}$1${RESET}\n"
 	exit 1
 }
 
@@ -43,7 +42,7 @@ ask_yn() {
 }
 
 ask_continue() {
-	if ! ask_yn "continue";then
+	if ! ask_yn "continue"; then
 		exit
 	fi
 }
@@ -103,17 +102,17 @@ ask_changelog_update() {
 
 # Edit the release-body to include new lines from changelog
 # add commit urls to changelog
-# $1 RELEASE_BODY 
-update_release_body_and_changelog () {
+# $1 RELEASE_BODY
+update_release_body_and_changelog() {
 	echo -e
 	DATE_SUBHEADING="### $(date +'%Y-%m-%d')\n\n"
 	RELEASE_BODY_ADDITION="${DATE_SUBHEADING}$1"
 
 	# Put new changelog entries into release-body, add link to changelog
-	echo -e "${RELEASE_BODY_ADDITION}\n\nsee <a href='${GIT_REPO_URL}/blob/main/CHANGELOG.md'>CHANGELOG.md</a> for more details" > .github/release-body.md
+	echo -e "${RELEASE_BODY_ADDITION}\n\nsee <a href='${GIT_REPO_URL}/blob/main/CHANGELOG.md'>CHANGELOG.md</a> for more details" >.github/release-body.md
 
 	# Add subheading with release version and date of release
-	echo -e "# <a href='${GIT_REPO_URL}/releases/tag/${NEW_TAG_WITH_V}'>${NEW_TAG_WITH_V}</a>\n${DATE_SUBHEADING}${CHANGELOG_ADDITION}$(cat CHANGELOG.md)" > CHANGELOG.md
+	echo -e "# <a href='${GIT_REPO_URL}/releases/tag/${NEW_TAG_WITH_V}'>${NEW_TAG_WITH_V}</a>\n${DATE_SUBHEADING}${CHANGELOG_ADDITION}$(cat CHANGELOG.md)" >CHANGELOG.md
 
 	# Update changelog to add links to commits [hex:8](url_with_full_commit)
 	# "[aaaaaaaaaabbbbbbbbbbccccccccccddddddddd]" -> "[aaaaaaaa](https:/www.../commit/aaaaaaaaaabbbbbbbbbbccccccccccddddddddd)"
@@ -124,30 +123,29 @@ update_release_body_and_changelog () {
 	sed -i -r -E "s=closes \#([0-9]+)=closes [#\1](${GIT_REPO_URL}/issues/\1)=g" CHANGELOG.md
 }
 
-update_json () {
+update_json() {
 	local json_file="./package.json"
 	local json_version_update
 	local json_build_update
 	json_version_update=$(jq ".version = \"${NEW_TAG_WITH_V:1}\"" "${json_file}")
-	json_build_update=$(jq ".buildDate =\"${BUILD_DATE}\"" <<< "${json_version_update}")
-	echo "$json_build_update" > "$json_file"
+	json_build_update=$(jq ".buildDate =\"${BUILD_DATE}\"" <<<"${json_version_update}")
+	echo "$json_build_update" >"$json_file"
 }
 
 # $1 new_version
-update_version_number_in_files () {
+update_version_number_in_files() {
 	update_json
 }
 
 # Work out the current version, based on git tags
 # create new semver version based on user input
 # Set MAJOR MINOR PATCH
-check_tag () {
+check_tag() {
 	LATEST_TAG=$(git describe --tags "$(git rev-list --tags --max-count=1)")
 	echo -e "\nCurrent tag: ${PURPLE}${LATEST_TAG}${RESET}\n"
 	echo -e "${YELLOW}Choose new tag version:${RESET}\n"
-	if [[ $LATEST_TAG =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-((0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*))*))?(\+([0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*))?$ ]]
-	then
-		IFS="." read -r MAJOR MINOR PATCH <<< "${LATEST_TAG:1}"
+	if [[ $LATEST_TAG =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-((0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*))*))?(\+([0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*))?$ ]]; then
+		IFS="." read -r MAJOR MINOR PATCH <<<"${LATEST_TAG:1}"
 	else
 		MAJOR="0"
 		MINOR="0"
@@ -157,46 +155,51 @@ check_tag () {
 	OP_MINOR="minor___v$(update_minor)"
 	OP_PATCH="patch___v$(update_patch)"
 	OPTIONS=("$OP_MAJOR" "$OP_MINOR" "$OP_PATCH")
-	select choice in "${OPTIONS[@]}"
-	do
+	select choice in "${OPTIONS[@]}"; do
 		case $choice in
-			"$OP_MAJOR" )
-				MAJOR=$((MAJOR + 1))
-				MINOR=0
-				PATCH=0
-				break;;
-			"$OP_MINOR")
-				MINOR=$((MINOR + 1))
-				PATCH=0
-				break;;
-			"$OP_PATCH")
-				PATCH=$((PATCH + 1))
-				break;;
-			*)
-				error_close "invalid option $REPLY";;
+		"$OP_MAJOR")
+			MAJOR=$((MAJOR + 1))
+			MINOR=0
+			PATCH=0
+			break
+			;;
+		"$OP_MINOR")
+			MINOR=$((MINOR + 1))
+			PATCH=0
+			break
+			;;
+		"$OP_PATCH")
+			PATCH=$((PATCH + 1))
+			break
+			;;
+		*)
+			echo -e "\n\"${REPLY}\" ${RED}- invalid option. Please select 1, 2, or 3.${RESET}"
+			continue
+			;;
+
 		esac
 	done
 }
 
-linter () {
+linter() {
 	npm run check
 	npm run lint
 	ask_continue
 }
 
-npm_build () {
+npm_build() {
 	npm run build
 	ask_continue
 }
 
 # $1 text to colourise
-release_continue () {
+release_continue() {
 	echo -e "\n${PURPLE}$1${RESET}"
 	ask_continue
 }
 
 # Check repository for typos
-check_typos () {
+check_typos() {
 	echo -e "\n${PURPLE}check typos${RESET}"
 	typos
 	ask_continue
@@ -208,26 +211,26 @@ release_flow() {
 
 	check_git
 	get_git_remote_url
-	
+
 	linter
 	npm_build
-	
+
 	cd "${CWD}" || error_close "Can't find ${CWD}"
 	check_tag
-	
+
 	NEW_TAG_WITH_V="v${MAJOR}.${MINOR}.${PATCH}"
 	printf "\nnew tag chosen: %s\n\n" "${NEW_TAG_WITH_V}"
 
 	RELEASE_BRANCH=release-$NEW_TAG_WITH_V
 	echo -e
 	ask_changelog_update
-	
+
 	release_continue "checkout ${RELEASE_BRANCH}"
 	git checkout -b "$RELEASE_BRANCH"
 
 	release_continue "update_version_number_in_files"
 	update_version_number_in_files
-	
+
 	release_continue "git add ."
 	git add .
 
@@ -239,8 +242,8 @@ release_flow() {
 
 	echo -e "${PURPLE}git pull origin main${RESET}"
 	git pull origin main
-	
-	release_continue "git merge --no-ff \"${RELEASE_BRANCH}\" -m \"chore: merge ${RELEASE_BRANCH} into main\"" 
+
+	release_continue "git merge --no-ff \"${RELEASE_BRANCH}\" -m \"chore: merge ${RELEASE_BRANCH} into main\""
 	git merge --no-ff "$RELEASE_BRANCH" -m "chore: merge ${RELEASE_BRANCH} into main"
 
 	release_continue "git tag -am \"${RELEASE_BRANCH}\" \"$NEW_TAG_WITH_V\""
@@ -278,27 +281,31 @@ main() {
 	if [ $exitStatus -ne 0 ]; then
 		exit
 	fi
-	for choice in $choices
-	do
+	for choice in $choices; do
 		case $choice in
-			0)
-				exit;;
-		
-			1)
-				linter
-				main
-				break;;
-			2)
-				npm_build
-				main
-				break;;
-			3)
-				npm_test
-				main
-				break;;
-			4)
-				release_flow
-				break;;
+		0)
+			exit
+			;;
+
+		1)
+			linter
+			main
+			break
+			;;
+		2)
+			npm_build
+			main
+			break
+			;;
+		3)
+			npm_test
+			main
+			break
+			;;
+		4)
+			release_flow
+			break
+			;;
 		esac
 	done
 }

@@ -26,6 +26,10 @@
 								<v-col cols='2' v-if='!smAndDown' class='ma-0 pa-0' />
 
 								<v-col cols='auto' class='ma-0 pa-0 mt-2'>
+									<ExpandAll @toggle='toggle' />
+								</v-col>
+
+								<v-col cols='auto' class='ma-0 pa-0 mt-2'>
 									<ToggleScreen @toggle='toggle' />
 								</v-col>
 
@@ -38,7 +42,11 @@
 										<v-col cols='auto' class='ma-0 pa-0'>
 											<v-switch density='compact' flat color='primary' v-model='metric' />
 										</v-col>
-										<v-col cols='auto' class='ml-2 mt-n5 font-weight-bold ma-0 pa-0 text-uppercase unselectable text-white' :class='{"text-primary":metric, "small-text": smAndDown}' >
+										<v-col
+											cols='auto'
+											class='ml-2 mt-n5 font-weight-bold ma-0 pa-0 text-uppercase unselectable text-white'
+											:class='{"text-primary":metric, "small-text": smAndDown}'
+										>
 											metric
 										</v-col>
 									</v-row>
@@ -71,6 +79,7 @@ import { snackError } from '@/services/snack';
 import type { TWSFromFlightBox } from '@/types';
 import { ws } from '@/services/WS';
 import { useDisplay } from 'vuetify';
+import type ExpandAll from '@/components/Authenticated/ExpandAll.vue';
 
 const { smAndDown } = useDisplay();
 
@@ -191,24 +200,22 @@ const initCheck = (): void => {
 		if (init.value) {
 			clearInterval(initTimeout.value);
 			loading.value = false;
-		}
-		else if (initCount.value < 4) {
+		} else if (initCount.value < 4) {
 			snackError({ message: 'No message received, retrying' });
 			send_status_and_flights();
 			initCheck();
-		}
-		else userStore.logout('unable to contact flightbox');
+		} else userStore.logout('unable to contact flightbox');
 	}, 8500);
 };
 
-const refresh = () :void => {
+const refresh = (): void => {
 	clearInterval(updateInterval.value);
 	send_status_and_flights();
 	resetUpdateCounter();
 	startUpdateTimeout();
 };
 
-const send_status_and_flights = () :void => {
+const send_status_and_flights = (): void => {
 	send_flights();
 	send_status();
 };
@@ -246,26 +253,26 @@ const toggle = (): void => {
 		
 const wsDataHandler = async (message: TWSFromFlightBox): Promise<void> => {
 	switch (message.data?.message) {
-	case 'status': {
-		flightboxStatusStore.set_internal_ip(message.data.data.internal_ip);
-		flightboxStatusStore.set_online(!message.cache);
-		flightboxStatusStore.set_api_version(message.data.data.api_version);
-		flightboxStatusStore.set_screen_on(message.data.data.screen_on);
-		uptime.value = message.data.data.uptime;
-		uptimeApp.value = message.data.data.uptime_app;
-		uptimeWs.value = message.data.data.uptime_ws;
-		loading.value = false;
-		break;
-	}
-	case 'flights': {
-		aircraftStore.set_current_flights(message.data.data);
-		aircraftStore.set_init(true);
-		if (!init.value) {
-			startUpdateTimeout();
-			flightboxStatusStore.set_init(true);
+		case 'status': {
+			flightboxStatusStore.set_internal_ip(message.data.data.internal_ip);
+			flightboxStatusStore.set_online(!message.cache);
+			flightboxStatusStore.set_api_version(message.data.data.api_version);
+			flightboxStatusStore.set_screen_on(message.data.data.screen_on);
+			uptime.value = message.data.data.uptime;
+			uptimeApp.value = message.data.data.uptime_app;
+			uptimeWs.value = message.data.data.uptime_ws;
+			loading.value = false;
+			break;
 		}
-		initCount.value = 0;
-	}
+		case 'flights': {
+			aircraftStore.set_current_flights(message.data.data);
+			aircraftStore.set_init(true);
+			if (!init.value) {
+				startUpdateTimeout();
+				flightboxStatusStore.set_init(true);
+			}
+			initCount.value = 0;
+		}
 	}
 };
 	
