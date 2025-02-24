@@ -42,11 +42,11 @@ const imgSrc = computed((): string => {
 	return dialogStore.imgSrc;
 });
 const maxWidth = computed(() => {
-	return mobile.value ? '95vw': '65vw';
+	return mobile.value ? '95vw' : '65vw';
 });
 
 const maxHeight = computed(() => {
-	return mobile.value ? '80vh': '50vh';
+	return mobile.value ? '80vh' : '50vh';
 });
 const title = computed(() => {
 	return dialogStore.title ?? 'warning';

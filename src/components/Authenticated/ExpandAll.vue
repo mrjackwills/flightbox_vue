@@ -42,7 +42,7 @@ const icon = computed((): string => {
 	return all_expanded.value ? mdiArrowCollapse : mdiArrowExpand;
 });
 
-const text = computed(() : string => {
+const text = computed((): string => {
 	return all_expanded.value ? 'minimize' : 'expand';
 });
 

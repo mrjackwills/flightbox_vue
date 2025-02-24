@@ -15,9 +15,9 @@ import type { TDataToDisplay } from '@/types';
 import { useDisplay } from 'vuetify';
 
 const { mobile } = useDisplay();
-const [ aircraftStore, flightboxStatusStore, ] = [ aircraftModule(), flightboxStatusModule() ];
+const [ aircraftStore, flightboxStatusStore ] = [ aircraftModule(), flightboxStatusModule() ];
 
-const api_version = computed ((): string => {
+const api_version = computed((): string => {
 	return flightboxStatusStore.api_version;
 });
 const info = computed((): TDataToDisplay => {
@@ -35,7 +35,7 @@ const info = computed((): TDataToDisplay => {
 				text: 'planes overhead',
 				value: `${number_tracked_flight.value}`,
 				copy: false
-			},
+			}
 		],
 		[
 			{
@@ -50,26 +50,26 @@ const info = computed((): TDataToDisplay => {
 				text: `internal ip`,
 				value: internal_ip.value,
 				copy: true
-			},
+			}
 		],
 		[
 			{
 				icon: mdiDesktopClassic,
 				text: 'flightbox uptime',
-				value: secondsToText(uptime.value ? uptime.value*1000: 0, mobile.value),
+				value: secondsToText(uptime.value ? uptime.value * 1000 : 0, mobile.value),
 				copy: false
 			},
 			{
 				icon: mdiLanguageRust,
 				text: 'app uptime',
-				value: secondsToText(uptimeApp.value ? uptimeApp.value*1000:0, mobile.value),
+				value: secondsToText(uptimeApp.value ? uptimeApp.value * 1000 : 0, mobile.value),
 				copy: false
-			},
+			}
 		],
 		[	{
 			icon: mdiWebClock,
 			text: 'websocket uptime',
-			value: secondsToText(uptimeWs.value ? uptimeWs.value*1000:0, mobile.value),
+			value: secondsToText(uptimeWs.value ? uptimeWs.value * 1000 : 0, mobile.value),
 			copy: false
 		}
 		]

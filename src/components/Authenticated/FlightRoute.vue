@@ -68,7 +68,7 @@ const flightrouteRow = computed((): Array<TFlightRouteRow> => {
 	];
 });
 
-const color = (index: number) : string => {
+const color = (index: number): string => {
 	return index ? 'secondary' : 'primary';
 };
 const mapHref = (index: number): string => {
@@ -76,7 +76,10 @@ const mapHref = (index: number): string => {
 	return `https://www.google.com/maps/place/@${query},14z/`;
 };
 
-const props = defineProps<{flightroute: TFlightRoute, fl_index: number}>();
+const props = defineProps<{
+	flightroute: TFlightRoute;
+	fl_index: number; 
+}>();
 </script>
 
 <style scoped>

@@ -30,13 +30,13 @@ const { mobile } = useDisplay();
 
 const emit = defineEmits([ 'refresh' ]);
 
-const props = defineProps<{updateCount: number}>();
+const props = defineProps<{ updateCount: number }>();
 
-const buttonDisabled = computed(() : boolean=> {
+const buttonDisabled = computed((): boolean=> {
 	return loading.value || updating.value;
 });
 
-const buttonText = computed(() : string => {
+const buttonText = computed((): string => {
 	return `next update ${zeroPad(props.updateCount)}`;
 });
 
@@ -44,11 +44,11 @@ const loading = computed((): boolean => {
 	return loadingModule().loading;
 });
 
-const updating = computed(():boolean => {
+const updating = computed((): boolean => {
 	return props.updateCount === 0;
 });
 
-const refresh = ():void => {
+const refresh = (): void => {
 	if (loading.value) return;
 	emit('refresh');
 };

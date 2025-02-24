@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ModuleName } from '@/types/enum_module';
+import { ModuleName } from '@/types/const_module';
 import type { TAdsbdb, TSortBy, u } from '@/types';
 
 export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
@@ -11,7 +11,7 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 		init: false,
 		metric: false,
 		sort_by: undefined as u<TSortBy>,
-		sort_asc: true,
+		sort_asc: true
 	}),
 
 	getters: {
@@ -22,7 +22,7 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 
 		number_current_flights (): number {
 			return this.current_flights.length;
-		},
+		}
 	},
 
 	actions: {

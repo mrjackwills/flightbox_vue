@@ -3,18 +3,16 @@ import { defineStore } from 'pinia';
 import { dialogModule } from './dialog';
 import { flightboxStatusModule } from './flightboxStatus';
 import { loadingModule } from './loading';
-import { ModuleName } from '@/types/enum_module';
+import { ModuleName } from '@/types/const_module';
 import { snackError, snackReset } from '@/services/snack';
 import { websocketModule } from './websocket';
 // import { useRoute, useRouter } from 'vue-router';
 import { getActivePinia } from 'pinia';
-import { FrontendRoutes } from '@/types/enum_routes';
+import { FrontendRoutes } from '@/types/const_routes';
 
 export const userModule = defineStore(ModuleName.USER, {
 	
-	state: () => ({
-		authenticated: false,
-	}),
+	state: () => ({ authenticated: false }),
 	
 	actions: {
 		logout (message?: string): void {
@@ -33,7 +31,7 @@ export const userModule = defineStore(ModuleName.USER, {
 		
 		set_authenticated (value: boolean) {
 			this.authenticated = value;
-		},
+		}
 		
 	}
 });
