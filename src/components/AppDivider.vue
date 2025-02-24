@@ -9,8 +9,8 @@
 <script setup lang='ts'>
 
 withDefaults(defineProps<{
-	cols?: number,
-	my?: string,
+	cols?: number;
+	my?: string;
 }>(), {
 	cols: 12,
 	my: 'my-1'

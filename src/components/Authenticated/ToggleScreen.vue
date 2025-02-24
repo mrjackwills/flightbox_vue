@@ -38,7 +38,7 @@ const loading = computed((): boolean => {
 const screen_status = computed((): boolean => {
 	return flightboxStatusModule().screen_on;
 });
-const text = computed(() : string => {
+const text = computed((): string => {
 	return screen_status.value ? 'off' : 'on';
 });
 

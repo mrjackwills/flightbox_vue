@@ -80,13 +80,13 @@ const { mobile } = useDisplay();
 
 const mobile_platform = ref(false);
 
-const backgroundColor = computed(() :string => {
+const backgroundColor = computed((): string => {
 	return `bg-grey-darken-${props.index % 2 === 0 ? '3' : '4'}`;
 
 });
 
 const callsignArrowDirection = computed((): string => {
-	return showExtra.value ? mdiArrowCollapse : mdiArrowExpand ;
+	return showExtra.value ? mdiArrowCollapse : mdiArrowExpand;
 });
 
 const platform = useDisplay().platform;
@@ -101,13 +101,13 @@ onMounted(() => {
 });
 
 const callsignArrowColor = computed((): string => {
-	return showExtra.value ? 'primary' : 'secondary' ;
+	return showExtra.value ? 'primary' : 'secondary';
 });
 
 const calcAltitude = computed((): string => {
 	const altitude = props.flight.altitude;
 	if (!altitude) return '';
-	return metric.value? `${(altitude * 0.3048).toFixed(1) }m` : `${altitude}ft`;
+	return metric.value ? `${(altitude * 0.3048).toFixed(1) }m` : `${altitude}ft`;
 });
 
 const callsign = computed((): boolean => {
@@ -147,9 +147,9 @@ const toggleCallsign = (): void => {
 };
 
 const props = defineProps<{
-	flight: TAdsbdb,
-	index: number,
-	showDivider: boolean,
+	flight: TAdsbdb;
+	index: number;
+	showDivider: boolean;
 }>();
 
 watch(callsign, (i) => {

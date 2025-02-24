@@ -110,20 +110,20 @@ const sort_asc = computed({
 const headers = [
 	{
 		name: 'callsign',
-		sort_by: 'callsign' as TSortBy,
+		sort_by: 'callsign' as TSortBy
 	},
 	{
 		name: 'aircraft (mode_s)',
-		sort_by: 'aircraft' as TSortBy,
+		sort_by: 'aircraft' as TSortBy
 	},
 	{
 		name: 'owner',
-		sort_by: 'owner' as TSortBy,
+		sort_by: 'owner' as TSortBy
 	},
 	{
 		name: 'altitude',
-		sort_by: 'altitude' as TSortBy,
-	},
+		sort_by: 'altitude' as TSortBy
+	}
 
 ];
 
@@ -145,12 +145,12 @@ const sort_local = (): void => {
 			});
 		} else if (sort_by.value === 'aircraft') {
 			local_current_flights.value.sort((a, b) => {
-				const aircraft_a =`${a.aircraft.manufacturer} ${a.aircraft.icao_type}`;
-				const aircraft_b =`${b.aircraft.manufacturer} ${b.aircraft.icao_type}`;
+				const aircraft_a = `${a.aircraft.manufacturer} ${a.aircraft.icao_type}`;
+				const aircraft_b = `${b.aircraft.manufacturer} ${b.aircraft.icao_type}`;
 				if (sort_asc.value) {
-					return aircraft_a.toLowerCase() >= aircraft_b.toLowerCase()? 1 : -1;
+					return aircraft_a.toLowerCase() >= aircraft_b.toLowerCase() ? 1 : -1;
 				} else {
-					return aircraft_a.toLowerCase() >=aircraft_b.toLowerCase() ? -1 : 1;
+					return aircraft_a.toLowerCase() >= aircraft_b.toLowerCase() ? -1 : 1;
 				}
 			});
 		} else if (sort_by.value === 'owner') {

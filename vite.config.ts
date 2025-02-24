@@ -6,6 +6,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import type { VitePWAOptions } from 'vite-plugin-pwa';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
+import vueDevTools from 'vite-plugin-vue-devtools';
 
 // vite.config.js
 
@@ -17,9 +18,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
 	base: '/',
 	registerType: 'prompt',
 	includeAssets: [ 'favicon.ico' ],
-	workbox: {
-		cleanupOutdatedCaches: true
-	},
+	workbox: { cleanupOutdatedCaches: true },
 	manifest: {
 		display: 'standalone',
 		name: 'flightbox',
@@ -31,21 +30,21 @@ const pwaOptions: Partial<VitePWAOptions> = {
 			{
 				src: 'img/icons/android-chrome-192x192.png',
 				sizes: '192x192',
-				type: 'image/png',
+				type: 'image/png'
 			},
 			{
 				src: 'img/icons/android-chrome-512x512.png',
 				sizes: '512x512',
-				type: 'image/png',
+				type: 'image/png'
 			},
 			{
 				src: 'img/icons/android-chrome-512x512.png',
 				sizes: '512x512',
 				type: 'image/png',
 				purpose: 'any maskable'
-			},
-		],
-	},
+			}
+		]
+	}
 	// devOptions: {
 	// 	enabled: true,
 	// 	/* when using generateSW the PWA plugin will switch to classic */
@@ -57,57 +56,50 @@ const pwaOptions: Partial<VitePWAOptions> = {
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
-		vue({
-			template: { transformAssetUrls }
-		}),
-		vuetify({
-			autoImport: true,
-		}),
+		vue({ template: { transformAssetUrls } }),
+		vuetify({ autoImport: true }),
+		vueDevTools(),
 		Components(),
 		AutoImport({
 			include: [
 				/\.[tj]sx?$/,
 				/\.vue$/, /\.vue\?vue/,
-				/\.md$/,
+				/\.md$/
 			],
 			imports: [
 				'vue',
-				'vue-router',
+				'vue-router'
 
 			],
 			dts: 'src/auto-imports.d.ts',
-			eslintrc: {
-				enabled: true,
-			},
+			eslintrc: { enabled: true },
 			dirs: [
-				'src/store',
+				'src/store'
 			],
-			vueTemplate: false,
+			vueTemplate: false
 		}),
 		VitePWA(pwaOptions),
-		viteCompression({ algorithm: 'brotliCompress', filter: /\.(js|mjs|json|css)$/i }),
-		viteCompression({ algorithm: 'gzip', filter: /\.(js|mjs|json|css)$/i }),
+		viteCompression({
+			algorithm: 'brotliCompress',
+			filter: /\.(js|mjs|json|css)$/i 
+		}),
+		viteCompression({
+			algorithm: 'gzip',
+			filter: /\.(js|mjs|json|css)$/i 
+		})
 	],
-	css: {
-		preprocessorOptions: {
-			scss: {
-				api: 'modern-compiler',
-			},
-		},
-	},
+	css: { preprocessorOptions: { scss: { api: 'modern-compiler' } } },
 	define: {
 		'process.env': {},
 		'import.meta.env.BUILD_DATE': Date.now(),
-		'import.meta.env.VERSION': JSON.stringify(process.env.npm_package_version),
+		'import.meta.env.VERSION': JSON.stringify(process.env.npm_package_version)
 	},
 	resolve: {
-		alias: {
-			'@': fileURLToPath(new URL('./src', import.meta.url)),
-		},
-		extensions: [ '.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue' ],
+		alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
+		extensions: [ '.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue' ]
 	},
 	server: {
 		port: 8002,
 		host: '127.0.0.1'
-	},
+	}
 });

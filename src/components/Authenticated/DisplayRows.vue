@@ -84,10 +84,10 @@ const toCopy = (value: string): void => {
 	}, 1250);
 };
 
-const clear = ():void => {
+const clear = (): void => {
 	clearTimeout(copyTimeout.value);
 };
 
-defineProps<{toDisplay: TDataToDisplay}>();
+defineProps<{ toDisplay: TDataToDisplay }>();
 
 </script>

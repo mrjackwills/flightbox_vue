@@ -1,11 +1,17 @@
 class Env {
 	readonly #api_key = String(import.meta.env.VITE_APP_APIKEY);
+
 	readonly #app_version = String(import.meta.env.VERSION);
+
 	readonly #domain_token = String(import.meta.env.VITE_APP_TOKEN_DOMAIN);
+
 	readonly #domain_wss = String(import.meta.env.VITE_APP_WSS_DOMAIN);
+
 	readonly #build_date = new Date(import.meta.env.BUILD_DATE);
+
 	readonly #homepage = String(import.meta.env.VITE_GITHUB_HOMEPAGE);
-	readonly #mode_production = import.meta.env.PROD ;
+
+	readonly #mode_production = import.meta.env.PROD;
 
 	get api_key (): string {
 		return this.#api_key;
