@@ -13,7 +13,7 @@ const head = createHead();
 const app = createApp(App);
 
 declare module 'pinia' {
-	export interface Pinia { 
+	export interface Pinia {
 		router: () => Router;
 	}
 	export interface PiniaCustomProperties {

@@ -9,7 +9,8 @@
 							:class='{ "text-right": index > 1 }'>
 							<v-row class='ma-0 pa-0' align='center' justify='start'>
 								<v-col cols='12' class='ma-0 pa-0'>
-									<span class='font-weight-bold text-uppercase text-body-2 unselectable text-grey-lighten-3'>
+									<span
+										class='font-weight-bold text-uppercase text-body-2 unselectable text-grey-lighten-3'>
 										{{ item.name }}
 									</span>
 									<v-icon :icon='get_icon(item.sort_by)' size='x-small' class='ml-3'
@@ -55,21 +56,15 @@ const aircraftStore = aircraftModule();
 
 const local_current_flights = ref([] as Array<TAdsbdb>);
 
-const current_flights = computed((): Array<TAdsbdb> => {
-	return aircraftStore.current_flights;
-});
+const current_flights = computed((): Array<TAdsbdb> => aircraftStore.current_flights);
 
 onMounted(() => {
-	local_current_flights.value = [ ...current_flights.value ];
+	local_current_flights.value = [...current_flights.value];
 	sort_local();
 });
 
-const init = computed((): boolean => {
-	return aircraftStore.init;
-});
-const number_current_flights = computed((): number => {
-	return current_flights.value.length;
-});
+const init = computed(() => aircraftStore.init);
+const number_current_flights = computed(() => current_flights.value.length);
 
 const get_icon = (x: TSortBy): string => {
 	if (sort_by.value === x) {
@@ -183,7 +178,7 @@ watch(sort_by, (_) => {
 });
 
 watch(current_flights, (i) => {
-	local_current_flights.value = [ ...i ];
+	local_current_flights.value = [...i];
 	sort_local();
 });
 
@@ -193,4 +188,5 @@ watch(current_flights, (i) => {
 .headers {
 	border-top-right-radius: .25rem;
 	border-top-left-radius: .25rem;
-}</style>
+}
+</style>

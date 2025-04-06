@@ -8,7 +8,7 @@
 				<PiInfo @refresh='refresh' :updateCount='updateCount' />
 			</v-col>
 		</v-row>
-		
+
 		<section v-else>
 			<v-row class='ma-0 pa-0 ' justify='center' align='center' v-if='init && flightInit && online'>
 				<v-col cols='12' class='ma-0 pa-0'>
@@ -20,8 +20,9 @@
 
 					<v-row align='center' justify='center' class='ma-0 pa-0'>
 						<v-col cols='12' lg='11' class='ma-0 pa-0'>
-						
-							<v-row align='center' :justify='smAndDown ? "space-around": "space-between"' class='ma-0 pa-0'>
+
+							<v-row align='center' :justify='smAndDown ? "space-around" : "space-between"'
+								class='ma-0 pa-0'>
 
 								<v-col cols='2' v-if='!smAndDown' class='ma-0 pa-0' />
 
@@ -38,15 +39,14 @@
 								</v-col>
 
 								<v-col cols='12' md='2' class='ma-0 pa-0'>
-									<v-row class='ma-0 pa-0' align='center' :justify='smAndDown?"center":"end"' v-if='currentFlights>0'>
+									<v-row class='ma-0 pa-0' align='center' :justify='smAndDown ? "center" : "end"'
+										v-if='currentFlights > 0'>
 										<v-col cols='auto' class='ma-0 pa-0'>
 											<v-switch density='compact' flat color='primary' v-model='metric' />
 										</v-col>
-										<v-col
-											cols='auto'
+										<v-col cols='auto'
 											class='ml-2 mt-n5 font-weight-bold ma-0 pa-0 text-uppercase unselectable text-white'
-											:class='{"text-primary":metric, "small-text": smAndDown}'
-										>
+											:class='{ "text-primary": metric, "small-text": smAndDown }'>
 											metric
 										</v-col>
 									</v-row>
@@ -68,7 +68,7 @@
 					<v-progress-circular indeterminate color='primary' />
 				</v-col>
 			</v-row>
-				
+
 		</section>
 	</section>
 </template>
@@ -83,24 +83,16 @@ import type ExpandAll from '@/components/Authenticated/ExpandAll.vue';
 
 const { smAndDown } = useDisplay();
 
-const [ aircraftStore, flightboxStatusStore, loadingStore, userStore, websocketStore ] = [ aircraftModule(), flightboxStatusModule(), loadingModule(), userModule(), websocketModule() ];
+const [aircraftStore, flightboxStatusStore, loadingStore, userStore, websocketStore] = [aircraftModule(), flightboxStatusModule(), loadingModule(), userModule(), websocketModule()];
 
 onUnmounted(() => {
 	clearAllIntervals();
 });
 
-const currentFlights = computed((): number => {
-	return aircraftStore.number_current_flights;
-});
-const flightInit = computed((): boolean => {
-	return aircraftStore.init;
-});
-const init = computed((): boolean => {
-	return flightboxStatusStore.init;
-});
-const online = computed((): boolean => {
-	return flightboxStatusStore.online;
-});
+const currentFlights = computed(() => aircraftStore.number_current_flights);
+const flightInit = computed(() => aircraftStore.init);
+const init = computed(() => flightboxStatusStore.init);
+const online = computed(() => flightboxStatusStore.online);
 const loading = computed({
 	get (): boolean {
 		return loadingStore.loading;
@@ -150,9 +142,7 @@ const uptimeWs = computed({
 		flightboxStatusStore.set_uptime_ws(n);
 	}
 });
-const ws_connected = computed(() => {
-	return websocketStore.connected;
-});
+const ws_connected = computed(() => websocketStore.connected);
 
 const initCount = ref(0);
 const initTimeout = ref(0);
@@ -194,7 +184,7 @@ const clearAllIntervals = (): void => {
 * If a message isn't received within the first 10000ms(x4) of being mounted, logout
 * */
 const initCheck = (): void => {
-	initCount.value ++;
+	initCount.value++;
 	loading.value = true;
 	initTimeout.value = window.setTimeout(() => {
 		if (init.value) {
@@ -234,11 +224,11 @@ const startUpdateTimeout = (): void => {
 			send_status_and_flights();
 			resetUpdateCounter();
 		} else {
-			updateCount.value --;
+			updateCount.value--;
 		}
-		if (online.value && uptimeWs.value) uptimeWs.value ++;
-		if (online.value && uptime.value) uptime.value ++;
-		if (online.value && uptimeApp) uptimeApp.value ++;
+		if (online.value && uptimeWs.value) uptimeWs.value++;
+		if (online.value && uptime.value) uptime.value++;
+		if (online.value && uptimeApp) uptimeApp.value++;
 	}, 1000);
 };
 
@@ -250,7 +240,7 @@ const toggle = (): void => {
 		send_status();
 	}, 250);
 };
-		
+
 const wsDataHandler = async (message: TWSFromFlightBox): Promise<void> => {
 	switch (message.data?.message) {
 		case 'status': {
@@ -275,10 +265,9 @@ const wsDataHandler = async (message: TWSFromFlightBox): Promise<void> => {
 		}
 	}
 };
-	
+
 onMounted(() => {
 	initCheck();
-
 });
 
 watch(ws_connected, (i: boolean) => {
@@ -290,7 +279,6 @@ watch(ws_connected, (i: boolean) => {
 </script>
 
 <style scoped>
-
 .minh {
 	min-height: 180px;
 }

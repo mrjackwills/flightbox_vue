@@ -5,7 +5,7 @@ import Axios, { AxiosError, type AxiosInstance } from 'axios';
 // Some kind of dirty work around for strict axios typing?
 type ErrorData = { data: { response: number } };
 
-const wrap = <T> () => {
+const wrap = <T>() => {
 	return function (_target: AxiosRequests, _propertyKey: string, descriptor: PropertyDescriptor): void {
 		const original = descriptor.value;
 		descriptor.value = async function (t: T): Promise<void> {
@@ -54,10 +54,10 @@ class AxiosRequests {
 
 	@wrap()
 	async wsAuth_post (password: string): Promise<boolean> {
-			
+
 		const { data } = await this.#wsAuthAxios.post('', {
 			key: env.api_key,
-			password 
+			password
 		});
 		if (data.response) {
 			snackReset();

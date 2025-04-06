@@ -30,7 +30,7 @@ const router = createRouter({
 		{
 			path: FrontendRoutes.CATCHALL,
 			name: 'not-found',
-			redirect: { name: 'home' } 
+			redirect: { name: 'home' }
 		}
 	]
 });

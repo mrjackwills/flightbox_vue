@@ -1,21 +1,17 @@
 <template>
 	<v-app class='ma-0 pa-0' id='flightbox'>
 		<AppToolbar />
-		
-		<v-container class='ma-0 pa-0' :class='authenticated && init?"": "fill-height"' fluid >
+
+		<v-container class='ma-0 pa-0' :class='authenticated && init ? "" : "fill-height"' fluid>
 			<v-main>
-				<v-row
-					align='center'
-					justify='center'
-					class='ma-0 pa-0'
-				>
+				<v-row align='center' justify='center' class='ma-0 pa-0'>
 					<v-col cols='11' md='12' no-gutters class='ma-0 pa-0 '>
-						<router-view  />
+						<router-view />
 					</v-col>
 				</v-row>
 			</v-main>
 		</v-container>
-		
+
 		<AppFooter />
 		<AppDialog />
 		<AppSnackbar />
@@ -43,23 +39,19 @@ const appUpdate = (): void => {
 		message: 'downloading updates',
 		loading: true,
 		timeout: 5000,
-		icon: '' 
+		icon: ''
 	});
 	window.setTimeout(() => updateServiceWorker(), 4500);
 };
 
-const [ aircraftStore, userStore ] = [ aircraftModule(), userModule() ];
+const [aircraftStore, userStore] = [aircraftModule(), userModule()];
 
 const isHidden = ref(false);
 const logoutTimeout = ref(0);
 
-const authenticated = computed(() => {
-	return userStore.authenticated;
-});
+const authenticated = computed(() => userStore.authenticated);
 
-const init = computed(() => {
-	return aircraftModule().init;
-});
+const init = computed(() => aircraftModule().init);
 
 useHead({
 	title: () => {
@@ -75,10 +67,10 @@ useHead({
 			content: `flightbox`
 		}
 	],
-	link: [ {
+	link: [{
 		rel: 'canonical',
-		href: `https://flights.mrjackwills.com` 
-	} ]
+		href: `https://flights.mrjackwills.com`
+	}]
 });
 
 const logout = (message = 'you have been logged out'): void => {
@@ -105,9 +97,8 @@ onMounted(() => {
 </script>
 
 <style>
-
 .tooltip {
-	background: rgba(0,0,0,.75)!important;
+	background: rgba(0, 0, 0, .75) !important;
 }
 
 #flightbox {
