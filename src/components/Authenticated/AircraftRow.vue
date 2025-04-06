@@ -102,12 +102,7 @@ const metric = computed(() => aircraftModule().metric);
 const expanded = computed(() => showExtra.value);
 const backgroundColor = computed(() => `bg-grey-darken-${props.index % 2 === 0 ? '3' : '4'}`);
 const callsignArrowDirection = computed(() => showExtra.value ? mdiArrowCollapse : mdiArrowExpand);
-
-const calcAltitude = computed((): string => {
-	const altitude = props.flight.altitude;
-	if (!altitude) return '';
-	return metric.value ? `${(altitude * 0.3048).toFixed(1)}m` : `${altitude}ft`;
-});
+const calcAltitude = computed(() => !props.flight.altitude ? '' : metric.value ? `${(props.flight.altitude * 0.3048).toFixed(1)}m` : `${props.flight.altitude}ft`);
 
 const showExtra = ref(false);
 

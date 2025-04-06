@@ -142,9 +142,7 @@ const uptimeWs = computed({
 		flightboxStatusStore.set_uptime_ws(n);
 	}
 });
-const ws_connected = computed(() => {
-	return websocketStore.connected;
-});
+const ws_connected = computed(() => websocketStore.connected);
 
 const initCount = ref(0);
 const initTimeout = ref(0);
