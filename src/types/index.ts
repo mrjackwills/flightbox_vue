@@ -8,7 +8,7 @@ type TAircraftAltitude = {
 	callsign?: string;
 };
 type TAircraft = Record<'mode_s' | 'registered_owner' | 'registered_owner_operator_flag_code' | 'registered_owner_country_name' | 'registered_owner_country_iso_name'
-| 'manufacturer' | 'type' | 'icao_type' | 'url_photo' | 'url_photo_thumbnail', string>;
+	| 'manufacturer' | 'type' | 'icao_type' | 'url_photo' | 'url_photo_thumbnail', string>;
 
 type adsbdb_string = 'country_name' | 'country_iso_name' | 'municipality' | 'icao_code' | 'iata_code' | 'name';
 type adsbdb_number = `latitude` | `longitude` | 'elevation';
@@ -24,21 +24,21 @@ export type TConvertBytes = {
 	unit: 'GB' | 'MB' | 'kB';
 };
 
-export type TDataToDisplay = Array<Array< Record<'icon' | 'text' | 'value', string> & { copy: boolean }>>;
+export type TDataToDisplay = Array<Array<Record<'icon' | 'text' | 'value', string> & { copy: boolean }>>;
 
-export type TError = { 
+export type TError = {
 	message: string;
 	code: number;
 };
-	
-export type TStatus = { 
+
+export type TStatus = {
 	message: name_status;
 	data: TFlightboxStatus;
 };
 
 export type TWSFlights = {
 	message: name_flights;
-	data: Array<TAdsbdb>; 
+	data: Array<TAdsbdb>;
 };
 
 export type TSnackbarModule = {
@@ -60,7 +60,7 @@ export type TWSFromFlightBox = {
 	data?: TStatus | TWSFlights;
 	cache?: boolean;
 	unique?: boolean;
-	error?: TError; 
+	error?: TError;
 };
 
 export type TWSToServer = { message: TWSToFlightboxNames };

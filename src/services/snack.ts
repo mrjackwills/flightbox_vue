@@ -13,7 +13,7 @@ export const snackSuccess = async ({ message = 'Success', icon = mdiCheckCircleO
 	]);
 };
 
-export const snackError = async ({ message = 'error', icon = mdiAlertCircle, timeout = 7500 }: TSnack): Promise<void> =>{
+export const snackError = async ({ message = 'error', icon = mdiAlertCircle, timeout = 7500 }: TSnack): Promise<void> => {
 	const snackbar_store = snackbarModule();
 	snackReset();
 	await Promise.all([

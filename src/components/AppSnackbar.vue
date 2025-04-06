@@ -1,21 +1,11 @@
 <template>
-	<v-snackbar
-		v-model='visible'
-		id='snackbar'
-		timeout='-1'
-		app
-	>
+	<v-snackbar v-model='visible' id='snackbar' timeout='-1' app>
 		<v-row justify='center' align='center' no-gutters class='ma-0 pa-0 unselectable'>
 			<v-col v-if='icon' cols='auto' class=''>
 				<v-icon color='danger' :icon='icon' />
 			</v-col>
 			<v-col v-if='loading' cols='auto' class=''>
-				<v-progress-circular
-					indeterminate
-					:size='18'
-					:width='3'
-					color='danger'
-				/>
+				<v-progress-circular indeterminate :size='18' :width='3' color='danger' />
 			</v-col>
 			<v-col cols='auto' class='mx-3 ma-0 pa-0 danger--text'>
 				{{ message }}
@@ -25,13 +15,11 @@
 
 </template>
 
-<script setup lang ='ts'>
+<script setup lang='ts'>
 
 const snackbarStore = snackbarModule();
 
-const icon = computed((): string => {
-	return snackbarStore.icon;
-});
+const icon = computed(() => snackbarStore.icon);
 const loading = computed({
 	get (): boolean {
 		return snackbarStore.loading;
@@ -81,7 +69,7 @@ watch(visible, (i) => {
 </script>
 
 <style>
-#snackbar{
-	padding-bottom: 1.5rem!important;
+#snackbar {
+	padding-bottom: 1.5rem !important;
 }
 </style>

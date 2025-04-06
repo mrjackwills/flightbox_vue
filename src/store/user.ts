@@ -6,14 +6,13 @@ import { loadingModule } from './loading';
 import { ModuleName } from '@/types/const_module';
 import { snackError, snackReset } from '@/services/snack';
 import { websocketModule } from './websocket';
-// import { useRoute, useRouter } from 'vue-router';
 import { getActivePinia } from 'pinia';
 import { FrontendRoutes } from '@/types/const_routes';
 
 export const userModule = defineStore(ModuleName.USER, {
-	
+
 	state: () => ({ authenticated: false }),
-	
+
 	actions: {
 		logout (message?: string): void {
 			this.authenticated = false;
@@ -28,10 +27,9 @@ export const userModule = defineStore(ModuleName.USER, {
 			}
 			getActivePinia()?.router().push(FrontendRoutes.LOGIN);
 		},
-		
+
 		set_authenticated (value: boolean) {
 			this.authenticated = value;
 		}
-		
 	}
 });
