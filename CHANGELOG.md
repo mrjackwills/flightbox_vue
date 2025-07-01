@@ -1,3 +1,8 @@
+### Chores
++ create_release.sh update, [32ffe8f864f1f2badf30a876d723e7297dea3a92]
++ linting, [e2fe406878c3605326ed63ec944f2e176107ef03]
++ dependencies updated, [c55312e5d41ae1ed1136a45d10c612a9455fece8]
+
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.3.2'>v0.3.2</a>
 ### 2025-05-22
 
