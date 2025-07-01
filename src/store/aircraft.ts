@@ -15,7 +15,7 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 	}),
 
 	getters: {
-		
+
 		current_flights: (state): Array<TAdsbdb> => {
 			return state._current_flights;
 		},
@@ -32,7 +32,7 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 
 		set_current_flights (a: Array<TAdsbdb>): void {
 			this._current_flights = a;
-			this.unsorted_flights = [ ...a ];
+			this.unsorted_flights = [...a];
 		},
 
 		set_init (b: boolean): void {
@@ -54,7 +54,7 @@ export const aircraftModule = defineStore(ModuleName.AIRCRAFT, {
 		reset_sort () {
 			this.sort_by = undefined;
 			this.sort_asc = true;
-			this._current_flights = [ ...this.unsorted_flights ];
+			this._current_flights = [...this.unsorted_flights];
 		}
 	}
 

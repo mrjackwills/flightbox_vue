@@ -268,7 +268,7 @@ release_flow() {
 }
 
 main() {
-	cmd=(dialog --backtitle "Start ${MONO_NAME} containers" --radiolist "choose" 14 80 16)
+	cmd=(dialog --backtitle "Start ${MONO_NAME} containers" --keep-tite --radiolist "choose" 14 80 16)
 	options=(
 		1 "lint" off
 		2 "build" off

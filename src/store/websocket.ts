@@ -28,10 +28,10 @@ export const websocketModule = defineStore(ModuleName.WEBSOCKET, {
 		send (data: TWSToServer): void {
 			ws.connection?.send(JSON.stringify({
 				data,
-				unique: true 
+				unique: true
 			}));
 		},
-		
+
 		set_connected (b: boolean): void {
 			this.connected = b;
 		}

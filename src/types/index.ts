@@ -7,8 +7,8 @@ type TAircraftAltitude = {
 	altitude: number;
 	callsign?: string;
 };
-type TAircraft = Record<'mode_s' | 'registered_owner' | 'registered_owner_operator_flag_code' | 'registered_owner_country_name' | 'registered_owner_country_iso_name'
-	| 'manufacturer' | 'type' | 'icao_type' | 'url_photo' | 'url_photo_thumbnail', string>;
+type TAircraft = Record<'mode_s' | 'registered_owner' | 'registered_owner_operator_flag_code' | 'registered_owner_country_name' | 'registered_owner_country_iso_name' |
+  'manufacturer' | 'type' | 'icao_type' | 'url_photo' | 'url_photo_thumbnail', string>;
 
 type adsbdb_string = 'country_name' | 'country_iso_name' | 'municipality' | 'icao_code' | 'iata_code' | 'name';
 type adsbdb_number = `latitude` | `longitude` | 'elevation';
@@ -65,9 +65,9 @@ export type TWSFromFlightBox = {
 
 export type TWSToServer = { message: TWSToFlightboxNames };
 
-export type TFlightboxStatus = Record<'internal_ip' | 'time' | 'api_version', string>
-	& Record<'uptime' | 'uptime_app' | 'uptime_ws', number>
-	& { screen_on: boolean };
+export type TFlightboxStatus = Record<'internal_ip' | 'time' | 'api_version', string> &
+  Record<'uptime' | 'uptime_app' | 'uptime_ws', number> &
+  { screen_on: boolean };
 
 export type TFlightRoute = {
 	origin: adsbdb_flightroute;

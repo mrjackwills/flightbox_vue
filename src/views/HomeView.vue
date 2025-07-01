@@ -83,7 +83,13 @@ import type ExpandAll from '@/components/Authenticated/ExpandAll.vue';
 
 const { smAndDown } = useDisplay();
 
-const [aircraftStore, flightboxStatusStore, loadingStore, userStore, websocketStore] = [aircraftModule(), flightboxStatusModule(), loadingModule(), userModule(), websocketModule()];
+const [
+	aircraftStore,
+	flightboxStatusStore,
+	loadingStore,
+	userStore,
+	websocketStore
+] = [aircraftModule(), flightboxStatusModule(), loadingModule(), userModule(), websocketModule()];
 
 onUnmounted(() => {
 	clearAllIntervals();
@@ -169,7 +175,7 @@ const addWSHandlers = (): void => {
 	send_status_and_flights();
 
 	// Although should never have the connection killed
-	ws.connection?.addEventListener('close', (_event) => {
+	ws.connection?.addEventListener('close', () => {
 		userStore.logout();
 	});
 };
@@ -181,8 +187,9 @@ const clearAllIntervals = (): void => {
 };
 
 /**
-* If a message isn't received within the first 10000ms(x4) of being mounted, logout
-* */
+ * If a message isn't received within the first 10000ms(x4) of being mounted, logout
+ *
+ */
 const initCheck = (): void => {
 	initCount.value++;
 	loading.value = true;

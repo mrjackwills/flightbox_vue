@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
-/* eslint-disable @stylistic/ts/object-curly-newline */
 import App from './App.vue';
 import { createPinia } from 'pinia';
 import { createApp } from 'vue';
@@ -13,12 +12,8 @@ const head = createHead();
 const app = createApp(App);
 
 declare module 'pinia' {
-	export interface Pinia {
-		router: () => Router;
-	}
-	export interface PiniaCustomProperties {
-		router: Router;
-	}
+	export interface Pinia { router: () => Router }
+	export interface PiniaCustomProperties { router: Router }
 }
 
 const pinia = createPinia();
@@ -27,9 +22,9 @@ pinia.use(({ store }) => {
 });
 pinia.router = (): Router => router;
 
-app
-	.use(head)
-	.use(router)
-	.use(pinia)
-	.use(vuetify)
-	.mount('#flightbox_app');
+app.
+	use(head).
+	use(router).
+	use(pinia).
+	use(vuetify).
+	mount('#flightbox_app');

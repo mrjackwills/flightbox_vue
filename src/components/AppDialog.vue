@@ -47,12 +47,11 @@ const close = (): void => {
 };
 
 const isIntersecting = ref(false);
-const onIntersect = (entries: Array<IntersectionObserverEntry>, _observer: IntersectionObserver): void => {
+const onIntersect = (entries: Array<IntersectionObserverEntry>): void => {
 	isIntersecting.value = !!entries[0]?.isIntersecting;
 };
 
 watch(isIntersecting, (i: boolean) => {
 	if (!i) dialogStore.$reset();
-
 });
 </script>

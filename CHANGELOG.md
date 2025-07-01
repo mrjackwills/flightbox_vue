@@ -1,3 +1,12 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.3.3'>v0.3.3</a>
+### 2025-07-01
+
+### Chores
++ create_release.sh update, [32ffe8f8](https://github.com/mrjackwills/flightbox_vue/commit/32ffe8f864f1f2badf30a876d723e7297dea3a92)
++ linting, [e2fe4068](https://github.com/mrjackwills/flightbox_vue/commit/e2fe406878c3605326ed63ec944f2e176107ef03)
++ dependencies updated, [c55312e5](https://github.com/mrjackwills/flightbox_vue/commit/c55312e5d41ae1ed1136a45d10c612a9455fece8)
++ _typos.toml added, [dbea8c5c](https://github.com/mrjackwills/flightbox_vue/commit/dbea8c5cd31f93630d670a76a243c1df190bb2a2)
+
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.3.2'>v0.3.2</a>
 ### 2025-05-22
 

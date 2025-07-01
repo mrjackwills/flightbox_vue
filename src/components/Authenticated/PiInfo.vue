@@ -63,12 +63,13 @@ const info = computed((): TDataToDisplay => [
 			copy: false
 		}
 	],
-	[{
-		icon: mdiWebClock,
-		text: 'websocket uptime',
-		value: secondsToText(uptimeWs.value ? uptimeWs.value * 1000 : 0, mobile.value),
-		copy: false
-	}
+	[
+		{
+			icon: mdiWebClock,
+			text: 'websocket uptime',
+			value: secondsToText(uptimeWs.value ? uptimeWs.value * 1000 : 0, mobile.value),
+			copy: false
+		}
 	]
 ]);
 const internal_ip = computed(() => flightboxStatusStore.internal_ip);
