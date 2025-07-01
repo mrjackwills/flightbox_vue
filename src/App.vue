@@ -67,17 +67,19 @@ useHead({
 			content: `flightbox`
 		}
 	],
-	link: [{
-		rel: 'canonical',
-		href: `https://flights.mrjackwills.com`
-	}]
+	link: [
+		{
+			rel: 'canonical',
+			href: `https://flights.mrjackwills.com`
+		}
+	]
 });
 
 const logout = (message = 'you have been logged out'): void => {
 	userStore.logout(message);
 };
 
-const visibilityChange = (_: Event): void => {
+const visibilityChange = (): void => {
 	isHidden.value = document.hidden;
 	if (isHidden.value) {
 		logoutTimeout.value = window.setTimeout(() => {

@@ -130,7 +130,6 @@ const props = defineProps<{
 
 watch(callsign, (i) => {
 	if (!i) showExtra.value = false;
-
 });
 </script>
 

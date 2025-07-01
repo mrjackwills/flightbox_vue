@@ -170,10 +170,10 @@ const sort_local = (): void => {
 	}
 };
 
-watch(sort_asc, (_) => {
+watch(sort_asc, () => {
 	sort_local();
 });
-watch(sort_by, (_) => {
+watch(sort_by, () => {
 	sort_local();
 });
 

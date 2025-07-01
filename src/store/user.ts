@@ -25,7 +25,8 @@ export const userModule = defineStore(ModuleName.USER, {
 				snackReset();
 				snackError({ message });
 			}
-			getActivePinia()?.router().push(FrontendRoutes.LOGIN);
+			getActivePinia()?.router().
+				push(FrontendRoutes.LOGIN);
 		},
 
 		set_authenticated (value: boolean) {
