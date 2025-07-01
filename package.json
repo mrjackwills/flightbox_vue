@@ -1,7 +1,7 @@
 {
   "name": "flightbox_vue",
   "description": "frontend site for flightbox service",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "private": false,
   "homepage": "https://github.com/mrjackwills/flightbox_vue",
   "license": "MIT",
@@ -15,18 +15,18 @@
     "lint": "eslint ./src"
   },
   "dependencies": {
-	  "@vueuse/core": "^13.4.0",
-	  "@vueuse/head": "^2.0.0",
-	  "axios": "^1.10.0",
+    "@vueuse/core": "^13.4.0",
+    "@vueuse/head": "^2.0.0",
+    "axios": "^1.10.0",
     "pinia": "^3.0.3",
     "secure-json-parse": "4.0.0",
     "vue": "3.5.17",
     "vue-router": "^4.5.1",
     "vuetify": "^3.8.11"
-},
-"devDependencies": {
-	"@mdi/js": "^7.4.47",
-	"@stylistic/eslint-plugin": "^5.1.0",
+  },
+  "devDependencies": {
+    "@mdi/js": "^7.4.47",
+    "@stylistic/eslint-plugin": "^5.1.0",
     "@types/node": "^24.0.8",
     "@types/secure-json-parse": "^2.4.0",
     "@vitejs/plugin-vue": "^6.0.0",
@@ -45,5 +45,5 @@
     "vite-plugin-vuetify": "^2.1.1",
     "vue-tsc": "^2.2.10"
   },
-  "buildDate": "Thu 22 2025 May 21:38:45 BST"
+  "buildDate": "Tue 01 2025 July 10:38:39 BST"
 }
