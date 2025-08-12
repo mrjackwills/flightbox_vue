@@ -61,7 +61,7 @@ export default defineConfigWithVueTs(...configs, {
 		'@stylistic/quotes': [
 			'error',
 			'single',
-			{ allowTemplateLiterals: true }
+			{ allowTemplateLiterals: 'always' }
 		],
 		'@typescript-eslint/array-type': [
 			'error',
