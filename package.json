@@ -22,16 +22,16 @@
     "secure-json-parse": "4.0.0",
     "vue": "3.5.18",
     "vue-router": "^4.5.1",
-    "vuetify": "^3.9.4"
+    "vuetify": "^3.9.5"
   },
   "devDependencies": {
     "@mdi/js": "^7.4.47",
     "@stylistic/eslint-plugin": "^5.2.3",
-    "@types/node": "^24.2.1",
+    "@types/node": "^24.3.0",
     "@types/secure-json-parse": "^2.4.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/eslint-config-typescript": "^14.6.0",
-    "@vue/tsconfig": "^0.7.0",
+    "@vue/tsconfig": "^0.8.0",
     "eslint": "^9.33.0",
     "sass": "^1.90.0",
     "typescript": "5.9.2",

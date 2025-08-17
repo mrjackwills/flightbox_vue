@@ -1,6 +1,6 @@
 type name_status = 'status';
 type name_flights = 'flights';
-type TWSToFlightboxNames = 'on' | 'off' | name_status | name_flights;
+type TWSToFlightboxNames = name_status | name_flights;
 
 type TAircraftAltitude = {
 	aircraft: TAircraft;
@@ -66,8 +66,7 @@ export type TWSFromFlightBox = {
 export type TWSToServer = { message: TWSToFlightboxNames };
 
 export type TFlightboxStatus = Record<'internal_ip' | 'time' | 'api_version', string> &
-  Record<'uptime' | 'uptime_app' | 'uptime_ws', number> &
-  { screen_on: boolean };
+  Record<'uptime' | 'uptime_app' | 'uptime_ws', number>;
 
 export type TFlightRoute = {
 	origin: adsbdb_flightroute;

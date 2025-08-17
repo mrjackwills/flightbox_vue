@@ -23,6 +23,5 @@ declare module 'vue' {
     PiInfo: typeof import('./src/components/Authenticated/PiInfo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    ToggleScreen: typeof import('./src/components/Authenticated/ToggleScreen.vue')['default']
   }
 }
