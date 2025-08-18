@@ -1,3 +1,9 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.4.0'>v0.4.0</a>
+### 2025-08-18
+
+### Refactors
++ screen control removed, [5a3e2b0e](https://github.com/mrjackwills/flightbox_vue/commit/5a3e2b0e7a5c16f29dee355e3359af15b70c66b6)
+
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.3.4'>v0.3.4</a>
 ### 2025-08-12
 
