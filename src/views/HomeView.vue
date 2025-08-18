@@ -26,9 +26,8 @@
 								justify='space-between'
 								class='ma-0 pa-0'>
 
-								<!-- <v-col cols='2' v-if='!smAndDown' class='ma-0 pa-0' /> -->
 
-								<v-col cols='auto' class='ma-0 pa-0'>
+								<v-col cols='4' class='ma-0 pa-0'>
 									<v-row align='center'
 										justify='center'
 										class='ma-0 pa-0'>
@@ -39,7 +38,7 @@
 								</v-col>
 
 
-								<v-col cols='auto' class='ma-0 pa-0'>
+								<v-col cols='4' class='ma-0 pa-0'>
 									<v-row align='center'
 										justify='center'
 										class='ma-0 pa-0'>
@@ -49,7 +48,7 @@
 									</v-row>
 								</v-col>
 
-								<v-col cols='auto' class='ma-0 pa-0'>
+								<v-col cols='4' class='ma-0 pa-0'>
 									<v-row align='center'
 										justify='center'
 										class='ma-0 pa-0'>
