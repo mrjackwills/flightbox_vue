@@ -18,19 +18,15 @@
 						</v-col>
 					</v-row>
 
+
 					<v-row align='center' justify='center' class='ma-0 pa-0'>
 						<v-col cols='12' lg='11' class='ma-0 pa-0'>
 
-							<!-- :justify='smAndDown ? "space-around" : "space-between"' -->
-							<v-row align='center'
-								justify='space-between'
-								class='ma-0 pa-0'>
+							<v-row align='center' justify='space-between' class='ma-0 pa-0'>
 
 
 								<v-col cols='4' class='ma-0 pa-0'>
-									<v-row align='center'
-										justify='center'
-										class='ma-0 pa-0'>
+									<v-row align='center' justify='center' class='ma-0 pa-0'>
 										<v-col cols='auto' class='ma-0 pa-0'>
 											<ExpandAll />
 										</v-col>
@@ -39,9 +35,7 @@
 
 
 								<v-col cols='4' class='ma-0 pa-0'>
-									<v-row align='center'
-										justify='center'
-										class='ma-0 pa-0'>
+									<v-row align='center' justify='center' class='ma-0 pa-0'>
 										<v-col cols='auto' class='ma-0 pa-0'>
 											<ForceUpdate @refresh='refresh' :updateCount='updateCount' />
 										</v-col>
@@ -49,12 +43,10 @@
 								</v-col>
 
 								<v-col cols='4' class='ma-0 pa-0'>
-									<v-row align='center'
-										justify='center'
-										class='ma-0 pa-0'>
+									<v-row align='center' justify='center' class='ma-0 pa-0'>
 										<v-col cols='auto' class='ma-0 pa-0 pt-6'>
-											<v-row class='ma-0 pa-0' align='center' :justify='smAndDown ? "center" : "end"'
-												v-if='currentFlights > 0'>
+											<v-row class='ma-0 pa-0' align='center'
+												:justify='smAndDown ? "center" : "end"' v-if='currentFlights > 0'>
 												<v-col cols='auto' class='ma-0 pa-0'>
 													<v-switch density='compact' flat color='primary' v-model='metric' />
 												</v-col>

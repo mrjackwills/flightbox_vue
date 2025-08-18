@@ -34,7 +34,6 @@
 
 			</v-row>
 			<v-row class='ma-0 pa-0' v-if='index === 0' justify='start'>
-
 				<v-col cols='12' class='ma-0 pa-0 divider' />
 			</v-row>
 		</v-col>
