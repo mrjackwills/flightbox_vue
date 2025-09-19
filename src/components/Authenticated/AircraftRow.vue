@@ -8,7 +8,7 @@
 
 						<template v-if='flight.flightroute'>
 							<v-col cols='auto' class='ma-0 pa-0 mr-1'>
-								<a :href='href' target='_blank' rel='noopener noreferrer' v-if='flight.flightroute'>
+								<a :href target='_blank' rel='noopener noreferrer' v-if='flight.flightroute'>
 									<v-icon size='x-small' color='grey-lighten-4' class='mx-1' :icon='mdiOpenInNew' />
 								</a>
 							</v-col>

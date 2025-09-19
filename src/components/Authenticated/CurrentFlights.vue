@@ -25,8 +25,8 @@
 
 						<v-col cols='12' class='ma-0 pa-0'>
 							<section v-for='(flight, index) in local_current_flights' :key='flight.aircraft.mode_s'>
-								<AircraftRow :flight='flight' :showDivider='index !== number_current_flights - 1'
-									:index='index' />
+								<AircraftRow :flight :showDivider='index !== number_current_flights - 1'
+									:index />
 							</section>
 						</v-col>
 					</v-row>
