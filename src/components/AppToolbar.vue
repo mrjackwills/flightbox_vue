@@ -10,7 +10,7 @@
 		</v-row>
 
 		<section v-if='authenticated && init'>
-			<v-icon color='white' class='mr-4' :icon='icon' :size='mdAndUp ? `large` : `default`' />
+			<v-icon color='white' class='mr-4' :icon :size='mdAndUp ? `large` : `default`' />
 
 		</section>
 		<v-progress-linear v-if='loading' :indeterminate='loading' :height='progressHeight' location='bottom center'

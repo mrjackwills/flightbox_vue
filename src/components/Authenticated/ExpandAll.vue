@@ -1,9 +1,9 @@
 <template>
 	<v-btn @click='toggle' :disabled='loading' :size='mobile ? `small` : `default`' :variant='loading ? "outlined" : "flat"'
-		class='fab-fix elevation-0' :color='color' rounded>
+		class='fab-fix elevation-0' :color  rounded>
 		<v-row align='center' justify='space-around' class='ma-0 pa-0'>
 			<v-col cols='auto' class='ma-0 pa-0'>
-				<v-icon class='mr-1' color='black' :icon='icon' />
+				<v-icon class='mr-1' color='black' :icon />
 			</v-col>
 			<v-col cols='auto' class='ma-0 pa-0 text-black'>
 				{{ text }} all
