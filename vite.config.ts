@@ -87,7 +87,6 @@ export default defineConfig({
 			filter: /\.(js|mjs|json|css)$/i
 		})
 	],
-	css: { preprocessorOptions: { scss: { api: 'modern-compiler' } } },
 	define: {
 		'process.env': {},
 		'import.meta.env.BUILD_DATE': Date.now(),
