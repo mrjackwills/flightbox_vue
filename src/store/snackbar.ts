@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
-import { ModuleName } from '@/types/const_module';
+import { defineStore } from 'pinia'
+import { ModuleName } from '@/types'
 
 export const snackbarModule = defineStore(ModuleName.SNACKBAR, {
 
@@ -8,28 +8,28 @@ export const snackbarModule = defineStore(ModuleName.SNACKBAR, {
 		loading: false,
 		message: '',
 		timeout: 0,
-		visible: false
+		visible: false,
 	}),
 
 	actions: {
 		set_icon (su: string): void {
-			this.icon = su;
+			this.icon = su
 		},
 
 		set_loading (b: boolean): void {
-			this.loading = b;
+			this.loading = b
 		},
 
 		set_message (su: string): void {
-			this.message = su;
+			this.message = su
 		},
 
 		set_timeout (nu: number): void {
-			this.timeout = nu;
+			this.timeout = nu
 		},
 
 		set_visible (b: boolean): void {
-			this.visible = b;
-		}
-	}
-});
+			this.visible = b
+		},
+	},
+})

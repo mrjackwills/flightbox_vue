@@ -4,29 +4,42 @@
 			<v-expand-transition>
 				<section v-if='number_current_flights'>
 
-					<v-row class='ma-0 pa-0 text-left headers pa-1 bg-primary' justify='space-between' align='center'>
-						<v-col cols='3' class='ma-0 pa-0' v-for='(item, index) in headers' :key='index'
-							:class='{ "text-right": index > 1 }'>
-							<v-row class='ma-0 pa-0' align='center' justify='start'>
-								<v-col cols='12' class='ma-0 pa-0'>
+					<v-row align='center' class='ma-0 pa-0 text-left headers pa-1 bg-primary' justify='space-between'>
+						<v-col
+							v-for='(item, index) in headers'
+							:key='index'
+							class='ma-0 pa-0'
+							:class='{ "text-right": index > 1 }'
+							cols='3'
+						>
+							<v-row align='center' class='ma-0 pa-0' justify='start'>
+								<v-col class='ma-0 pa-0' cols='12'>
 									<span
-										class='font-weight-bold text-uppercase text-body-2 unselectable text-grey-lighten-3'>
+										class='font-weight-bold text-uppercase text-body-2 unselectable text-grey-lighten-3'
+									>
 										{{ item.name }}
 									</span>
-									<v-icon :icon='get_icon(item.sort_by)' size='x-small' class='ml-3'
-										@click='sort_click(item.sort_by)' />
+									<v-icon
+										class='ml-3'
+										:icon='get_icon(item.sort_by)'
+										size='x-small'
+										@click='sort_click(item.sort_by)'
+									/>
 								</v-col>
 							</v-row>
 						</v-col>
 
 					</v-row>
 
-					<v-row class='ma-0 pa-0 text-left' justify='space-between' align='center'>
+					<v-row align='center' class='ma-0 pa-0 text-left' justify='space-between'>
 
-						<v-col cols='12' class='ma-0 pa-0'>
+						<v-col class='ma-0 pa-0' cols='12'>
 							<section v-for='(flight, index) in local_current_flights' :key='flight.aircraft.mode_s'>
-								<AircraftRow :flight :showDivider='index !== number_current_flights - 1'
-									:index />
+								<AircraftRow
+									:flight
+									:index
+									:show-divider='index !== number_current_flights - 1'
+								/>
 							</section>
 						</v-col>
 					</v-row>
@@ -34,15 +47,15 @@
 				</section>
 
 			</v-expand-transition>
-			<v-row class='ma-0 pa-0' align='center' justify='center' v-if='!number_current_flights'>
-				<v-col cols='auto' class='ma-0 pa-0 text-h6 unselectable text-grey-lighten-3'>
+			<v-row v-if='!number_current_flights' align='center' class='ma-0 pa-0' justify='center'>
+				<v-col class='ma-0 pa-0 text-h6 unselectable text-grey-lighten-3' cols='auto'>
 					no flights overhead
 				</v-col>
 			</v-row>
 		</div>
-		<v-row justify='center' align='center' class='minh' v-else>
-			<v-col cols='auto' class='ma-0 pa-0 my-6'>
-				<v-progress-circular indeterminate color='primary' />
+		<v-row v-else align='center' class='minh' justify='center'>
+			<v-col class='ma-0 pa-0 my-6' cols='auto'>
+				<v-progress-circular color='primary' indeterminate />
 			</v-col>
 		</v-row>
 	</section>
@@ -50,143 +63,153 @@
 
 <script setup lang="ts">
 
-import type { TAdsbdb, TSortBy, u } from '@/types';
-import { mdiArrowDownThick, mdiArrowUpThick, mdiSort } from '@mdi/js';
-const aircraftStore = aircraftModule();
+import type { TAdsbdb, TSortBy, u } from '@/types'
+import { mdiArrowDownThick, mdiArrowUpThick, mdiSort } from '@mdi/js'
+const aircraftStore = aircraftModule()
 
-const local_current_flights = ref([] as Array<TAdsbdb>);
+const local_current_flights = ref([] as Array<TAdsbdb>)
 
-const current_flights = computed((): Array<TAdsbdb> => aircraftStore.current_flights);
+const current_flights = computed((): Array<TAdsbdb> => aircraftStore.current_flights)
 
 onMounted(() => {
-	local_current_flights.value = [...current_flights.value];
-	sort_local();
-});
+	local_current_flights.value = [...current_flights.value]
+	sort_local()
+})
 
-const init = computed(() => aircraftStore.init);
-const number_current_flights = computed(() => current_flights.value.length);
+const init = computed(() => aircraftStore.init)
+const number_current_flights = computed(() => current_flights.value.length)
 
-const get_icon = (x: TSortBy): string => {
+function get_icon (x: TSortBy): string {
 	if (sort_by.value === x) {
-		if (sort_asc.value) return mdiArrowDownThick;
-		else return mdiArrowUpThick;
+		return sort_asc.value ? mdiArrowDownThick : mdiArrowUpThick
 	}
-	return mdiSort;
-};
+	return mdiSort
+}
 
-const sort_click = (x: TSortBy): void => {
+function sort_click (x: TSortBy): void {
 	if (!sort_by.value || sort_by.value !== x) {
-		sort_by.value = x;
+		sort_by.value = x
 	} else if (sort_asc.value) {
-		sort_asc.value = !sort_asc.value;
+		sort_asc.value = !sort_asc.value
 	} else if (!sort_asc.value) {
-		aircraftStore.reset_sort();
+		aircraftStore.reset_sort()
 	}
-};
+}
 
 const sort_by = computed({
 	get (): u<TSortBy> {
-		return aircraftStore.sort_by;
+		return aircraftStore.sort_by
 	},
 	set (b: u<TSortBy>): void {
-		aircraftStore.set_sort_by(b);
-	}
-});
+		aircraftStore.set_sort_by(b)
+	},
+})
 
 const sort_asc = computed({
 	get (): boolean {
-		return aircraftStore.sort_asc;
+		return aircraftStore.sort_asc
 	},
 	set (b: boolean): void {
-		aircraftStore.set_sort_asc(b);
-	}
-});
+		aircraftStore.set_sort_asc(b)
+	},
+})
 
 const headers = [
 	{
 		name: 'callsign',
-		sort_by: 'callsign' as TSortBy
+		sort_by: 'callsign' as TSortBy,
 	},
 	{
 		name: 'aircraft (mode_s)',
-		sort_by: 'aircraft' as TSortBy
+		sort_by: 'aircraft' as TSortBy,
 	},
 	{
 		name: 'owner',
-		sort_by: 'owner' as TSortBy
+		sort_by: 'owner' as TSortBy,
 	},
 	{
 		name: 'altitude',
-		sort_by: 'altitude' as TSortBy
-	}
+		sort_by: 'altitude' as TSortBy,
+	},
 
-];
+]
 
-const sort_local = (): void => {
-	if (!sort_by.value) {
-		local_current_flights.value.sort((a, b) => {
-			const callsign_a = a.callsign || 'z';
-			const callsign_b = b.callsign || 'z';
-			return callsign_a === callsign_b ? a.altitude > b.altitude ? 1 : 0 : callsign_a > callsign_b ? 1 : 0;
-		});
-	} else {
-		if (sort_by.value === 'altitude') {
-			local_current_flights.value.sort((a, b) => {
-				if (sort_asc.value) {
-					return a.altitude >= b.altitude ? 1 : -1;
-				} else {
-					return a.altitude >= b.altitude ? -1 : 1;
-				}
-			});
-		} else if (sort_by.value === 'aircraft') {
-			local_current_flights.value.sort((a, b) => {
-				const aircraft_a = `${a.aircraft.manufacturer} ${a.aircraft.icao_type}`;
-				const aircraft_b = `${b.aircraft.manufacturer} ${b.aircraft.icao_type}`;
-				if (sort_asc.value) {
-					return aircraft_a.toLowerCase() >= aircraft_b.toLowerCase() ? 1 : -1;
-				} else {
-					return aircraft_a.toLowerCase() >= aircraft_b.toLowerCase() ? -1 : 1;
-				}
-			});
-		} else if (sort_by.value === 'owner') {
-			local_current_flights.value.sort((a, b) => {
-				if (sort_asc.value) {
-					return a.aircraft.registered_owner.toLowerCase() >= b.aircraft.registered_owner.toLowerCase() ? 1 : -1;
-				} else {
-					return a.aircraft.registered_owner.toLowerCase() >= b.aircraft.registered_owner.toLowerCase() ? -1 : 1;
-				}
-			});
-		} else {
-			local_current_flights.value.sort((a, b) => {
-				const callsign_a = a.callsign || 'z';
-				const callsign_b = b.callsign || 'z';
-				if (sort_asc.value) {
-					return callsign_a >= callsign_b ? 1 : -1;
-				} else {
-					return callsign_a >= callsign_b ? -1 : 1;
-				}
-			});
+function sort_local (): void {
+	if (sort_by.value) {
+		switch (sort_by.value) {
+			case 'altitude': {
+				local_current_flights.value.sort((a, b) => {
+					if (sort_asc.value) {
+						return a.altitude >= b.altitude ? 1 : -1
+					} else {
+						return a.altitude >= b.altitude ? -1 : 1
+					}
+				})
+
+				break
+			}
+			case 'aircraft': {
+				local_current_flights.value.sort((a, b) => {
+					const aircraft_a = `${a.aircraft.manufacturer} ${a.aircraft.icao_type}`
+					const aircraft_b = `${b.aircraft.manufacturer} ${b.aircraft.icao_type}`
+					if (sort_asc.value) {
+						return aircraft_a.toLowerCase() >= aircraft_b.toLowerCase() ? 1 : -1
+					} else {
+						return aircraft_a.toLowerCase() >= aircraft_b.toLowerCase() ? -1 : 1
+					}
+				})
+
+				break
+			}
+			case 'owner': {
+				local_current_flights.value.sort((a, b) => {
+					if (sort_asc.value) {
+						return a.aircraft.registered_owner.toLowerCase() >= b.aircraft.registered_owner.toLowerCase() ? 1 : -1
+					} else {
+						return a.aircraft.registered_owner.toLowerCase() >= b.aircraft.registered_owner.toLowerCase() ? -1 : 1
+					}
+				})
+
+				break
+			}
+			default: {
+				local_current_flights.value.sort((a, b) => {
+					const callsign_a = a.callsign || 'z'
+					const callsign_b = b.callsign || 'z'
+					if (sort_asc.value) {
+						return callsign_a >= callsign_b ? 1 : -1
+					} else {
+						return callsign_a >= callsign_b ? -1 : 1
+					}
+				})
+			}
 		}
+	} else {
+		local_current_flights.value.sort((a, b) => {
+			const callsign_a = a.callsign || 'z'
+			const callsign_b = b.callsign || 'z'
+			return callsign_a === callsign_b ? (a.altitude > b.altitude ? 1 : 0) : (callsign_a > callsign_b ? 1 : 0)
+		})
 	}
-};
+}
 
 watch(sort_asc, () => {
-	sort_local();
-});
+	sort_local()
+})
 watch(sort_by, () => {
-	sort_local();
-});
+	sort_local()
+})
 
-watch(current_flights, (i) => {
-	local_current_flights.value = [...i];
-	sort_local();
-});
+watch(current_flights, i => {
+	local_current_flights.value = [...i]
+	sort_local()
+})
 
 </script>
 
 <style>
 .headers {
-	border-top-right-radius: .25rem;
-	border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    border-top-left-radius: .25rem;
 }
 </style>

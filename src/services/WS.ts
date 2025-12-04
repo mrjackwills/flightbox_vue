@@ -1,21 +1,21 @@
-import { env } from '@/vanillaTS/env';
+import { env } from '@/vanillaTS/env'
 
 export class CreateWs {
-	#ws?: WebSocket;
+	#ws?: WebSocket
 
 	get connection (): undefined | WebSocket {
-		return userModule().authenticated ? this.#ws : undefined;
+		return userModule().authenticated ? this.#ws : undefined
 	}
 
 	openWs (token: string): void {
 		if (userModule().authenticated) {
-			this.#ws = new WebSocket(`${env.domain_wss}/${token}`);
+			this.#ws = new WebSocket(`${env.domain_wss}/${token}`)
 		}
 	}
 
 	closeWs (): void {
-		this.#ws?.close();
+		this.#ws?.close()
 	}
 }
 
-export const ws = new CreateWs();
+export const ws = new CreateWs()

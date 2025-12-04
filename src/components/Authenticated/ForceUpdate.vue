@@ -1,11 +1,19 @@
 <template>
-	<v-btn @click='refresh' :disabled='buttonDisabled' :size='mobile ? `small` : `default`'
-		:variant='buttonDisabled ? "outlined" : "flat"' class='fab-fix elevation-0' color='white' dark rounded>
-		<v-row align='center' justify='space-around' class='ma-0 pa-0'>
-			<v-col cols='auto' class='ma-0 pa-0'>
+	<v-btn
+		class='fab-fix elevation-0'
+		color='white'
+		dark
+		:disabled='buttonDisabled'
+		rounded
+		:size='mobile ? "small" : "default"'
+		:variant='buttonDisabled ? "outlined" : "flat"'
+		@click='refresh'
+	>
+		<v-row align='center' class='ma-0 pa-0' justify='space-around'>
+			<v-col class='ma-0 pa-0' cols='auto'>
 				<v-icon class='mr-1' color='' :icon='mdiRefresh' />
 			</v-col>
-			<v-col cols='auto' class='ma-0 pa-0 mono-numbers'>
+			<v-col class='ma-0 pa-0 mono-numbers' cols='auto'>
 				{{ buttonText }}
 			</v-col>
 		</v-row>
@@ -15,23 +23,23 @@
 </template>
 
 <script setup lang="ts">
-import { useDisplay } from 'vuetify';
-import { mdiRefresh } from '@mdi/js';
-import { zeroPad } from '@/vanillaTS/zeropad';
-const { mobile } = useDisplay();
+import { mdiRefresh } from '@mdi/js'
+import { useDisplay } from 'vuetify'
+import { zeroPad } from '@/vanillaTS/zeropad'
+const { mobile } = useDisplay()
 
-const emit = defineEmits(['refresh']);
+const emit = defineEmits(['refresh'])
 
-const props = defineProps<{ updateCount: number }>();
+const props = defineProps<{ updateCount: number }>()
 
-const buttonDisabled = computed(() => loading.value || updating.value);
-const buttonText = computed(() => `next update ${zeroPad(props.updateCount)}`);
-const loading = computed(() => loadingModule().loading);
-const updating = computed(() => props.updateCount === 0);
+const buttonDisabled = computed(() => loading.value || updating.value)
+const buttonText = computed(() => `next update ${zeroPad(props.updateCount)}`)
+const loading = computed(() => loadingModule().loading)
+const updating = computed(() => props.updateCount === 0)
 
-const refresh = (): void => {
-	if (loading.value) return;
-	emit('refresh');
-};
+function refresh (): void {
+	if (loading.value) return
+	emit('refresh')
+}
 
 </script>

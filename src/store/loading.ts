@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
-import { ModuleName } from '@/types/const_module';
+import { defineStore } from 'pinia'
+import { ModuleName } from '@/types'
 
 export const loadingModule = defineStore(ModuleName.LOADING, {
 
@@ -7,7 +7,7 @@ export const loadingModule = defineStore(ModuleName.LOADING, {
 
 	actions: {
 		set_loading (value: boolean) {
-			this.loading = value;
-		}
-	}
-});
+			this.loading = value
+		},
+	},
+})

@@ -1,13 +1,11 @@
-import { aircraftModule } from './aircraft';
-import { defineStore } from 'pinia';
-import { dialogModule } from './dialog';
-import { flightboxStatusModule } from './flightboxStatus';
-import { loadingModule } from './loading';
-import { ModuleName } from '@/types/const_module';
-import { snackError, snackReset } from '@/services/snack';
-import { websocketModule } from './websocket';
-import { getActivePinia } from 'pinia';
-import { FrontendRoutes } from '@/types/const_routes';
+import { defineStore, getActivePinia } from 'pinia'
+import { snackError, snackReset } from '@/services/snack'
+import { FrontendRoutes, ModuleName } from '@/types'
+import { aircraftModule } from './aircraft'
+import { dialogModule } from './dialog'
+import { flightboxStatusModule } from './flightboxStatus'
+import { loadingModule } from './loading'
+import { websocketModule } from './websocket'
 
 export const userModule = defineStore(ModuleName.USER, {
 
@@ -15,22 +13,21 @@ export const userModule = defineStore(ModuleName.USER, {
 
 	actions: {
 		logout (message?: string): void {
-			this.authenticated = false;
-			loadingModule().set_loading(false);
-			flightboxStatusModule().$reset();
-			aircraftModule().$reset();
-			websocketModule().closeWS();
-			dialogModule().$reset();
+			this.authenticated = false
+			loadingModule().set_loading(false)
+			flightboxStatusModule().$reset()
+			aircraftModule().$reset()
+			websocketModule().closeWS()
+			dialogModule().$reset()
 			if (message) {
-				snackReset();
-				snackError({ message });
+				snackReset()
+				snackError({ message })
 			}
-			getActivePinia()?.router().
-				push(FrontendRoutes.LOGIN);
+			getActivePinia()?.router().push(FrontendRoutes.LOGIN)
 		},
 
 		set_authenticated (value: boolean) {
-			this.authenticated = value;
-		}
-	}
-});
+			this.authenticated = value
+		},
+	},
+})
