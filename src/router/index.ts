@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '@/views/HomeView.vue';
-import LoginView from '@/views/LoginView.vue';
-import { FrontendRoutes } from '@/types/const_routes';
+import { createRouter, createWebHistory } from 'vue-router'
+import { FrontendRoutes } from '@/types'
+import HomeView from '@/views/HomeView.vue'
+import LoginView from '@/views/LoginView.vue'
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,28 +11,34 @@ const router = createRouter({
 			name: 'home',
 			component: HomeView,
 			beforeEnter: (_to, _from, next): void => {
-				const user_store = userModule();
-				if (!user_store.authenticated) next(FrontendRoutes.LOGIN);
-				else next();
-			}
+				const user_store = userModule()
+				if (user_store.authenticated) {
+					next()
+				} else {
+					next(FrontendRoutes.LOGIN)
+				}
+			},
 		},
 		{
 			path: FrontendRoutes.LOGIN,
 			name: 'login',
 			component: LoginView,
 			beforeEnter: (_to, _from, next): void => {
-				const user_store = userModule();
-				const isAuthenticated = user_store.authenticated;
-				if (isAuthenticated) next(FrontendRoutes.BASE);
-				else next();
-			}
+				const user_store = userModule()
+				const isAuthenticated = user_store.authenticated
+				if (isAuthenticated) {
+					next(FrontendRoutes.BASE)
+				} else {
+					next()
+				}
+			},
 		},
 		{
 			path: FrontendRoutes.CATCHALL,
 			name: 'not-found',
-			redirect: { name: 'home' }
-		}
-	]
-});
+			redirect: { name: 'home' },
+		},
+	],
+})
 
-export default router;
+export default router

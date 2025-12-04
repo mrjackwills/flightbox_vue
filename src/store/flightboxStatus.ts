@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
-import { ModuleName } from '@/types/const_module';
+import { defineStore } from 'pinia'
+import { ModuleName } from '@/types'
 
 export const flightboxStatusModule = defineStore(ModuleName.FLIGHTBOX_STATUS, {
 
@@ -10,30 +10,30 @@ export const flightboxStatusModule = defineStore(ModuleName.FLIGHTBOX_STATUS, {
 		online: false,
 		uptime: 0,
 		uptime_app: 0,
-		uptime_ws: 0
+		uptime_ws: 0,
 	}),
 
 	actions: {
 		set_api_version (su: string): void {
-			this.api_version = su;
+			this.api_version = su
 		},
 		set_init (b: boolean): void {
-			this.init = b;
+			this.init = b
 		},
 		set_internal_ip (su: string): void {
-			this.internal_ip = su;
+			this.internal_ip = su
 		},
 		set_uptimeApp (nu: number): void {
-			this.uptime_app = nu;
+			this.uptime_app = nu
 		},
 		set_online (b: boolean): void {
-			this.online = b;
+			this.online = b
 		},
 		set_uptime (nu: number): void {
-			this.uptime = nu;
+			this.uptime = nu
 		},
 		set_uptime_ws (nu: number): void {
-			this.uptime_ws = nu;
-		}
-	}
-});
+			this.uptime_ws = nu
+		},
+	},
+})

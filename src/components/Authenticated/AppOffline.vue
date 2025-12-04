@@ -1,19 +1,24 @@
 <template>
 
-	<v-col cols='12' class='ma-0 pa-0'>
+	<v-col class='ma-0 pa-0' cols='12'>
 
-		<v-row align='center' justify='center' class='ma-0 pa-0'>
+		<v-row align='center' class='ma-0 pa-0' justify='center'>
 
-			<v-col cols='auto' class='ma-0 pa-0'>
+			<v-col class='ma-0 pa-0' cols='auto'>
 
-				<v-row justify='space-between' align='center' no-gutters class='pulse-animation'>
+				<v-row align='center' class='pulse-animation' justify='space-between' no-gutters>
 
-					<v-col cols='auto' class='ma-0 pa-0'>
-						<v-icon dense color='danger' class='mr-1' :size='mobile ? `small` : `default`'
-							:icon='mdiAlertCircle' />
+					<v-col class='ma-0 pa-0' cols='auto'>
+						<v-icon
+							class='mr-1'
+							color='danger'
+							dense
+							:icon='mdiAlertCircle'
+							:size='mobile ? `small` : `default`'
+						/>
 					</v-col>
 
-					<v-col cols='auto' class='ma-0 pa-0'>
+					<v-col class='ma-0 pa-0' cols='auto'>
 						<span class='text-danger text-h5'>flightbox offline</span>
 					</v-col>
 
@@ -27,8 +32,8 @@
 </template>
 
 <script setup lang='ts'>
-import { mdiAlertCircle } from '@mdi/js';
-import { useDisplay } from 'vuetify';
-const { mobile } = useDisplay();
+import { mdiAlertCircle } from '@mdi/js'
+import { useDisplay } from 'vuetify'
+const { mobile } = useDisplay()
 
 </script>

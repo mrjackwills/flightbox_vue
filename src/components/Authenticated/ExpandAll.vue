@@ -1,11 +1,18 @@
 <template>
-	<v-btn @click='toggle' :disabled='loading' :size='mobile ? `small` : `default`' :variant='loading ? "outlined" : "flat"'
-		class='fab-fix elevation-0' :color  rounded>
-		<v-row align='center' justify='space-around' class='ma-0 pa-0'>
-			<v-col cols='auto' class='ma-0 pa-0'>
+	<v-btn
+		class='fab-fix elevation-0'
+		:color
+		:disabled='loading'
+		rounded
+		:size='mobile ? `small` : `default`'
+		:variant='loading ? "outlined" : "flat"'
+		@click='toggle'
+	>
+		<v-row align='center' class='ma-0 pa-0' justify='space-around'>
+			<v-col class='ma-0 pa-0' cols='auto'>
 				<v-icon class='mr-1' color='black' :icon />
 			</v-col>
-			<v-col cols='auto' class='ma-0 pa-0 text-black'>
+			<v-col class='ma-0 pa-0 text-black' cols='auto'>
 				{{ text }} all
 			</v-col>
 		</v-row>
@@ -14,18 +21,18 @@
 </template>
 
 <script setup lang="ts">
-import { mdiArrowCollapse, mdiArrowExpand } from '@mdi/js';
-import { useDisplay } from 'vuetify';
+import { mdiArrowCollapse, mdiArrowExpand } from '@mdi/js'
+import { useDisplay } from 'vuetify'
 
-const { mobile } = useDisplay();
+const { mobile } = useDisplay()
 
-const all_expanded = computed(() => aircraftModule().all_expanded);
-const color = computed(() => all_expanded.value ? 'primary' : 'secondary');
-const icon = computed(() => all_expanded.value ? mdiArrowCollapse : mdiArrowExpand);
-const loading = computed(() => loadingModule().loading);
-const text = computed(() => all_expanded.value ? 'minimize' : 'expand');
+const all_expanded = computed(() => aircraftModule().all_expanded)
+const color = computed(() => all_expanded.value ? 'primary' : 'secondary')
+const icon = computed(() => all_expanded.value ? mdiArrowCollapse : mdiArrowExpand)
+const loading = computed(() => loadingModule().loading)
+const text = computed(() => all_expanded.value ? 'minimize' : 'expand')
 
-const toggle = (): void => {
-	aircraftModule().set_all_expanded(!all_expanded.value);
-};
+function toggle (): void {
+	aircraftModule().set_all_expanded(!all_expanded.value)
+}
 </script>

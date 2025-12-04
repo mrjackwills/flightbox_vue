@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
-import { ModuleName } from '@/types/const_module';
+import { defineStore } from 'pinia'
+import { ModuleName } from '@/types'
 
 export const dialogModule = defineStore(ModuleName.DIALOG, {
 
@@ -7,25 +7,25 @@ export const dialogModule = defineStore(ModuleName.DIALOG, {
 		imgSrc: '',
 		timeout: 0,
 		title: '',
-		visible: false
+		visible: false,
 	}),
 
 	actions: {
 
 		set_imgSrc (x: string): void {
-			this.imgSrc = x;
+			this.imgSrc = x
 		},
 
 		set_timeout (x: number): void {
-			this.timeout = x;
+			this.timeout = x
 		},
 
 		set_title (x: string): void {
-			this.title = x;
+			this.title = x
 		},
 
 		set_visible (x: boolean): void {
-			this.visible = x;
-		}
-	}
-});
+			this.visible = x
+		},
+	},
+})

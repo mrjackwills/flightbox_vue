@@ -1,11 +1,16 @@
 <template>
-	<v-app class='ma-0 pa-0' id='flightbox'>
+	<v-app id='flightbox' class='ma-0 pa-0'>
 		<AppToolbar />
 
 		<v-container class='ma-0 pa-0' :class='authenticated && init ? "" : "fill-height"' fluid>
 			<v-main>
-				<v-row align='center' justify='center' class='ma-0 pa-0'>
-					<v-col cols='11' md='12' no-gutters class='ma-0 pa-0 '>
+				<v-row align='center' class='ma-0 pa-0' justify='center'>
+					<v-col
+						class='ma-0 pa-0'
+						cols='11'
+						md='12'
+						no-gutters
+					>
 						<router-view />
 					</v-col>
 				</v-row>
@@ -20,81 +25,77 @@
 
 <script setup lang='ts'>
 
-import { snackSuccess } from '@/services/snack';
-import { useRegisterSW } from 'virtual:pwa-register/vue';
-import { registerSW } from 'virtual:pwa-register';
-import { useHead } from '@vueuse/head';
+import { useHead } from '@vueuse/head'
+import { registerSW } from 'virtual:pwa-register'
+import { useRegisterSW } from 'virtual:pwa-register/vue'
+import { snackSuccess } from '@/services/snack'
 
-const { updateServiceWorker } = useRegisterSW();
+const { updateServiceWorker } = useRegisterSW()
 if ('serviceWorker' in navigator) {
 	registerSW({
 		onNeedRefresh () {
-			appUpdate();
-		}
-	});
+			appUpdate()
+		},
+	})
 }
 
-const appUpdate = (): void => {
+function appUpdate (): void {
 	snackSuccess({
 		message: 'downloading updates',
 		loading: true,
 		timeout: 5000,
-		icon: ''
-	});
-	window.setTimeout(() => updateServiceWorker(), 4500);
-};
+		icon: '',
+	})
+	window.setTimeout(() => updateServiceWorker(), 4500)
+}
 
-const [aircraftStore, userStore] = [aircraftModule(), userModule()];
+const [aircraftStore, userStore] = [aircraftModule(), userModule()]
 
-const isHidden = ref(false);
-const logoutTimeout = ref(0);
+const isHidden = ref(false)
+const logoutTimeout = ref(0)
 
-const authenticated = computed(() => userStore.authenticated);
+const authenticated = computed(() => userStore.authenticated)
 
-const init = computed(() => aircraftModule().init);
+const init = computed(() => aircraftModule().init)
 
 useHead({
 	title: () => {
-		if (authenticated.value && aircraftStore.init) {
-			return `flightbox - ${aircraftStore.number_current_flights} overhead`;
-		} else {
-			return `flightbox`;
-		}
+		return authenticated.value && aircraftStore.init ? `flightbox - ${aircraftStore.number_current_flights} overhead` : `flightbox`
 	},
 	meta: [
 		{
 			name: `description`,
-			content: `flightbox`
-		}
+			content: `flightbox`,
+		},
 	],
 	link: [
 		{
 			rel: 'canonical',
-			href: `https://flights.mrjackwills.com`
-		}
-	]
-});
+			href: `https://flights.mrjackwills.com`,
+		},
+	],
+})
 
-const logout = (message = 'you have been logged out'): void => {
-	userStore.logout(message);
-};
+function logout (message = 'you have been logged out'): void {
+	userStore.logout(message)
+}
 
-const visibilityChange = (): void => {
-	isHidden.value = document.hidden;
+function visibilityChange (): void {
+	isHidden.value = document.hidden
 	if (isHidden.value) {
 		logoutTimeout.value = window.setTimeout(() => {
-			logout();
-		}, 1000 * 60 * 7.5);
+			logout()
+		}, 1000 * 60 * 7.5)
 	} else {
-		if (!userStore.authenticated) logout('');
-		clearTimeout(logoutTimeout.value);
-		logoutTimeout.value = 0;
+		if (!userStore.authenticated) logout('')
+		clearTimeout(logoutTimeout.value)
+		logoutTimeout.value = 0
 	}
-};
+}
 
 onMounted(() => {
-	document.addEventListener('visibilitychange', visibilityChange);
-});
+	document.addEventListener('visibilitychange', visibilityChange)
+})
 
 </script>
 

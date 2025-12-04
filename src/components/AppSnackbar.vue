@@ -1,13 +1,13 @@
 <template>
-	<v-snackbar v-model='visible' id='snackbar' timeout='-1' app>
-		<v-row justify='center' align='center' no-gutters class='ma-0 pa-0 unselectable'>
-			<v-col v-if='icon' cols='auto' class=''>
+	<v-snackbar id='snackbar' v-model='visible' app timeout='-1'>
+		<v-row align='center' class='ma-0 pa-0 unselectable' justify='center' no-gutters>
+			<v-col v-if='icon' class='' cols='auto'>
 				<v-icon color='danger' :icon />
 			</v-col>
-			<v-col v-if='loading' cols='auto' class=''>
-				<v-progress-circular indeterminate :size='18' :width='3' color='danger' />
+			<v-col v-if='loading' class='' cols='auto'>
+				<v-progress-circular color='danger' indeterminate :size='18' :width='3' />
 			</v-col>
-			<v-col cols='auto' class='mx-3 ma-0 pa-0 danger--text'>
+			<v-col class='mx-3 ma-0 pa-0 danger--text' cols='auto'>
 				{{ message }}
 			</v-col>
 		</v-row>
@@ -17,59 +17,59 @@
 
 <script setup lang='ts'>
 
-const snackbarStore = snackbarModule();
+const snackbarStore = snackbarModule()
 
-const icon = computed(() => snackbarStore.icon);
+const icon = computed(() => snackbarStore.icon)
 const loading = computed({
 	get (): boolean {
-		return snackbarStore.loading;
+		return snackbarStore.loading
 	},
 	set (b: boolean): void {
-		snackbarStore.set_loading(b);
-	}
-});
+		snackbarStore.set_loading(b)
+	},
+})
 const message = computed({
 	get (): string {
-		return snackbarStore.message;
+		return snackbarStore.message
 	},
 	set (s: string): void {
-		snackbarStore.set_message(s);
-	}
-});
+		snackbarStore.set_message(s)
+	},
+})
 const snackTimeout = computed({
 	get (): number {
-		return snackbarStore.timeout;
+		return snackbarStore.timeout
 	},
 	set (nu: number): void {
-		snackbarStore.set_timeout(nu);
-	}
-});
+		snackbarStore.set_timeout(nu)
+	},
+})
 const visible = computed({
 	get (): boolean {
-		return snackbarStore.visible;
+		return snackbarStore.visible
 	},
 	set (b: boolean): void {
-		snackbarStore.set_visible(b);
-	}
-});
+		snackbarStore.set_visible(b)
+	},
+})
 
-const timeout = ref(0);
+const timeout = ref(0)
 
-const closeSnackbar = (): void => {
-	visible.value = false;
-	snackbarStore.$reset();
-	clearTimeout(timeout.value);
-	timeout.value = 0;
-};
-watch(visible, (i) => {
+function closeSnackbar (): void {
+	visible.value = false
+	snackbarStore.$reset()
+	clearTimeout(timeout.value)
+	timeout.value = 0
+}
+watch(visible, i => {
 	if (i && snackTimeout) timeout.value = window.setTimeout(() => {
-		closeSnackbar();
-	}, snackTimeout.value);
-});
+		closeSnackbar()
+	}, snackTimeout.value)
+})
 </script>
 
 <style>
 #snackbar {
-	padding-bottom: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
 }
 </style>
