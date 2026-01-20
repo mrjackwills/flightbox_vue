@@ -20,33 +20,33 @@
 		"serve": "npx serve -p 4173 .output/public"
 	},
 	"dependencies": {
-		"@nuxt/eslint": "^1.11.0",
-		"@nuxtjs/sitemap": "^7.4.8",
+		"@nuxt/eslint": "^1.12.1",
+		"@nuxtjs/sitemap": "^7.5.2",
 		"@pinia/nuxt": "^0.11.3",
 		"@vite-pwa/nuxt": "^1.1.0",
 		"@vueuse/core": "^14.1.0",
 		"axios": "^1.13.2",
-		"eslint": "^9.39.1",
-		"nuxt": "^4.2.1",
+		"eslint": "^9.39.2",
+		"nuxt": "^4.2.2",
 		"pinia": "^3.0.4",
 		"qrcode.vue": "^3.6.0",
 		"secure-json-parse": "^4.1.0",
-		"vue": "^3.5.25",
-		"vue-router": "^4.6.3",
-		"vuetify": "^3.11.2"
+		"vue": "^3.5.27",
+		"vue-router": "^4.6.4",
+		"vuetify": "^3.11.7"
 	},
 	"devDependencies": {
 		"@mdi/js": "^7.4.47",
-		"@types/node": "^24.10.1",
+		"@types/node": "^25.0.9",
 		"@types/secure-json-parse": "^2.4.0",
 		"cheerio": "^1.1.2",
-		"eslint-config-vuetify": "^4.3.3",
-		"eslint-plugin-vue": "^10.6.2",
-		"sass-embedded": "^1.93.3",
+		"eslint-config-vuetify": "^4.3.4",
+		"eslint-plugin-vue": "^10.7.0",
+		"sass-embedded": "^1.97.2",
 		"typescript": "^5.9.3",
 		"unplugin-fonts": "^1.4.0",
-		"vue-tsc": "^3.1.5",
-		"vuetify-nuxt-module": "^0.18.8"
+		"vue-tsc": "^3.2.2",
+		"vuetify-nuxt-module": "^0.19.3"
 	},
 	"buildDate": "Tue 23 2025 September 17:22:00 BST"
 }
