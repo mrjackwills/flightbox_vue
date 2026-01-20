@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# release_vue v0.3.0
-# 2024-10-19
+# Nuxt release
+# v0.1.0
+# 2025-12-03
+
 
 # Colours for echo
 RED='\033[0;31m'
@@ -47,35 +49,34 @@ ask_continue() {
 	fi
 }
 
-# semver major update
+# return user input
+user_input() {
+	read -r data
+	echo "$data"
+}
+
 update_major() {
 	local bumped_major
 	bumped_major=$((MAJOR + 1))
 	echo "${bumped_major}.0.0"
 }
 
-# semver minor update
 update_minor() {
 	local bumped_minor
 	bumped_minor=$((MINOR + 1))
-	MINOR=bumped_minor
 	echo "${MAJOR}.${bumped_minor}.0"
 }
 
-# semver patch update
 update_patch() {
 	local bumped_patch
 	bumped_patch=$((PATCH + 1))
-	PATCH=bumped_patch
 	echo "${MAJOR}.${MINOR}.${bumped_patch}"
 }
 
-# Get the url of the github repo, strip .git from the end of it
 get_git_remote_url() {
 	GIT_REPO_URL="$(git config --get remote.origin.url | sed 's/\.git$//')"
 }
 
-# Check currently on dev branch & git is clean
 check_git() {
 	CURRENT_GIT_BRANCH=$(git branch --show-current)
 	GIT_CLEAN=$(git status --porcelain)
@@ -87,7 +88,6 @@ check_git() {
 	fi
 }
 
-# Ask user if current changelog is acceptable
 ask_changelog_update() {
 	echo "${STAR_LINE}"
 	RELEASE_BODY_TEXT=$(sed '/# <a href=/Q' CHANGELOG.md)
@@ -188,7 +188,7 @@ linter() {
 }
 
 npm_build() {
-	npm run build
+	npm run prerender
 	ask_continue
 }
 
@@ -264,7 +264,7 @@ release_flow() {
 	release_continue "git branch -d \"$RELEASE_BRANCH\""
 	git branch -d "$RELEASE_BRANCH"
 
-	npm run build
+	npm_build
 }
 
 main() {

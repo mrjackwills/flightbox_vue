@@ -1,0 +1,84 @@
+@font-face {
+	font-display: swap;
+	font-family: 'Baloo 2';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/baloo-2-v23-latin-regular.woff2') format('woff2');
+}
+
+
+.tooltip {
+	background: rgba(0, 0, 0, .75) !important;
+}
+
+html,
+.v-snackbar__content,
+[class*='text-'] {
+	font-family: 'Baloo 2', sans-serif !important;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+.v-btn {
+	text-transform: lowercase !important;
+}
+
+.fab-fix:focus::before {
+	opacity: 0 !important;
+}
+
+.mono-numbers {
+	font-feature-settings: 'tnum' 1;
+	font-feature-settings: "tnum";
+	font-family: 'Baloo 2', monospace !important;
+}
+
+.cl {
+	cursor: pointer;
+}
+
+/* Set text as unselectable*/
+.unselectable {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.small-text {
+	font-size: 0.65rem !important;
+}
+
+/* ANIMATIONS */
+.flash-animation {
+	animation: flash 2.5s linear infinite;
+}
+
+@keyframes flash {
+	50% {
+		opacity: .45;
+	}
+}
+
+.pulse-animation {
+	animation-name: pulse;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+	from {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.3);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
