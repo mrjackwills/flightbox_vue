@@ -6,6 +6,7 @@ const nonce_placeholder = process.env.NONCE_PLACEHOLDER
 if (!nonce_placeholder || nonce_placeholder.trim() === '') {
 	throw new Error('env.NONCE_PLACEHOLDER is missing')
 }
+
 const outDir = '.output'
 
 export default defineNitroPlugin(async nitro => {
