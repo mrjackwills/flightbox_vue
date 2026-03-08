@@ -1,12 +1,15 @@
+# <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.5.1'>v0.5.1</a>
+### 2026-03-08
+
 ### Chores
-+ dependencies updated, [ec2784db4d44e71a5e1534c4f8a6bd2cd212f4d0]
-+ GitHub workflow dependencies updated, [554daf3fb55091d6b3d2c23af6c97de7b576ace5]
++ dependencies updated, [ec2784db](https://github.com/mrjackwills/flightbox_vue/commit/ec2784db4d44e71a5e1534c4f8a6bd2cd212f4d0)
++ GitHub workflow dependencies updated, [554daf3f](https://github.com/mrjackwills/flightbox_vue/commit/554daf3fb55091d6b3d2c23af6c97de7b576ace5)
 
 ### Features
-+ preload all images, [b1100b2d82f95b0d44b6fa529350f05568f8f35c]
++ preload all images, [b1100b2d](https://github.com/mrjackwills/flightbox_vue/commit/b1100b2d82f95b0d44b6fa529350f05568f8f35c)
 
 ### Fixes
-+ process.env issues, [1c6efcb8008b3a4e632be22b431137f72ab57503]
++ process.env issues, [1c6efcb8](https://github.com/mrjackwills/flightbox_vue/commit/1c6efcb8008b3a4e632be22b431137f72ab57503)
 
 # <a href='https://github.com/mrjackwills/flightbox_vue/releases/tag/v0.5.0'>v0.5.0</a>
 ### 2026-01-20
