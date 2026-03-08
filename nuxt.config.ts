@@ -1,10 +1,5 @@
 import { headerDescription, headerTitle, headerUrl } from './app/utils/header'
 
-const nonce_placeholder = process.env.NONCE_PLACEHOLDER
-if (!nonce_placeholder || nonce_placeholder.trim() === '') {
-	throw new Error('env.NONCE_PLACEHOLDER is missing')
-}
-
 const npm_version = JSON.stringify(process.env.npm_package_version)
 if (!npm_version || npm_version.trim() === '') {
 	throw new Error('package.json.version is missing')
@@ -12,6 +7,7 @@ if (!npm_version || npm_version.trim() === '') {
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+
 	compatibilityDate: '2025-07-15',
 
 	typescript: { strict: true, shim: true },
@@ -188,7 +184,7 @@ export default defineNuxtConfig({
 				{
 					rel: 'stylesheet',
 					href: '/index.css',
-					nonce: nonce_placeholder,
+					nonce: process.env.NONCE_PLACEHOLDER,
 				},
 				{
 					rel: 'manifest',
@@ -205,7 +201,7 @@ export default defineNuxtConfig({
 				innerHTML:
 					`html, body {background-color: #cfcfcf!important;}
 @supports (-moz-appearance: none) {@media (max-width: 1200px) {.firefox-css-fix {display: none!important;}}}`,
-				nonce: nonce_placeholder,
+				nonce: process.env.NONCE_PLACEHOLDER,
 			},
 			],
 
