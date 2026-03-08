@@ -3,8 +3,21 @@
 		<div v-if='init'>
 			<v-expand-transition>
 				<section v-if='number_current_flights'>
+					<!-- Pre-load images -->
+					<template
+						v-for='item in imageCache'
+						:key='item'
+					>
+						<v-img
+							v-show='false'
+							alt='cached thumbnail photo'
+							eager
+							:src='`${item}`'
+						/>
+					</template>
 
 					<v-row align='center' class='ma-0 pa-0 text-left headers pa-1 bg-primary' justify='space-between'>
+
 						<v-col
 							v-for='(item, index) in headers'
 							:key='index'
@@ -78,6 +91,12 @@ onMounted(() => {
 
 const init = computed(() => aircraftStore.init)
 const number_current_flights = computed(() => current_flights.value.length)
+
+const imageCache = computed(() =>
+	current_flights.value
+		.map(f => f.aircraft?.url_photo)
+		.filter(Boolean),
+)
 
 function get_icon (x: TSortBy): string {
 	if (sort_by.value === x) {
