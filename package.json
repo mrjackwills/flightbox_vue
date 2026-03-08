@@ -20,33 +20,33 @@
     "serve": "npx serve -p 4173 .output/public"
   },
   "dependencies": {
-    "@nuxt/eslint": "^1.12.1",
-    "@nuxtjs/sitemap": "^7.5.2",
+    "@nuxt/eslint": "^1.15.2",
+    "@nuxtjs/sitemap": "^7.6.0",
     "@pinia/nuxt": "^0.11.3",
-    "@vite-pwa/nuxt": "^1.1.0",
-    "@vueuse/core": "^14.1.0",
-    "axios": "^1.13.2",
+    "@vite-pwa/nuxt": "^1.1.1",
+    "@vueuse/core": "^14.2.1",
+    "axios": "^1.13.6",
     "eslint": "^9.39.2",
-    "nuxt": "^4.2.2",
+    "nuxt": "^4.3.1",
     "pinia": "^3.0.4",
-    "qrcode.vue": "^3.6.0",
+    "qrcode.vue": "^3.8.0",
     "secure-json-parse": "^4.1.0",
-    "vue": "^3.5.27",
-    "vue-router": "^4.6.4",
-    "vuetify": "^3.11.7"
+    "vue": "^3.5.29",
+    "vue-router": "^5.0.3",
+    "vuetify": "^3.12.2"
   },
   "devDependencies": {
     "@mdi/js": "^7.4.47",
-    "@types/node": "^25.0.9",
+    "@types/node": "^25.3.5",
     "@types/secure-json-parse": "^2.4.0",
-    "cheerio": "^1.1.2",
+    "cheerio": "^1.2.0",
     "eslint-config-vuetify": "^4.3.4",
-    "eslint-plugin-vue": "^10.7.0",
-    "sass-embedded": "^1.97.2",
+    "eslint-plugin-vue": "^10.8.0",
+    "sass-embedded": "^1.97.3",
     "typescript": "^5.9.3",
     "unplugin-fonts": "^1.4.0",
-    "vue-tsc": "^3.2.2",
-    "vuetify-nuxt-module": "^0.19.3"
+    "vue-tsc": "^3.2.5",
+    "vuetify-nuxt-module": "^0.19.5"
   },
   "buildDate": "Tue 20 2026 January 21:43:03 GMT"
 }
