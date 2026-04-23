@@ -16,7 +16,6 @@
 				:src='imgSrc'
 				width='100%'
 			/>
-			<!-- TODO fixe me -->
 			<v-row
 				class='pa-0 ma-0 grey-darken-3 align-center'
 				:class='[titlePadding, smAndDown ? "justify-center" : "justify-space-between"]'
