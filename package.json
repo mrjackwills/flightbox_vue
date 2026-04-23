@@ -1,7 +1,7 @@
 {
   "name": "flightbox_vue",
   "description": "frontend site for flightbox service",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "private": false,
   "homepage": "https://github.com/mrjackwills/flightbox_vue",
   "license": "MIT",
@@ -21,32 +21,31 @@
   },
   "dependencies": {
     "@nuxt/eslint": "^1.15.2",
-    "@nuxtjs/sitemap": "^7.6.0",
+    "@nuxtjs/sitemap": "^8.0.13",
     "@pinia/nuxt": "^0.11.3",
     "@vite-pwa/nuxt": "^1.1.1",
     "@vueuse/core": "^14.2.1",
-    "axios": "^1.13.6",
-    "eslint": "^9.39.2",
-    "nuxt": "^4.3.1",
+    "eslint": "^10.2.1",
+    "nuxt": "^4.4.2",
     "pinia": "^3.0.4",
-    "qrcode.vue": "^3.8.0",
+    "qrcode.vue": "^3.8.1",
     "secure-json-parse": "^4.1.0",
-    "vue": "^3.5.29",
-    "vue-router": "^5.0.3",
-    "vuetify": "^3.12.2"
+    "vue": "^3.5.33",
+    "vue-router": "^5.0.6",
+    "vuetify": "^4.0.6"
   },
   "devDependencies": {
     "@mdi/js": "^7.4.47",
-    "@types/node": "^25.3.5",
+    "@types/node": "^25.6.0",
     "@types/secure-json-parse": "^2.4.0",
     "cheerio": "^1.2.0",
-    "eslint-config-vuetify": "^4.3.4",
-    "eslint-plugin-vue": "^10.8.0",
-    "sass-embedded": "^1.97.3",
-    "typescript": "^5.9.3",
-    "unplugin-fonts": "^1.4.0",
-    "vue-tsc": "^3.2.5",
+    "eslint-config-vuetify": "^4.6.0",
+    "eslint-plugin-vue": "^10.9.0",
+    "sass-embedded": "^1.99.0",
+    "typescript": "^6.0.3",
+    "unplugin-fonts": "^2.0.0",
+    "vue-tsc": "^3.2.7",
     "vuetify-nuxt-module": "^0.19.5"
   },
-  "buildDate": "Sun 08 2026 March 15:09:36 GMT"
+  "buildDate": "Thu 23 2026 April 22:48:28 BST"
 }

@@ -9,7 +9,7 @@
 		:variant='buttonDisabled ? "outlined" : "flat"'
 		@click='refresh'
 	>
-		<v-row align='center' class='ma-0 pa-0' justify='space-around'>
+		<v-row class='ma-0 pa-0 align-center justify-space-around'>
 			<v-col class='ma-0 pa-0' cols='auto'>
 				<v-icon class='mr-1' color='' :icon='mdiRefresh' />
 			</v-col>

@@ -1,10 +1,10 @@
 <template>
-	<v-row align='center' class='ma-0 pa-0 text-grey-lighten-3' justify='center'>
+	<v-row class='ma-0 pa-0 text-grey-lighten-3 justify-center align-content-start ga-0' density='compact'>
 		<v-col class='ma-0 pa-0 ' cols='12'>
-			<v-row align='center' class='ma-0 pa-0  all-rows' :class='backgroundColor' justify='space-between'>
+			<v-row class='ma-0 pa-0 all-rows justify-space-between align-content-center' :class='backgroundColor' density='compact'>
 				<v-col class='ma-0 pa-0' :class='{ "small-text": mobile }' cols='3'>
 
-					<v-row align='center' class='ma-0 pa-0' justify='start'>
+					<v-row class='ma-0 pa-0 align-center justify-start' density='compact'>
 
 						<template v-if='flight.flightroute'>
 							<v-col class='ma-0 pa-0 mr-1' cols='auto'>
@@ -37,9 +37,7 @@
 				</v-col>
 
 				<v-col class='ma-0 pa-0' :class='{ "small-text": mobile }' cols='3'>
-
-					<v-row align='center' class='ma-0 pa-0'>
-
+					<v-row class='ma-0 pa-0 align-center' density='compact'>
 						<v-tooltip
 							v-if='!mobile_platform && flight.aircraft.url_photo_thumbnail'
 							activator='parent'
@@ -48,7 +46,6 @@
 						>
 							<v-img eager :src='flight.aircraft.url_photo_thumbnail' width='250px' />
 						</v-tooltip>
-
 						<v-col
 							class='ma-0 pa-0'
 							:class='{ "cl": flight.aircraft.url_photo }'
@@ -64,14 +61,11 @@
 							/>
 							{{ flight.aircraft.manufacturer }} {{ flight.aircraft.type }}
 						</v-col>
-
 						<v-spacer />
-
 						<v-col class='ma-0 pa-0 mono-numbers' cols='auto'>
 							( {{ flight.aircraft.mode_s }} )
 						</v-col>
 					</v-row>
-
 				</v-col>
 
 				<v-col class='ma-0 pa-0 text-right' :class='{ "small-text": mobile }' cols='3'>
@@ -85,7 +79,9 @@
 		</v-col>
 
 		<v-expand-transition>
-			<v-col v-if='expanded && flight.flightroute' class='ma-0 pa-0' cols='12'>
+			<!-- TODO mt-n2 -->
+			<v-col v-if='expanded && flight.flightroute' class='ma-0 pa-0' cols='12' density='compact'>
+				<!-- todo -->
 				<AuthenticatedFlightRoute :fl-index='index' :flightroute='flight.flightroute' />
 			</v-col>
 		</v-expand-transition>
@@ -120,7 +116,7 @@ const metric = computed(() => aircraftModule().metric)
 const expanded = computed(() => showExtra.value)
 const backgroundColor = computed(() => `bg-grey-darken-${props.index % 2 === 0 ? '3' : '4'}`)
 const callsignArrowDirection = computed(() => showExtra.value ? mdiArrowCollapse : mdiArrowExpand)
-const calcAltitude = computed(() => props.flight.altitude ? (metric.value ? `${(props.flight.altitude * 0.3048).toFixed(1)}m` : `${props.flight.altitude}ft`) : '')
+const calcAltitude = computed(() => props.flight.altitude ? (metric.value ? `${(props.flight.altitude * 0.3048).toFixed(0)}m` : `${props.flight.altitude}ft`) : '')
 
 const showExtra = ref(false)
 

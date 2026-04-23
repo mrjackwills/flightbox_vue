@@ -1,6 +1,6 @@
 <template>
 
-	<v-row align='center' class='ma-0 pa-0' justify='center' no-gutters>
+	<v-row class='ma-0 pa-0 align-center justify-center'>
 
 		<AuthenticatedDisplayRows class='mb-2 mt-4' :to-display='info' />
 

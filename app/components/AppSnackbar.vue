@@ -6,7 +6,7 @@
 		color='grey-darken-3'
 		timeout='-1'
 	>
-		<v-row align='center' class='ma-0 pa-0 unselectable' justify='center' no-gutters>
+		<v-row class='ma-0 pa-0 unselectable align-center justify-center ga-0'>
 			<v-col v-if='icon' class='' cols='auto'>
 				<v-icon color='danger' :icon />
 			</v-col>

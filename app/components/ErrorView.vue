@@ -1,36 +1,24 @@
 <template>
 	<v-row
-		align='center'
-		class='fill-height '
-		justify='center'
-		no-gutters
+		class='fill-height justify-center align-center'
 	>
 		<v-col class='' cols='auto'>
 			<v-row
-				align='center'
-				class=' mb-4'
-				justify='center'
-				no-gutters
+				class='mb-4 justify-center align-center'
 			>
-				<v-col class=' text-h1' cols='auto'>
+				<v-col class='text-display-large' cols='auto'>
 					Error <span v-if='is404'>404</span>
 				</v-col>
 			</v-row>
 			<v-row
-				align='center'
-				class='mb-4'
-				justify='center'
-				no-gutters
+				class='mb-4 justify-center align-center'
 			>
-				<v-col class=' text-h5' cols='auto'>
+				<v-col class=' text-headline-medium' cols='auto'>
 					{{ text }}
 				</v-col>
 			</v-row>
 			<v-row
-				align='center'
-				class=''
-				justify='center'
-				no-gutters
+				class='justify-center align-center'
 			>
 				<v-col class='' cols='auto'>
 					<NuxtLink to='/'>return to home page</NuxtLink>
