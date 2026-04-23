@@ -6,12 +6,11 @@
 		class='ma-0 pa-0 w-100'
 		color='transparent'
 	>
-		<v-row align='center' class='no-gutters ma-0 pa-0' justify='center'>
+		<v-row class='ga-0 ma-0 pa-0 align-center justify-center'>
 
 			<v-col
-				class='no-gutters unselectable ma-0 pa-0'
+				class='ga-0 unselectable ma-0 pa-0 align-center justify-center'
 				cols='auto'
-				justify='center'
 			>
 
 				<v-chip
@@ -22,7 +21,7 @@
 					variant='flat'
 				>
 
-					<section v-if='showBuild' class='text-caption' @click='buildInfo'>
+					<section v-if='showBuild' class='text-body-small' @click='buildInfo'>
 						<span>site version: {{ appVersion }}</span>
 						<span class='ml-3 '>built: {{ buildDate }}</span>
 					</section>

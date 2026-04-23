@@ -1,19 +1,18 @@
 <template>
-	<v-row align='center' class='ma-0 pa-0 flightroutebox bg-black' justify='center'>
+	<v-row class='ma-0 pa-0 bg-black align-center justify-start' density='compact'>
 
 		<v-col
 			v-for='(item, index) in flightrouteRow'
 			:key='index'
-			class='ma-0 pa-0 grey-darken-2'
-			:class='{ "small-text": mobile, "pt-1": index }'
+			class='ma-0 pa-0  grey-darken-2 align-center'
+			:class='{ "small-text": mobile, }'
 			cols='12'
-			xl='10'
 		>
-			<v-row align='center' class='ma-0 pa-0 pl-2' :class='`text-${color(index)}`' justify='start'>
+			<v-row class='ma-0 pa-0 pl-2 align-center justify-start' :class='`text-${color(index)}`' density='compact'>
 
-				<v-col class='ma-0 pa-0' cols='4' sm='2'>
+				<v-col class='ma-0 pa-0 align-center' cols='4' sm='2'>
 
-					<v-row align='center' class='ma-0 pa-0' justify='start'>
+					<v-row class='ma-0 pa-0 align-center justify-start' density='compact'>
 						<v-col class='ma-0 pa-0 mr-1' cols='auto'>
 							<v-icon
 								:color='color(index)'
@@ -34,7 +33,7 @@
 
 				</v-col>
 
-				<v-col class='ma-0 pa-0 font-weight-bold' md='auto'>
+				<v-col class='align-center ma-0 pa-0 font-weight-bold' md='auto'>
 					<a :href='mapHref(index)' rel='noopener noreferrer' target='_blank'>
 						<v-icon :color='color(index)' :icon='mdiMapSearch' size='x-small' />
 					</a>
@@ -42,7 +41,7 @@
 				</v-col>
 
 			</v-row>
-			<v-row v-if='index === 0' class='ma-0 pa-0' justify='start'>
+			<v-row v-if='index === 0' class='ma-0 pa-0 mt-1 justify-start' density='compact'>
 				<v-col class='ma-0 pa-0 divider' cols='12' />
 			</v-row>
 		</v-col>

@@ -1,12 +1,9 @@
 <template>
 	<v-row
-		align='center'
-		class='fill-height ma-0 pa-0'
-		justify='center'
-		no-gutters
+		class='fill-height ma-0 pa-0 align-center justify-center'
 	>
 		<v-col class='ma-0 pa-0' cols='12'>
-			<v-row align='center' class='ma-0 pa-0' justify='center'>
+			<v-row class='ma-0 pa-0 align-center justify-center'>
 				<v-col class='ma-0 pa-0' cols='12' lg='6' md='9'>
 					<v-form method='post' @submit.prevent>
 						<v-text-field
@@ -27,7 +24,7 @@
 					</v-form>
 				</v-col>
 			</v-row>
-			<v-row align='center' class='ma-0 pa-0' justify='center'>
+			<v-row class='ma-0 pa-0 align-center justify-center'>
 				<v-col class='ma-0 pa-0' cols='auto'>
 					<v-btn
 						color='primary'
@@ -49,7 +46,7 @@
 <script setup lang='ts'>
 import { mdiEye, mdiEyeOff, mdiLock } from '@mdi/js'
 import { useRouter } from 'vue-router'
-import { axiosRequests } from '@/services/axios'
+import { fetchRequests } from '@/services/fetch'
 import { snackReset } from '@/services/snack'
 import { FrontendRoutes } from '@/types'
 const loadingStore = loadingModule()
@@ -77,7 +74,7 @@ async function login (): Promise<void> {
 	if (!password.value) return
 	passwordVisible.value = false
 	loading.value = true
-	const response = await axiosRequests.wsAuth_post(password.value)
+	const response = await fetchRequests.wsAuth_post(password.value)
 	loading.value = false
 	if (response) {
 		snackReset()

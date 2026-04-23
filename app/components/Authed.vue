@@ -1,7 +1,7 @@
 <template>
 	<!-- fill-height  -->
 	<section v-if='init' class='ma-0 pa-0 w-100 fill-height'>
-		<v-row v-if='!flightInit && !online' align='center' justify='center'>
+		<v-row v-if='!flightInit && !online' class='align-center justify-center'>
 			<v-col class='ma-0 pa-0' cols='12'>
 				<AuthenticatedAppOffline />
 			</v-col>
@@ -11,21 +11,21 @@
 		</v-row>
 
 		<!-- <section v-else> -->
-		<v-row v-if='flightInit && online' align='center' class='ma-0 pa-0' justify='center'>
+		<v-row v-if='flightInit && online' class='ma-0 pa-0 align-center justify-center'>
 			<v-col class='ma-0 pa-0' cols='12'>
-				<v-row align='center' class='ma-0 pa-0' justify='center'>
+				<v-row class='ma-0 pa-0 align-center justify-center'>
 					<v-col class='ma-0 pa-0' cols='12' lg='11'>
 						<AuthenticatedCurrentFlights class='my-1' />
 					</v-col>
 				</v-row>
 
-				<v-row align='center' class='ma-0 pa-0' justify='center'>
+				<v-row class='ma-0 pa-0 align-center justify-center'>
 					<v-col class='ma-0 pa-0' cols='12' lg='11'>
 
-						<v-row align='center' class='ma-0 pa-0' justify='space-between'>
+						<v-row class='ma-0 pa-0 align-center justify-space-between'>
 
 							<v-col class='ma-0 pa-0' cols='4'>
-								<v-row align='center' class='ma-0 pa-0' justify='center'>
+								<v-row class='ma-0 pa-0 align-center justify-center'>
 									<v-col class='ma-0 pa-0' cols='auto'>
 										<AuthenticatedExpandAll />
 									</v-col>
@@ -33,7 +33,7 @@
 							</v-col>
 
 							<v-col class='ma-0 pa-0' cols='4'>
-								<v-row align='center' class='ma-0 pa-0' justify='center'>
+								<v-row class='ma-0 pa-0 align-center justify-center'>
 									<v-col class='ma-0 pa-0' cols='auto'>
 										<AuthenticatedForceUpdate :update-count @refresh='refresh' />
 									</v-col>
@@ -41,13 +41,12 @@
 							</v-col>
 
 							<v-col class='ma-0 pa-0' cols='4'>
-								<v-row align='center' class='ma-0 pa-0' justify='center'>
+								<v-row class='ma-0 pa-0 align-center justify-center'>
 									<v-col class='ma-0 pa-0 pt-6' cols='auto'>
 										<v-row
 											v-if='currentFlights > 0'
-											align='center'
-											class='ma-0 pa-0'
-											:justify='smAndDown ? "center" : "end"'
+											class='ma-0 pa-0 align-center'
+											:class='smAndDown ? "justify-center" : "justify-end"'
 										>
 											<v-col class='ma-0 pa-0' cols='auto'>
 												<v-switch v-model='metric' color='primary' density='compact' flat />
@@ -67,7 +66,7 @@
 					</v-col>
 
 				</v-row>
-				<v-row align='center' class='ma-0 pa-0' justify='center'>
+				<v-row class='ma-0 pa-0 align-center justify-center'>
 					<v-col class='ma-0 pa-0' cols='12' lg='11'>
 						<AuthenticatedPiInfo :update-count @refresh='refresh' />
 					</v-col>
@@ -76,7 +75,7 @@
 		</v-row>
 	</section>
 	<section v-else class='w-100 ma-0 pa-0'>
-		<v-row align='center' class='minh' justify='center'>
+		<v-row class='minh align-center justify-center'>
 			<v-col class='ma-0 pa-0' cols='auto'>
 				<v-progress-circular color='primary' indeterminate />
 			</v-col>

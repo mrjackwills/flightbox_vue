@@ -3,7 +3,7 @@
 
 		<section v-for='(row, index) in toDisplay' :key='index'>
 
-			<v-row align='center' justify='space-between' no-gutters>
+			<v-row class='align-center justify-center ma-0 pa-0' density='compact'>
 
 				<v-col
 					v-for='(item, rowIndex) in row'
@@ -13,7 +13,7 @@
 					md='5'
 				>
 
-					<v-row align='center' justify='space-between' no-gutters>
+					<v-row class='align-center justify-space-between'>
 
 						<v-col class='ma-0 pa-0' cols='auto'>
 							<v-icon
@@ -35,10 +35,8 @@
 
 							<section v-if='item.copy'>
 								<v-row
-									align='center'
-									class='text-white mono-numbers ma-0 pa-0'
+									class='text-white mono-numbers ma-0 pa-0 align-center justify-space-between'
 									:class='{ "small-text": mobile }'
-									justify='space-between'
 									@click='toCopy(item.value)'
 								>
 									<v-col class='ma-0 pa-0' cols='auto'>
@@ -88,7 +86,6 @@
 import type { TDataToDisplay } from '@/types'
 import { mdiContentCopy } from '@mdi/js'
 import { useClipboard } from '@vueuse/core'
-
 import { useDisplay } from 'vuetify'
 
 const { mobile, mdAndUp } = useDisplay()

@@ -16,13 +16,12 @@
 				:src='imgSrc'
 				width='100%'
 			/>
+			<!-- TODO fixe me -->
 			<v-row
-				align='center'
-				class='pa-0 ma-0 grey-darken-3'
-				:class='titlePadding'
-				:justify='smAndDown ? "center" : "space-between"'
+				class='pa-0 ma-0 grey-darken-3 align-center'
+				:class='[titlePadding, smAndDown ? "justify-center" : "justify-space-between"]'
 			>
-				<v-col class='ma-0 pa-0 white--text' :class='{ titleSize, "text-center": mobile }' cols='12' md='auto'>
+				<v-col class='ma-0 pa-0 white--text text-headline-small' :class='{"text-center": mobile }' cols='12' md='auto'>
 					{{ title }}
 				</v-col>
 				<v-col class='pa-0 ma-0' cols='auto'>
@@ -55,7 +54,6 @@ const maxWidth = computed(() => mobile.value ? '95vw' : '65vw')
 const maxHeight = computed(() => mobile.value ? '80vh' : '50vh')
 const title = computed(() => dialogStore.title ?? 'warning')
 const titlePadding = computed(() => mobile.value ? 'px-1' : 'px-6')
-const titleSize = computed(() => mobile.value ? 'text-h7' : 'text-h6')
 
 const visible = computed({
 	get (): boolean {

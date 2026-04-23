@@ -16,7 +16,7 @@
 						/>
 					</template>
 
-					<v-row align='center' class='ma-0 pa-0 text-left headers pa-1 bg-primary' justify='space-between'>
+					<v-row class='ma-0 pa-0 text-left headers pa-1 bg-primary align-center justify-space-between'>
 
 						<v-col
 							v-for='(item, index) in headers'
@@ -25,7 +25,7 @@
 							:class='{ "text-right": index > 1 }'
 							cols='3'
 						>
-							<v-row align='center' class='ma-0 pa-0' justify='start'>
+							<v-row class='ma-0 pa-0 align-center justify-start'>
 								<v-col class='ma-0 pa-0' cols='12'>
 									<span
 										class='font-weight-bold text-uppercase text-body-2 unselectable text-grey-lighten-3'
@@ -44,7 +44,7 @@
 
 					</v-row>
 
-					<v-row align='center' class='ma-0 pa-0 text-left' justify='space-between'>
+					<v-row class='ma-0 pa-0 text-left align-center justify-center'>
 
 						<v-col class='ma-0 pa-0' cols='12'>
 							<section v-for='(flight, index) in local_current_flights' :key='flight.aircraft.mode_s'>
@@ -60,13 +60,13 @@
 				</section>
 
 			</v-expand-transition>
-			<v-row v-if='!number_current_flights' align='center' class='ma-0 pa-0' justify='center'>
-				<v-col class='ma-0 pa-0 text-h6 unselectable text-grey-lighten-3' cols='auto'>
+			<v-row v-if='!number_current_flights' class='ma-0 pa-0 align-center justify-center'>
+				<v-col class='ma-0 pa-0 text-headline-small unselectable text-grey-lighten-3' cols='auto'>
 					no flights overhead
 				</v-col>
 			</v-row>
 		</div>
-		<v-row v-else align='center' class='minh' justify='center'>
+		<v-row v-else class='minh align-center'>
 			<v-col class='ma-0 pa-0 my-6' cols='auto'>
 				<v-progress-circular color='primary' indeterminate />
 			</v-col>

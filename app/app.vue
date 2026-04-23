@@ -4,7 +4,7 @@
 		<AppDialog />
 		<AppSnackbar />
 		<v-main class='ma-0 pa-0 mb-12'>
-			<v-container class='fill-height' fluid>
+			<v-container class='fill-height d-flex align-center flex-wrap' fluid>
 				<NuxtPage />
 			</v-container>
 		</v-main>

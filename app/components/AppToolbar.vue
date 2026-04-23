@@ -16,10 +16,9 @@
 			src='@/assets/logo.svg'
 		/>
 
-		<v-row align='center' class='pa-0 ma-0' justify='start' no-gutters>
+		<v-row class='pa-0 ma-0 align-center justify-start ga-0'>
 			<v-col class='unselectable ml-2' cols='auto'>
-
-				<span class='text-h4 white--text'>flightbox</span>
+				<span class='text-headline-large white--text'>flightbox</span>
 			</v-col>
 		</v-row>
 

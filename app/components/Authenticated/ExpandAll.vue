@@ -8,7 +8,7 @@
 		:variant='loading ? "outlined" : "flat"'
 		@click='toggle'
 	>
-		<v-row align='center' class='ma-0 pa-0' justify='space-around'>
+		<v-row class='ma-0 pa-0 align-center justify-space-around'>
 			<v-col class='ma-0 pa-0' cols='auto'>
 				<v-icon class='mr-1' color='black' :icon />
 			</v-col>

@@ -1,10 +1,7 @@
 <template>
 	<v-row
-		align='center'
-		class='ma-0 pa-0'
+		class='ga-0 ma-0 pa-0 align-center justify-center'
 		:class='my'
-		justify='center'
-		no-gutters
 	>
 		<v-col class='ma-0 pa-0' :cols='`${cols}`'>
 			<v-divider />
