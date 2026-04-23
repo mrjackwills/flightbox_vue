@@ -1,7 +1,6 @@
 import type { TWSToServer } from '@/types'
 import { defineStore } from 'pinia'
 import { ws } from '@/services/WS'
-
 import { StoreName } from '@/types'
 import { userModule } from './user'
 
